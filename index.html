@@ -111,6 +111,29 @@
       background: #f0f0f0; border-radius: 14px; box-shadow: -132px 0 0 #f0f0f0;
     }
     .proof-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px; }
+    .soft-band {
+      background: linear-gradient(180deg, #fff2f7, #fff8fb);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .quote-wall { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
+    .mini-quote {
+      background: rgba(255,255,255,.88); border:1px solid var(--line); border-radius:20px; padding:18px; box-shadow: var(--shadow);
+    }
+    .mini-quote strong { display:block; color: var(--navy); margin-bottom: 6px; }
+    .offer-note {
+      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#ecfff4; color:var(--green); font-weight:800; font-size:13px;
+    }
+    .icon-badge {
+      width:46px; height:46px; border-radius:14px; background:#fff0f5; color:var(--pink-dark); display:flex; align-items:center; justify-content:center; font-weight:900; margin-bottom:14px;
+      border:1px solid #f0cfdb;
+    }
+    .faq-list { display:grid; gap:16px; }
+    .faq-card {
+      background:white; border:1px solid var(--line); border-radius:22px; padding:24px; box-shadow: var(--shadow);
+    }
+    .faq-card h3 { font-size: 22px; margin-bottom: 10px; }
+    .faq-card p { color: var(--muted); margin:0; }
     .proof {
       background: white; border: 1px solid var(--line); border-radius: 18px; padding: 18px; text-align: center; box-shadow: var(--shadow);
     }
@@ -168,6 +191,14 @@
     }
     .time-box strong { display:block; font-size:28px; line-height:1; margin-bottom:6px; }
     .testimonial-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; }
+    .testimonial-wide {
+      display:grid; grid-template-columns: 120px 1fr; gap:18px; align-items:flex-start;
+      background:white; border:1px solid var(--line); border-radius:24px; padding:24px; box-shadow: var(--shadow);
+    }
+    .avatar-slot {
+      width:120px; height:120px; border-radius:22px; background: linear-gradient(135deg, #f9dfe8, #f5cad9); border:1px solid #efc7d6;
+      display:flex; align-items:center; justify-content:center; text-align:center; color:var(--pink-dark); font-weight:800; padding:10px;
+    }
     .testimonial { background:white; border:1px solid var(--line); border-radius:22px; padding:24px; box-shadow: var(--shadow); }
     .stars { color:#f4a524; letter-spacing:1px; margin-bottom:10px; }
     .testimonial small { display:block; margin-top:14px; color: var(--muted); font-weight:700; }
@@ -190,8 +221,9 @@
     ul.clean { margin:0; padding-left: 20px; }
     ul.clean li { margin-bottom: 10px; }
     @media (max-width: 980px) {
-      .hero-grid, .two, .three, .four, .roadmap, .stat-grid, .proof-strip, .testimonial-grid, .stack-row, .guarantee { grid-template-columns:1fr; }
+      .hero-grid, .two, .three, .four, .roadmap, .stat-grid, .proof-strip, .testimonial-grid, .stack-row, .guarantee, .quote-wall, .testimonial-wide { grid-template-columns:1fr; }
       .product-cover { min-height: 430px; }
+      .avatar-slot { width:100%; height:180px; }
     }
   </style>
 </head>
@@ -201,9 +233,9 @@
   <header class="hero">
     <div class="container grid hero-grid">
       <div>
-        <div class="eyebrow">Versión V2 — más agresiva, más específica, más vendedora</div>
+        <div class="eyebrow">Versión V3 — más estética, más social proof, menos bridge</div>
         <h1>No necesitás “intentar dormir más”. Necesitás resolver el <span class="highlight">desajuste entre hormonas, temperatura y mente acelerada</span> que te deja despierta a las 3 AM.</h1>
-        <p class="sub">Si tenés más de 45, te acostás agotada pero activada, te despertás en mitad de la noche con calor, pensamientos a mil o la sensación de que tu cuerpo olvidó cómo dormir… esta página fue escrita para vos.</p>
+        <p class="sub">Si tenés más de 45, te acostás agotada pero activada, te despertás en mitad de la noche con calor, pensamientos a mil o la sensación de que tu cuerpo olvidó cómo dormir, esta página fue escrita para vos. Y ahora está armada para vender más desde social proof, transformación y claridad, no tanto desde bridge copy.</p>
 
         <div class="bullets">
           <div class="bullet"><span class="check">✓</span><span><strong>Big idea:</strong> tu insomnio no es “falta de disciplina”. Es un problema combinado de ritmo interno, regulación térmica y activación mental nocturna.</span></div>
@@ -237,6 +269,16 @@
       <div class="proof"><strong>Oferta stack</strong><span>con bonos y upsells estratégicos</span></div>
     </div>
   </header>
+
+  <section class="soft-band">
+    <div class="container" style="padding: 26px 0;">
+      <div class="quote-wall">
+        <div class="mini-quote"><strong>“Volví a dormirme sin entrar en pánico.”</strong><span>Ideal para destacar la objeción de despertares nocturnos.</span></div>
+        <div class="mini-quote"><strong>“Por fin entendí que no era solo ansiedad.”</strong><span>Refuerza el mecanismo de temperatura + mente + ritmo interno.</span></div>
+        <div class="mini-quote"><strong>“Dejé de vivir con café todo el día.”</strong><span>Conecta el problema nocturno con el dolor diurno.</span></div>
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="container">
@@ -289,22 +331,35 @@
 
   <section>
     <div class="container">
-      <h2>Mi historia: de vivir pendiente del reloj a volver a confiar en mi sueño</h2>
-      <p class="lead">Esta parte sigue siendo una historia personal, pero ahora empuja mejor el mecanismo, la desesperación y la transformación. Reemplazá detalles, fotos y nombre por tu marca/personaje.</p>
-      <div class="two">
-        <div class="box">
-          <div class="label">Antes</div>
-          <h3>Tenía miedo de acostarme, porque la noche ya no significaba descanso.</h3>
-          <p>Me acostaba pensando “ojalá hoy sí pueda dormir”. Y solo esa frase ya me activaba. Algunas noches me quedaba dormida para despertar empapada en sudor. Otras me dormía bien, pero abría los ojos a las 3:12 AM con la cabeza totalmente despierta. Empecé a vivir en modo cálculo: si me duermo ahora, todavía puedo dormir cuatro horas… si no me vuelvo a dormir, mañana voy a estar destruida.</p>
-          <p>Lo peor no era solo la noche. Era el día siguiente. Irritable, sin paciencia, con la cabeza nublada, sintiéndome una versión peor de mí misma. El insomnio dejó de ser “no dormir bien” y se convirtió en sentir que mi cuerpo se había vuelto impredecible.</p>
-          <div class="story-photo">FOTO REAL O STOCK — mujer cansada, reloj 3 AM, cama revuelta</div>
+      <h2>Lo que más repiten las mujeres que pasan por este método</h2>
+      <p class="lead">Acá cambié el foco. En vez de cargar demasiado la página con bridge copy, esta versión apoya más la venta en transformación percibida, frases tipo testimonio y reconocimiento inmediato del problema.</p>
+      <div class="grid" style="gap:18px;">
+        <div class="testimonial-wide">
+          <div class="avatar-slot">FOTO / TESTIMONIO 1</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <h3>“Yo ya no pensaba ‘¿y si hoy tampoco duermo?’ cada vez que me acostaba.”</h3>
+            <p>Antes de entrar al programa, sentía que la noche era una amenaza. Lo que más me cambió fue entender por qué me despertaba siempre a la misma hora y dejar de empeorar todo con ansiedad. No fue magia, pero por primera vez sentí alivio real.</p>
+            <small>Placeholder — reemplazar por testimonio real con nombre, edad y ciudad</small>
+          </div>
         </div>
-        <div class="box">
-          <div class="label">Después</div>
-          <h3>El cambio empezó cuando dejé de pelearme con el sueño y empecé a entender qué lo estaba rompiendo.</h3>
-          <p>Cuando entendí que mi problema no era una sola cosa, todo empezó a ordenarse. No era solo ansiedad. No era solo calor. No era solo hormonas. Era la combinación. Y por primera vez vi que necesitaba un sistema que atacara esa mezcla exacta.</p>
-          <p>Así empecé a construir un enfoque más completo: regular temperatura, bajar activación mental, rediseñar el cuarto, cambiar ciertos hábitos del día y dejar de entrar en pánico cada vez que me despertaba. Ese es el corazón de The Insomnia Breakthrough.</p>
-          <div class="story-photo">FOTO REAL O STOCK — mañana luminosa, alivio, descanso, cama ordenada</div>
+        <div class="testimonial-wide">
+          <div class="avatar-slot">FOTO / TESTIMONIO 2</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <h3>“Siempre pensé que lo mío era solo menopausia, pero nadie me había explicado la parte mental.”</h3>
+            <p>Yo buscaba soluciones para sofocos o soluciones para ansiedad, pero nunca algo que conectara todo. Esta fue la primera vez que sentí que me estaban hablando a mí, no a una persona genérica con ‘insomnio’.</p>
+            <small>Placeholder — reemplazar por testimonio real con nombre, edad y ciudad</small>
+          </div>
+        </div>
+        <div class="testimonial-wide">
+          <div class="avatar-slot">FOTO / TESTIMONIO 3</div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <h3>“Lo mejor no fue solo dormir más. Fue dejar de sentirme rota durante el día.”</h3>
+            <p>Yo estaba sobreviviendo con café, mal humor y niebla mental. El programa me ayudó a ordenar la noche, pero también a salir de ese estado constante de agotamiento e irritabilidad.</p>
+            <small>Placeholder — reemplazar por testimonio real con nombre, edad y ciudad</small>
+          </div>
         </div>
       </div>
     </div>
@@ -312,21 +367,12 @@
 
   <section>
     <div class="container">
-      <h2>Qué cambia de verdad cuando empezás a resolver esto</h2>
-      <p class="lead">La gente no compra un PDF. Compra una versión distinta de sus noches y de sus días.</p>
+      <h2>Qué cambia de verdad cuando esto empieza a funcionar</h2>
+      <p class="lead">Esta parte también quedó más testimonial y menos discursiva. En vez de explicar de más, muestra resultados percibidos y emociones que la persona quiere recuperar.</p>
       <div class="three">
-        <div class="box">
-          <h3>Dejás de entrar en pánico si te despertás</h3>
-          <p>Porque ya no sentís que “se arruinó la noche”. Tenés un protocolo claro para bajar activación y aumentar tus chances de volver a dormir.</p>
-        </div>
-        <div class="box">
-          <h3>Tu cama vuelve a ser descanso, no tensión</h3>
-          <p>Empezás a cortar el condicionamiento mental que te hacía asociar la noche con miedo, frustración y lucha.</p>
-        </div>
-        <div class="box">
-          <h3>Tu día deja de ser supervivencia</h3>
-          <p>Menos niebla mental, menos dependencia del café, más paciencia, más claridad y una sensación de estabilidad mucho más humana.</p>
-        </div>
+        <div class="box"><div class="icon-badge">01</div><h3>“Volví a sentir sueño real”</h3><p>No esa sensación de agotamiento raro con cabeza activada, sino sueño de verdad, más natural y menos forzado.</p></div>
+        <div class="box"><div class="icon-badge">02</div><h3>“Dejé de mirar el reloj”</h3><p>Cuando el insomnio mejora, una de las primeras cosas que cambia es la relación emocional con la noche.</p></div>
+        <div class="box"><div class="icon-badge">03</div><h3>“Mi día dejó de ser castigo”</h3><p>Menos irritabilidad, menos niebla mental, menos necesidad de tapar el agotamiento con café y azúcar.</p></div>
       </div>
     </div>
   </section>
@@ -500,26 +546,26 @@
 
   <section>
     <div class="container">
-      <h2>Testimonios</h2>
-      <p class="lead">La estructura ya está más específica. Reemplazá por testimonios auténticos con edad, dolor principal y resultado concreto.</p>
+      <h2>Más testimonios y reconocimiento inmediato</h2>
+      <p class="lead">Como me pediste, esta sección ya no se siente tan FAQ/bridge. Está empujada desde frases de clienta, validación social y objeciones resueltas en formato testimonio.</p>
       <div class="testimonial-grid">
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <h3>“Dejé de sentir terror cuando me despertaba a las 3 AM.”</h3>
-          <p>“Antes pensaba ‘ya está, no duermo más’. El mayor cambio fue tener un protocolo y dejar de entrar en pánico. Eso solo ya me mejoró muchísimo las noches.”</p>
-          <small>Placeholder — Marta, 52, despertares nocturnos</small>
+          <h3>“Ya no me despierto empapada y furiosa con el mundo.”</h3>
+          <p>“Mi problema más fuerte era el calor nocturno y la sensación de que mi cuerpo me traicionaba. El bono de menopausia fue lo que me hizo sentir acompañada de verdad.”</p>
+          <small>Placeholder — Paula, 51</small>
         </div>
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <h3>“Por primera vez alguien habló del calor y la cabeza acelerada juntos.”</h3>
-          <p>“Siempre encontraba consejos para ansiedad o para menopausia, pero no algo que conectara todo. Esta fue la primera vez que sentí ‘esto está hecho para mí’.”</p>
-          <small>Placeholder — Laura, 49, sofocos + mente acelerada</small>
+          <h3>“Lo compré por el sueño, pero me quedé por cómo me cambió el día.”</h3>
+          <p>“No esperaba notar tanto cambio en mi humor y en mi claridad mental. Dormir un poco mejor ya me cambió muchísimo la semana.”</p>
+          <small>Placeholder — Verónica, 48</small>
         </div>
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <h3>“Ya no vivo pegada al café para llegar a la tarde.”</h3>
-          <p>“No fue magia de un día para otro, pero sí empecé a sentirme más estable. Menos destruida, menos irritable y mucho más clara durante el día.”</p>
-          <small>Placeholder — Andrea, 55, cansancio diurno</small>
+          <h3>“Sentí que por fin había una explicación lógica para lo que me pasaba.”</h3>
+          <p>“Eso fue lo que más me vendió esta propuesta. No me hablaban como si yo fuera vaga o incapaz de dormir bien, sino como alguien con un problema real y específico.”</p>
+          <small>Placeholder — Adriana, 54</small>
         </div>
       </div>
     </div>
@@ -531,6 +577,8 @@
         <div class="eyebrow" style="background: rgba(255,255,255,.14); color:white;">Oferta temporal</div>
         <h2 style="margin-top:16px;">Entrá hoy a The Insomnia Breakthrough y llevate el stack diseñado para atacar todos los ángulos de tu problema</h2>
         <p class="lead" style="color: rgba(255,255,255,.85); max-width: 880px;">Esta parte ahora está mucho más enfocada en la lógica de compra: producto principal + bonos que destruyen objeciones + urgencia + CTA emocional.</p>
+
+        <div class="offer-note">✓ Acceso inmediato • ✓ Lectura simple • ✓ Oferta limitada</div>
 
         <div class="offer-price">
           <span class="old">Valor total: $151</span>
@@ -573,32 +621,29 @@
 
   <section id="faq">
     <div class="container">
-      <h2>Preguntas frecuentes</h2>
-      <div class="three">
-        <details open>
-          <summary>¿Esto es solo para menopausia?</summary>
-          <p>No necesariamente, pero sí está mejor posicionado si hablás a mujeres +45 con sueño fragmentado, calor nocturno y mente acelerada. Cuanto más específico, más convierte.</p>
-        </details>
-        <details>
-          <summary>¿Y si mi mayor problema es que no puedo apagar la cabeza?</summary>
-          <p>Por eso el bono Quiet Mind Protocol debería quedar muy visible, porque responde exactamente a esa objeción.</p>
-        </details>
-        <details>
-          <summary>¿Y si mi mayor problema son sofocos o sudor nocturno?</summary>
-          <p>Ahí entra The Menopause Sleep Survival Guide junto con el ajuste de ambiente del dormitorio. Esa combinación es muy fuerte.</p>
-        </details>
-        <details>
-          <summary>¿Cuánto tiempo me lleva seguirlo?</summary>
-          <p>Está planteado para avanzar en bloques simples y sostenibles. No debería sentirse como otro trabajo más en tu día.</p>
-        </details>
-        <details>
-          <summary>¿Esto reemplaza tratamiento médico?</summary>
-          <p>No. Es una oferta educativa y práctica para hábitos y entorno de sueño. No reemplaza diagnóstico, evaluación o tratamiento profesional.</p>
-        </details>
-        <details>
-          <summary>¿Qué pasa después de comprar?</summary>
-          <p>Podés llevar a la persona directo a la entrega del producto y luego ofrecer el upsell de energía diurna, que encaja muy bien con el dolor posterior a dormir mal.</p>
-        </details>
+      <h2>Dudas comunes, respondidas de forma directa</h2>
+      <p class="lead">También corregí esta parte. Antes se veía más frágil visualmente y más genérica. Ahora está resuelta como bloques sólidos, más coherentes con el resto de la estética.</p>
+      <div class="faq-list">
+        <div class="faq-card">
+          <h3>¿Esto es solo para mujeres con menopausia?</h3>
+          <p>No exclusivamente, pero sí está optimizado para mujeres +45 con despertares nocturnos, sueño fragmentado, calor nocturno, mente acelerada y cansancio diurno. Mientras más específico quede el avatar, mejor suele convertir.</p>
+        </div>
+        <div class="faq-card">
+          <h3>¿Y si mi mayor problema es que no puedo apagar la cabeza?</h3>
+          <p>Entonces Quiet Mind Protocol se vuelve una de las piezas más fuertes de la oferta. De hecho, podés destacarlo varias veces o usarlo como order bump si querés monetizar esa objeción puntual.</p>
+        </div>
+        <div class="faq-card">
+          <h3>¿Y si lo que más me despierta es el calor o el sudor nocturno?</h3>
+          <p>Por eso el stack incluye el contenido sobre menopausia y ambiente del cuarto. La oferta funciona mejor justamente porque no trata el problema como si fuera solo mental.</p>
+        </div>
+        <div class="faq-card">
+          <h3>¿Cuánto tiempo lleva seguir el programa?</h3>
+          <p>Está planteado para ser simple y aplicable. La idea no es darte otra rutina pesada más, sino un sistema fácil de implementar incluso si llegás cansada al final del día.</p>
+        </div>
+        <div class="faq-card">
+          <h3>¿Esto reemplaza atención médica?</h3>
+          <p>No. Esta oferta debe presentarse como recurso educativo y práctico para hábitos, entorno y manejo del sueño. No reemplaza diagnóstico, evaluación ni tratamiento profesional.</p>
+        </div>
       </div>
     </div>
   </section>
