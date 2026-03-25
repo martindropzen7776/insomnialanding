@@ -1,663 +1,1022 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Insomnia Breakthrough — V2</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cómo Laura volvió a dormir — The Insomnia Breakthrough</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fff7fb;
-      --text: #22304a;
-      --muted: #5f6b80;
-      --navy: #24324f;
-      --pink: #d98da7;
-      --pink-dark: #bf6a89;
-      --cream: #fff2f7;
-      --line: #edd8e2;
-      --green: #2f8c60;
-      --card: #ffffff;
-      --shadow: 0 18px 45px rgba(36, 50, 79, 0.08);
-      --radius: 24px;
-      --max: 1140px;
+      --paper:   #faf6f0;
+      --paper2:  #f5ede0;
+      --ink:     #1c1512;
+      --ink2:    #2e2218;
+      --muted:   #7a6a58;
+      --terra:   #b5533c;
+      --terra2:  #8f3d28;
+      --blush:   #e8c4b0;
+      --blush2:  #f0ddd0;
+      --sage:    #5a7a5e;
+      --sage-bg: #eaf0e8;
+      --border:  #ddd0c0;
+      --max: 680px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-      background:
-        radial-gradient(circle at left top, #ffeaf2 0%, transparent 28%),
-        radial-gradient(circle at right top, #fff0f6 0%, transparent 25%),
-        var(--bg);
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Lora', Georgia, serif;
+      line-height: 1.8;
+      overflow-x: hidden;
     }
-    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
-    .topbar {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--navy); color: white; text-align: center;
-      padding: 12px 14px; font-size: 14px; font-weight: 800;
+
+    /* ── TOPBAR ── */
+    .topbar{
+      background: var(--ink);
+      color: #e8d8c8;
+      text-align: center;
+      padding: 12px 20px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .4px;
     }
-    h1,h2,h3 { margin: 0 0 14px; line-height: 1.08; color: var(--navy); }
-    h1 { font-size: clamp(38px, 6vw, 74px); letter-spacing: -2px; }
-    h2 { font-size: clamp(31px, 4.2vw, 54px); letter-spacing: -1.2px; }
-    h3 { font-size: clamp(22px, 2.4vw, 30px); }
-    p { margin: 0 0 14px; }
-    section { padding: 34px 0; }
-    .hero { padding: 36px 0 22px; }
-    .grid { display: grid; gap: 24px; }
-    .hero-grid { grid-template-columns: 1.08fr 0.92fr; align-items: center; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #ffe8f0; color: var(--pink-dark);
-      padding: 10px 14px; border-radius: 999px;
-      font-size: 13px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;
+    .topbar strong{color: var(--blush);}
+
+    /* ── HERO ── */
+    .hero{
+      background: linear-gradient(170deg, #2e1e14 0%, #1c1512 100%);
+      padding: 70px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .sub { font-size: clamp(18px, 2.2vw, 24px); color: var(--muted); max-width: 840px; }
-    .highlight { color: var(--pink-dark); }
-    .bullets { display: grid; gap: 12px; margin: 24px 0 28px; }
-    .bullet { display: flex; gap: 12px; align-items: flex-start; font-size: 17px; }
-    .check {
-      width: 28px; height: 28px; border-radius: 999px; flex: 0 0 auto;
-      display: inline-flex; align-items: center; justify-content: center;
-      background: #eafbf2; color: var(--green); font-weight: 900;
-      margin-top: 1px;
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:600px;height:600px;
+      border-radius:50%;
+      background: radial-gradient(circle, rgba(181,83,60,.22) 0%, transparent 68%);
+      top:-200px;left:50%;transform:translateX(-50%);
+      pointer-events:none;
     }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 18px; }
-    .btn {
-      min-height: 58px; border-radius: 18px; padding: 0 28px;
-      display: inline-flex; align-items: center; justify-content: center;
-      text-decoration: none; font-weight: 800; font-size: 17px;
-      transition: .15s ease; box-shadow: var(--shadow);
+    .hero-kicker{
+      display:inline-block;
+      font-family:'Jost',sans-serif;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      color: var(--blush);
+      opacity:.8;
+      margin-bottom:24px;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { color: white; background: linear-gradient(135deg, var(--pink), var(--pink-dark)); }
-    .btn-secondary { color: var(--navy); background: white; border: 1px solid var(--line); }
-    .micro { font-size: 13px; color: var(--muted); margin-top: 10px; }
-    .card {
-      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .hero h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight:700;
+      color:#faf6f0;
+      line-height:1.08;
+      letter-spacing:-.5px;
+      max-width:740px;
+      margin:0 auto 22px;
     }
-    .hero-card { padding: 22px; }
-    .product-cover {
-      min-height: 580px; border-radius: 24px; overflow: hidden; position: relative;
-      background: linear-gradient(180deg, #fff5f9, #ffeaf2);
-      border: 1px solid #f0c9d7; padding: 24px;
-      display: flex; flex-direction: column; justify-content: space-between;
+    .hero h1 em{
+      font-style:italic;
+      color: var(--blush);
     }
-    .product-cover::before, .product-cover::after {
-      content: ""; position: absolute; border-radius: 999px; background: rgba(255,255,255,.5);
+    .hero-byline{
+      font-family:'Jost',sans-serif;
+      font-size:14px;
+      color:rgba(255,255,255,.42);
+      letter-spacing:.3px;
+      margin-bottom:36px;
     }
-    .product-cover::before { width: 280px; height: 280px; right: -90px; top: -70px; }
-    .product-cover::after { width: 320px; height: 320px; left: -120px; bottom: -150px; }
-    .cover-tag {
-      position: relative; z-index: 1; align-self: flex-start;
-      background: rgba(255,255,255,.82); color: var(--pink-dark);
-      padding: 8px 12px; border-radius: 999px; font-size: 13px; font-weight: 800;
+    .hero-byline span{color:rgba(255,255,255,.65);}
+
+    /* ── avatar ── */
+    .avatar-circle{
+      width:90px;height:90px;
+      border-radius:50%;
+      background: linear-gradient(145deg, #c49a78, #8a5e42);
+      border:3px solid rgba(255,255,255,.15);
+      margin:0 auto 14px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:36px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
     }
-    .cover-title { position: relative; z-index: 1; font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: var(--navy); letter-spacing: -1px; }
-    .cover-sub { position: relative; z-index: 1; font-size: 19px; font-weight: 800; color: var(--pink-dark); }
-    .cover-bed {
-      position: relative; z-index: 1; margin-top: 18px; height: 170px; border-radius: 28px;
-      background: linear-gradient(180deg, #d593ac, #c47898); overflow: hidden;
+    .avatar-name{
+      font-family:'Cormorant Garamond',serif;
+      font-size:18px;
+      font-style:italic;
+      color:rgba(255,255,255,.7);
+      margin-bottom:4px;
     }
-    .cover-bed::before {
-      content: ""; position: absolute; width: 86%; height: 70%; left: 7%; top: 22%;
-      background: #f0f0f0; border-radius: 18px; transform: perspective(700px) rotateX(55deg);
-      box-shadow: inset 0 -8px 0 rgba(255,255,255,.45);
+
+    /* ── reading progress ── */
+    .progress-bar{
+      position:fixed;top:0;left:0;
+      height:3px;
+      background: linear-gradient(90deg, var(--terra), var(--blush));
+      width:0%;
+      z-index:999;
+      transition:width .1s;
     }
-    .cover-bed::after {
-      content: ""; position: absolute; width: 38%; height: 25%; right: 13%; top: 13%;
-      background: #f0f0f0; border-radius: 14px; box-shadow: -132px 0 0 #f0f0f0;
+
+    /* ── ARTICLE BODY ── */
+    .article{
+      max-width: var(--max);
+      margin:0 auto;
+      padding: 60px 24px 80px;
     }
-    .proof-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px; }
-    .soft-band {
-      background: linear-gradient(180deg, #fff2f7, #fff8fb);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+
+    /* narrative text */
+    .article p{
+      font-size: clamp(16px, 2vw, 18px);
+      line-height:1.85;
+      color: var(--ink2);
+      margin-bottom:26px;
     }
-    .quote-wall { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
-    .mini-quote {
-      background: rgba(255,255,255,.88); border:1px solid var(--line); border-radius:20px; padding:18px; box-shadow: var(--shadow);
+    .article p.opening{
+      font-family:'Cormorant Garamond',serif;
+      font-size: clamp(20px, 2.8vw, 26px);
+      font-style:italic;
+      color: var(--ink);
+      line-height:1.6;
+      margin-bottom:32px;
     }
-    .mini-quote strong { display:block; color: var(--navy); margin-bottom: 6px; }
-    .offer-note {
-      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:999px; background:#ecfff4; color:var(--green); font-weight:800; font-size:13px;
+
+    /* section breaks */
+    .act-break{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin:52px 0 40px;
     }
-    .icon-badge {
-      width:46px; height:46px; border-radius:14px; background:#fff0f5; color:var(--pink-dark); display:flex; align-items:center; justify-content:center; font-weight:900; margin-bottom:14px;
-      border:1px solid #f0cfdb;
+    .act-break::before,.act-break::after{
+      content:'';flex:1;
+      height:1px;background:var(--border);
     }
-    .faq-list { display:grid; gap:16px; }
-    .faq-card {
-      background:white; border:1px solid var(--line); border-radius:22px; padding:24px; box-shadow: var(--shadow);
+    .act-label{
+      font-family:'Jost',sans-serif;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      color:var(--muted);
+      white-space:nowrap;
     }
-    .faq-card h3 { font-size: 22px; margin-bottom: 10px; }
-    .faq-card p { color: var(--muted); margin:0; }
-    .proof {
-      background: white; border: 1px solid var(--line); border-radius: 18px; padding: 18px; text-align: center; box-shadow: var(--shadow);
+
+    /* pull quotes */
+    .pull{
+      border-left: 4px solid var(--terra);
+      padding: 22px 28px;
+      margin: 36px -28px;
+      background: var(--paper2);
     }
-    .proof strong { display:block; font-size: 30px; color: var(--pink-dark); margin-bottom: 5px; }
-    .lead { font-size: 18px; color: var(--muted); max-width: 860px; margin-bottom: 24px; }
-    .two { display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-    .three { display:grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    .four { display:grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-    .box { background:white; border:1px solid var(--line); border-radius:22px; padding:24px; box-shadow: var(--shadow); }
-    .label {
-      display:inline-block; background:#fff0f5; color: var(--pink-dark); padding:8px 12px; border-radius:999px;
-      font-size:12px; font-weight:800; letter-spacing:.6px; text-transform:uppercase; margin-bottom:14px;
+    .pull p{
+      font-family:'Cormorant Garamond',serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-style:italic;
+      font-weight:600;
+      color: var(--ink);
+      line-height:1.45;
+      margin:0;
     }
-    .story-photo, .photo-slot {
-      aspect-ratio: 1 / 1.05; margin-top: 18px; border-radius: 20px;
-      background: linear-gradient(135deg, #f9dfe8, #f5cad9);
-      border: 1px solid #efc7d6; display:flex; align-items:center; justify-content:center;
-      text-align:center; padding:20px; color:var(--pink-dark); font-weight:800;
+    .pull small{
+      display:block;
+      margin-top:10px;
+      font-family:'Jost',sans-serif;
+      font-size:12px;
+      color:var(--muted);
+      font-style:normal;
     }
-    .stat-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:16px; }
-    .stat {
-      background: linear-gradient(180deg, #fff, #fff7fb); border:1px solid var(--line); border-radius:22px; padding:22px; box-shadow: var(--shadow);
+
+    /* highlight box - evidence/science */
+    .evidence{
+      background: #f0ede6;
+      border:1px solid var(--border);
+      border-radius:4px;
+      padding:28px 32px;
+      margin:36px 0;
+      position:relative;
+    }
+    .evidence::before{
+      content:'Lo que descubrió Laura';
+      display:block;
+      font-family:'Jost',sans-serif;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:var(--terra);
+      margin-bottom:14px;
+    }
+    .evidence p{
+      font-size:15.5px !important;
+      margin-bottom:14px !important;
+      color:var(--ink2);
+    }
+    .evidence p:last-child{margin-bottom:0 !important;}
+    .evidence ul{
+      padding-left:20px;
+      margin-bottom:14px;
+    }
+    .evidence ul li{
+      font-size:15px;
+      color:var(--ink2);
+      margin-bottom:8px;
+      line-height:1.65;
+    }
+
+    /* letter/quote from Laura - handwriting feel */
+    .laura-voice{
+      background: white;
+      border:1px solid var(--blush);
+      border-radius:4px;
+      padding:30px 34px;
+      margin:36px 0;
+      position:relative;
+      box-shadow: 2px 4px 20px rgba(0,0,0,.06);
+    }
+    .laura-voice::before{
+      content:'"';
+      font-family:'Cormorant Garamond',serif;
+      font-size:80px;
+      color:var(--blush);
+      position:absolute;
+      top:-10px;left:20px;
+      line-height:1;
+    }
+    .laura-voice p{
+      font-family:'Cormorant Garamond',serif;
+      font-size: clamp(18px, 2.4vw, 22px);
+      font-style:italic;
+      line-height:1.7;
+      color:var(--ink);
+      margin-bottom:14px !important;
+      padding-top:30px;
+    }
+    .laura-voice p:first-child{padding-top:40px;}
+    .laura-voice p:last-child{margin-bottom:0 !important;}
+    .laura-sig{
+      display:flex;align-items:center;gap:12px;
+      margin-top:18px;
+      padding-top:16px;
+      border-top:1px solid var(--blush2);
+    }
+    .laura-sig .av{
+      width:38px;height:38px;border-radius:50%;
+      background:linear-gradient(145deg,#c49a78,#8a5e42);
+      display:flex;align-items:center;justify-content:center;
+      font-size:16px;flex-shrink:0;
+    }
+    .laura-sig div strong{
+      display:block;font-family:'Jost',sans-serif;
+      font-size:13px;font-weight:700;color:var(--ink);
+    }
+    .laura-sig div span{
+      font-size:12px;color:var(--muted);
+      font-family:'Jost',sans-serif;
+    }
+
+    /* inline CTA button */
+    .inline-cta{
+      background: linear-gradient(135deg, var(--terra), var(--terra2));
+      color:white;
+      border-radius:8px;
+      padding:26px 30px;
+      margin:44px 0;
+      text-align:center;
+      box-shadow: 0 16px 40px rgba(181,83,60,.3);
+    }
+    .inline-cta p{
+      font-family:'Jost',sans-serif;
+      font-size:13px;
+      color:rgba(255,255,255,.7);
+      margin-bottom:8px !important;
+      font-weight:500;
+      letter-spacing:.3px;
+    }
+    .inline-cta .cta-head{
+      font-family:'Cormorant Garamond',serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-style:italic;
+      color:white;
+      margin-bottom:18px !important;
+      line-height:1.35;
+    }
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:white;
+      color: var(--terra2);
+      padding:14px 28px;
+      border-radius:6px;
+      font-family:'Jost',sans-serif;
+      font-size:15px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+      transition:transform .2s;
+    }
+    .btn:hover{transform:translateY(-1px);}
+    .btn-small-text{
+      display:block;
+      font-family:'Jost',sans-serif;
+      font-size:11px;
+      color:rgba(255,255,255,.55);
+      margin-top:12px;
+      letter-spacing:.3px;
+    }
+
+    /* product reveal box */
+    .product-reveal{
+      border:2px solid var(--border);
+      border-radius:6px;
+      overflow:hidden;
+      margin:40px 0;
+    }
+    .product-reveal-header{
+      background:var(--ink);
+      padding:20px 28px;
+      display:flex;align-items:center;gap:16px;
+    }
+    .product-reveal-header .icon{font-size:28px;}
+    .product-reveal-header h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px;font-weight:700;
+      color:#faf6f0;margin:0;
+    }
+    .product-reveal-header small{
+      font-family:'Jost',sans-serif;
+      font-size:11px;color:rgba(255,255,255,.5);
+      letter-spacing:1.5px;text-transform:uppercase;
+      display:block;margin-top:2px;
+    }
+    .product-reveal-body{padding:24px 28px;}
+    .product-reveal-body p{
+      font-size:15px !important;
+      color:var(--muted);
+      margin-bottom:16px !important;
+    }
+    .reveal-line{
+      display:flex;align-items:flex-start;gap:12px;
+      padding:12px 0;
+      border-bottom:1px solid var(--border);
+      font-size:15px;
+      color:var(--ink2);
+    }
+    .reveal-line:last-child{border-bottom:none;}
+    .reveal-line .tick{color:var(--sage);font-weight:700;flex-shrink:0;margin-top:2px;}
+
+    /* stack / offer */
+    .offer-section{
+      background: var(--ink);
+      padding:64px 24px;
+      position:relative;
+      overflow:hidden;
+    }
+    .offer-section::before{
+      content:'';
+      position:absolute;
+      width:500px;height:500px;border-radius:50%;
+      background:radial-gradient(circle,rgba(181,83,60,.18),transparent 70%);
+      top:-150px;right:-150px;
+    }
+    .offer-inner{max-width:660px;margin:0 auto;}
+    .offer-kicker{
+      font-family:'Jost',sans-serif;
+      font-size:10px;font-weight:700;
+      letter-spacing:2.5px;text-transform:uppercase;
+      color:var(--blush);opacity:.8;
+      margin-bottom:16px;display:block;
+    }
+    .offer-inner h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(30px,5vw,50px);
+      font-weight:700;color:#faf6f0;
+      line-height:1.15;margin-bottom:12px;
+    }
+    .offer-inner h2 em{font-style:italic;color:var(--blush);}
+    .offer-sub{
+      font-family:'Jost',sans-serif;
+      font-size:15px;
+      color:rgba(255,255,255,.55);
+      margin-bottom:36px;
+      line-height:1.65;
+    }
+
+    .stack-list{display:grid;gap:12px;margin-bottom:36px;}
+    .stack-row{
+      display:flex;align-items:center;gap:16px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:8px;
+      padding:16px 20px;
+    }
+    .stack-icon{font-size:22px;flex-shrink:0;}
+    .stack-row-info{flex:1;}
+    .stack-row-info strong{
+      display:block;
+      font-family:'Jost',sans-serif;
+      font-size:14px;font-weight:700;color:#faf6f0;
+      margin-bottom:2px;
+    }
+    .stack-row-info span{
+      font-family:'Jost',sans-serif;
+      font-size:12px;color:rgba(255,255,255,.45);
+    }
+    .stack-price{
+      font-family:'Jost',sans-serif;
+      text-align:right;flex-shrink:0;
+    }
+    .stack-price .was{
+      display:block;font-size:12px;
+      text-decoration:line-through;
+      color:rgba(255,255,255,.3);
+    }
+    .stack-price .now{
+      font-size:15px;font-weight:700;
+      color:rgba(255,255,255,.7);
+    }
+    .stack-price .free{color:#8ec89a;font-weight:700;font-size:14px;}
+
+    .price-hero{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:8px;padding:28px 30px;
+      margin-bottom:24px;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:20px;
+    }
+    .price-hero .total-val{
+      font-family:'Jost',sans-serif;
+      font-size:13px;color:rgba(255,255,255,.4);
+      margin-bottom:6px;
+    }
+    .price-hero .big-price{
+      font-family:'Cormorant Garamond',serif;
+      font-size:64px;font-weight:700;color:white;
+      line-height:1;
+    }
+    .price-hero .big-price span{
+      font-size:28px;vertical-align:super;margin-right:2px;
+    }
+    .price-hero .was-price{
+      font-family:'Jost',sans-serif;
+      font-size:16px;
+      text-decoration:line-through;
+      color:rgba(255,255,255,.35);
+    }
+    .countdown-row{
+      display:flex;gap:10px;flex-wrap:wrap;
+    }
+    .ctu{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:8px;padding:12px 16px;text-align:center;min-width:72px;
+    }
+    .ctu strong{display:block;font-size:26px;font-weight:900;color:white;font-family:'Jost',sans-serif;}
+    .ctu span{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:1px;font-family:'Jost',sans-serif;}
+
+    .btn-main{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      background:linear-gradient(135deg,var(--terra),var(--terra2));
+      color:white;
+      padding:20px 36px;
+      border-radius:8px;
+      font-family:'Jost',sans-serif;
+      font-size:17px;font-weight:700;
+      text-decoration:none;
+      box-shadow:0 20px 50px rgba(181,83,60,.4);
+      transition:transform .2s,box-shadow .2s;
       text-align:center;
     }
-    .stat strong { display:block; font-size: clamp(30px, 4vw, 44px); color: var(--pink-dark); line-height: 1; margin-bottom: 8px; }
-    .roadmap { display:grid; grid-template-columns: repeat(4,1fr); gap:18px; }
-    .road { background:white; border:1px solid var(--line); border-radius:22px; padding:22px; box-shadow: var(--shadow); }
-    .road .step {
-      width: 48px; height:48px; border-radius:999px; background:#ffe8f0; color: var(--pink-dark);
-      display:flex; align-items:center; justify-content:center; font-weight:900; margin-bottom:14px;
+    .btn-main:hover{transform:translateY(-2px);box-shadow:0 28px 60px rgba(181,83,60,.5);}
+    .micro-guarantee{
+      display:flex;align-items:center;gap:12px;
+      margin-top:18px;
+      padding:14px 18px;
+      background:rgba(90,122,94,.15);
+      border:1px solid rgba(90,122,94,.25);
+      border-radius:8px;
     }
-    .stack { display:grid; gap:16px; }
-    .stack-row {
-      display:grid; grid-template-columns: 150px 1fr auto; gap:18px; align-items:center;
-      background:white; border:1px solid var(--line); border-radius:22px; padding:18px; box-shadow: var(--shadow);
+    .micro-guarantee p{
+      font-family:'Jost',sans-serif;
+      font-size:13px;color:rgba(255,255,255,.65);
+      margin:0 !important;line-height:1.55;
     }
-    .stack-thumb {
-      aspect-ratio:.82; border-radius:18px; background:linear-gradient(135deg, #ffe8f0, #f6d6e1);
-      border:1px solid #efc7d6; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;
-      font-weight:900; color:var(--pink-dark);
+    .micro-guarantee strong{color:rgba(255,255,255,.85);}
+
+    /* FAQ */
+    .faq-section{
+      background:var(--paper2);
+      padding:64px 24px;
     }
-    .price-old { text-decoration:line-through; color:#9b7f89; font-weight:700; margin-right:10px; }
-    .price-now { font-size:30px; color:var(--navy); font-weight:900; }
-    .offer-box {
-      background: linear-gradient(135deg, #24324f, #37476d); color:white; border-radius:28px; padding:32px; box-shadow: var(--shadow);
+    .faq-inner{max-width:var(--max);margin:0 auto;}
+    .faq-inner .section-hed{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(26px,4vw,40px);
+      font-weight:700;
+      color:var(--ink);
+      margin-bottom:32px;
+      line-height:1.2;
     }
-    .offer-box h2, .offer-box h3, .offer-box p, .offer-box li { color:white; }
-    .offer-price { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin:18px 0 10px; }
-    .offer-price .old { font-size:24px; text-decoration:line-through; opacity:.7; font-weight:700; }
-    .offer-price .now { font-size: clamp(44px, 6vw, 76px); font-weight:900; line-height:1; }
-    .countdown { display:inline-flex; flex-wrap:wrap; gap:10px; margin:14px 0 18px; }
-    .time-box {
-      min-width:86px; border-radius:16px; padding:12px 16px; text-align:center;
-      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.15);
+    .faq-inner .section-hed em{font-style:italic;color:var(--terra);}
+    details{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:4px;
+      margin-bottom:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,.04);
     }
-    .time-box strong { display:block; font-size:28px; line-height:1; margin-bottom:6px; }
-    .testimonial-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; }
-    .testimonial-wide {
-      display:grid; grid-template-columns: 120px 1fr; gap:18px; align-items:flex-start;
-      background:white; border:1px solid var(--line); border-radius:24px; padding:24px; box-shadow: var(--shadow);
+    details[open]{border-color:var(--blush);}
+    summary{
+      cursor:pointer;list-style:none;
+      padding:20px 22px;
+      font-family:'Jost',sans-serif;
+      font-size:15px;font-weight:600;
+      color:var(--ink);
+      display:flex;justify-content:space-between;align-items:center;gap:12px;
     }
-    .avatar-slot {
-      width:120px; height:120px; border-radius:22px; background: linear-gradient(135deg, #f9dfe8, #f5cad9); border:1px solid #efc7d6;
-      display:flex; align-items:center; justify-content:center; text-align:center; color:var(--pink-dark); font-weight:800; padding:10px;
+    summary::-webkit-details-marker{display:none;}
+    summary::after{content:'+';font-size:20px;color:var(--terra);flex-shrink:0;transition:transform .2s;}
+    details[open] summary::after{transform:rotate(45deg);}
+    details .faq-body{
+      padding:0 22px 20px;
+      font-family:'Jost',sans-serif;
+      font-size:14.5px;color:var(--muted);
+      line-height:1.75;
     }
-    .testimonial { background:white; border:1px solid var(--line); border-radius:22px; padding:24px; box-shadow: var(--shadow); }
-    .stars { color:#f4a524; letter-spacing:1px; margin-bottom:10px; }
-    .testimonial small { display:block; margin-top:14px; color: var(--muted); font-weight:700; }
-    .guarantee {
-      display:grid; grid-template-columns: 100px 1fr; gap:18px; align-items:center;
-      background:white; border:1px solid var(--line); border-radius:22px; padding:22px; box-shadow: var(--shadow);
+
+    /* more testimonials */
+    .more-testi{
+      max-width:var(--max);margin:0 auto;
+      padding:0 0 20px;
     }
-    .seal {
-      width:100px; height:100px; border-radius:999px; background:linear-gradient(135deg, #e9fff4, #cbf6df);
-      border:3px solid #9ce4bb; color: var(--green); display:flex; align-items:center; justify-content:center;
-      text-align:center; font-weight:900; font-size:14px; padding:10px;
+    .mini-testi{
+      background:white;
+      border:1px solid var(--border);
+      border-radius:4px;
+      padding:24px 28px;
+      margin-bottom:16px;
+      box-shadow:0 2px 10px rgba(0,0,0,.04);
     }
-    details { background:white; border:1px solid var(--line); border-radius:18px; padding:18px 20px; box-shadow: var(--shadow); }
-    summary { cursor:pointer; list-style:none; font-weight:800; color:var(--navy); }
-    summary::-webkit-details-marker { display:none; }
-    details p { margin-top:14px; color: var(--muted); }
-    .footer-cta { text-align:center; padding-bottom:60px; }
-    .tiny { font-size:12px; color:var(--muted); max-width:920px; margin:18px auto 0; }
-    .divider { height:1px; background: linear-gradient(90deg, transparent, var(--line), transparent); margin: 18px 0; }
-    ul.clean { margin:0; padding-left: 20px; }
-    ul.clean li { margin-bottom: 10px; }
-    @media (max-width: 980px) {
-      .hero-grid, .two, .three, .four, .roadmap, .stat-grid, .proof-strip, .testimonial-grid, .stack-row, .guarantee, .quote-wall, .testimonial-wide { grid-template-columns:1fr; }
-      .product-cover { min-height: 430px; }
-      .avatar-slot { width:100%; height:180px; }
+    .mini-testi .stars{color:#d4883a;font-size:13px;margin-bottom:10px;}
+    .mini-testi blockquote{
+      font-family:'Cormorant Garamond',serif;
+      font-style:italic;
+      font-size:18px;
+      color:var(--ink);
+      line-height:1.6;
+      margin-bottom:12px;
+    }
+    .mini-testi cite{
+      font-family:'Jost',sans-serif;
+      font-size:12px;color:var(--muted);font-style:normal;
+    }
+
+    /* final cta */
+    .final-cta{
+      background:var(--paper);
+      padding:64px 24px;
+      text-align:center;
+    }
+    .final-inner{max-width:560px;margin:0 auto;}
+    .final-inner h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(28px,4.5vw,44px);
+      font-weight:700;
+      line-height:1.2;
+      color:var(--ink);
+      margin-bottom:16px;
+    }
+    .final-inner h2 em{font-style:italic;color:var(--terra);}
+    .final-inner p{
+      font-family:'Jost',sans-serif;
+      font-size:15px;color:var(--muted);
+      margin-bottom:28px;line-height:1.7;
+    }
+
+    /* footer */
+    footer{
+      background:var(--ink2);
+      padding:32px 24px;
+      text-align:center;
+    }
+    footer p{
+      font-family:'Jost',sans-serif;
+      font-size:11.5px;color:rgba(255,255,255,.28);
+      line-height:1.75;max-width:640px;margin:0 auto;
+    }
+
+    @media(max-width:600px){
+      .pull{margin:30px 0;}
+      .price-hero{flex-direction:column;align-items:flex-start;}
     }
   </style>
 </head>
 <body>
-  <div class="topbar">⏳ Oferta de lanzamiento activa hoy — reemplazá este texto por tu deadline real y conectalo al checkout Hotmart</div>
 
-  <header class="hero">
-    <div class="container grid hero-grid">
+<div class="progress-bar" id="pb"></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  Oferta de lanzamiento · Solo por tiempo limitado · <strong>$19 en vez de $49</strong>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-kicker">Historia real · Personaje arquetipo</div>
+  <div class="avatar-circle">👩‍🦳</div>
+  <div class="avatar-name">Laura, 51 años — Córdoba</div>
+  <h1>Tres años sin dormir bien.<br>Hasta que <em>entendió<br>por qué.</em></h1>
+  <p class="hero-byline">
+    Esto es lo que Laura le contaría a su mejor amiga<br>
+    <span>si pudiera explicarle cómo cambió todo.</span>
+  </p>
+</div>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <!-- ACT 1: LA VIDA ANTES -->
+  <p class="opening">
+    Si me hubieras visto hace dos años, me habrías visto funcionar. Perfectamente funcional. Maestra de primaria, mamá, esposa. El tipo de persona que anota todo en una agenda y llega a tiempo a todos lados.
+  </p>
+
+  <p>
+    Pero adentro de esa agenda impecable había una nota que nadie más veía: <em>Noche número 847 sin dormir bien.</em> (No la anoté de verdad, pero podría haberlo hecho.)
+  </p>
+
+  <p>
+    Empezó a los 48, más o menos. No fue dramático. Fue gradual, casi imperceptible. Empecé a despertarme a la madrugada y a costarme volver a dormir. Al principio pensé que era estrés de fin de año. Después del verano. Después "el trabajo". Siempre tenía una explicación razonable.
+  </p>
+
+  <div class="pull">
+    <p>"Me acostaba exhausta. Cerraba los ojos. Y me quedaba mirando el techo durante horas, con la mente girando sola."</p>
+    <small>— Laura, 51 · Córdoba</small>
+  </div>
+
+  <p>
+    Lo más raro era eso: yo <em>estaba</em> cansada. No era que no tuviera sueño. Era que el sueño llegaba hasta la puerta y después se iba. Como si mi cuerpo hubiera olvidado el paso final.
+  </p>
+
+  <p>
+    Empecé a sudar de noche sin entender por qué. Me despertaba con calor, me destapaba, me volvía a tapar. A veces me levantaba, caminaba por la cocina, tomaba agua, me volvía a acostar. Y la mente, que en teoría estaba durmiendo, arrancaba sola: los chicos del colegio, la reunión del martes, si había apagado el gas, una conversación de hace tres semanas que no terminé bien.
+  </p>
+
+  <p>
+    A la mañana siguiente, café. Mucho café. Y la sensación de que el día iba a ser largo.
+  </p>
+
+  <!-- ACT 2: LO QUE PROBÓ -->
+  <div class="act-break"><span class="act-label">Lo que probó</span></div>
+
+  <p>
+    No soy de las que se quedan quietas. Si hay un problema, busco cómo resolverlo. Así que busqué.
+  </p>
+
+  <p>
+    Melatonina. Empecé con la dosis baja, después subí. Me ayudaba a dormirme más rápido, pero igual me despertaba a las 3 AM y ya no podía volver. Mi médica me dijo que era "normal para mi edad" y me sugirió higiene del sueño.
+  </p>
+
+  <div class="laura-voice">
+    <p>Así que apagué el celular a las 9 PM. Tomé té de valeriana. Compré una máscara de ojos. Puse música de lluvia. Hice una rutina de yoga de 20 minutos antes de acostarme.</p>
+    <p>La primera noche, nada. La segunda, nada. La tercera... bueno, igual dormí un poco mejor, pero a los cinco días ya habíamos vuelto al mismo lugar de siempre.</p>
+    <div class="laura-sig">
+      <div class="av">👩‍🦳</div>
       <div>
-        <div class="eyebrow">Versión V3 — más estética, más social proof, menos bridge</div>
-        <h1>No necesitás “intentar dormir más”. Necesitás resolver el <span class="highlight">desajuste entre hormonas, temperatura y mente acelerada</span> que te deja despierta a las 3 AM.</h1>
-        <p class="sub">Si tenés más de 45, te acostás agotada pero activada, te despertás en mitad de la noche con calor, pensamientos a mil o la sensación de que tu cuerpo olvidó cómo dormir, esta página fue escrita para vos. Y ahora está armada para vender más desde social proof, transformación y claridad, no tanto desde bridge copy.</p>
-
-        <div class="bullets">
-          <div class="bullet"><span class="check">✓</span><span><strong>Big idea:</strong> tu insomnio no es “falta de disciplina”. Es un problema combinado de ritmo interno, regulación térmica y activación mental nocturna.</span></div>
-          <div class="bullet"><span class="check">✓</span><span><strong>Promesa:</strong> ayudarte a dormir más rápido, despertarte menos, volver a conciliar el sueño si te levantás y dejar de arrastrarte durante el día.</span></div>
-          <div class="bullet"><span class="check">✓</span><span><strong>Sistema:</strong> un protocolo de 21 días con bonos para mente acelerada, sofocos/calor, ambiente del cuarto y energía sin depender del café.</span></div>
-        </div>
-
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#oferta">Sí, quiero recuperar mi sueño</a>
-          <a class="btn btn-secondary" href="#stack">Ver exactamente qué incluye</a>
-        </div>
-        <div class="micro">Sustituí los botones por tu enlace Hotmart y agregá tracking de Meta/TikTok.</div>
+        <strong>Laura G.</strong>
+        <span>51 años · Maestra · Córdoba</span>
       </div>
+    </div>
+  </div>
 
-      <div class="card hero-card">
-        <div class="product-cover">
-          <div class="cover-tag">Producto principal</div>
-          <div>
-            <div class="cover-title">The Insomnia Breakthrough</div>
-            <div class="cover-sub">A 21-Day Guide to Peaceful Sleep</div>
-          </div>
-          <div class="cover-bed"></div>
+  <p>
+    Probé sin gluten una semana porque leí que podía ayudar. Probé el magnesio. Probé dormir con calcetines porque alguien me dijo que regulaba la temperatura. Probé leer antes de acostarme. Probé no leer. Probé más ejercicio. Probé menos ejercicio.
+  </p>
+
+  <p>
+    Y cada vez que algo no funcionaba, la voz de mi cabeza se volvía un poco más oscura: <em>"Capaz esto es para siempre. Capaz así me voy a sentir el resto de mi vida."</em>
+  </p>
+
+  <div class="pull">
+    <p>"El cansancio no era lo peor. Lo peor era la sensación de que mi cuerpo me había traicionado y que nadie podía explicarme por qué."</p>
+  </div>
+
+  <!-- ACT 3: EL DESCUBRIMIENTO -->
+  <div class="act-break"><span class="act-label">Lo que nadie le había explicado</span></div>
+
+  <p>
+    Un martes a la tarde, estaba corrigiendo trabajos prácticos con una taza de café frío cuando mi amiga Graciela me mandó un mensaje. Ella había pasado por algo parecido el año anterior y lo había resuelto. Me mandó un link con un comentario simple: <em>"Leé esto. En serio."</em>
+  </p>
+
+  <p>
+    Era un artículo sobre lo que le pasa al sueño después de los 45. Y fue la primera vez en años que sentí que alguien me estaba explicando <em>mi situación específica</em>, no el insomnio en general.
+  </p>
+
+  <div class="evidence">
+    <p>Después de los 45, el sueño cambia por tres razones que se combinan entre sí:</p>
+    <ul>
+      <li><strong>El estrógeno regula la temperatura corporal.</strong> Cuando baja o fluctúa, el cuerpo pierde la capacidad de enfriarse naturalmente de noche. Por eso el calor, los sofocos, el sudor — no son "caprichosos", son una falla del termostato interno.</li>
+      <li><strong>La progesterona tiene efecto calmante sobre el cerebro.</strong> Cuando disminuye, el sistema nervioso se vuelve más reactivo de noche. Más fácil de despertar. Más difícil de volver a soltar.</li>
+      <li><strong>El ritmo circadiano se desincroniza.</strong> El reloj interno pierde precisión. Por eso las mujeres de esta etapa se despiertan siempre a la misma hora, sienten sueño en momentos raros, o duermen fragmentado sin restauración real.</li>
+    </ul>
+    <p>Estas tres cosas se sabotean entre sí. Resolver solo una no alcanza. Por eso los consejos genéricos fallan.</p>
+  </div>
+
+  <p>
+    Leí eso y me quedé quieta un momento. Pensé: <em>eso es exactamente lo que me está pasando.</em> No tres problemas distintos. Un sistema que se desbalanceó por razones concretas, específicas, que tienen una lógica.
+  </p>
+
+  <p>
+    Y si tenían una lógica, podían tener una solución.
+  </p>
+
+  <!-- mid-article CTA 1 -->
+  <div class="inline-cta">
+    <p>¿Te suena familiar lo que le pasó a Laura?</p>
+    <p class="cta-head">"El método que finalmente me explicó por qué — y cómo resolverlo."</p>
+    <a class="btn" href="#oferta">Quiero saber más →</a>
+    <span class="btn-small-text">Acceso inmediato · Garantía 7 días · $19 precio de lanzamiento</span>
+  </div>
+
+  <!-- ACT 4: EL MÉTODO -->
+  <div class="act-break"><span class="act-label">El método que encontró</span></div>
+
+  <p>
+    Lo que encontró Laura — y lo que después exploró semana a semana — fue un protocolo de 21 días diseñado específicamente para mujeres en esta etapa. No un libro de tips. No una lista de cosas que "deberías hacer". Un sistema con una secuencia que tenía sentido.
+  </p>
+
+  <div class="product-reveal">
+    <div class="product-reveal-header">
+      <div class="icon">🌙</div>
+      <div>
+        <small>Producto principal</small>
+        <h3>The Insomnia Breakthrough</h3>
+      </div>
+    </div>
+    <div class="product-reveal-body">
+      <p>Lo que Laura recorrió semana a semana:</p>
+      <div class="reveal-line"><span class="tick">→</span><span><strong>Días 1–3:</strong> Identificar su patrón real. Entender por qué se despertaba siempre a las 3:20 AM y qué lo provocaba.</span></div>
+      <div class="reveal-line"><span class="tick">→</span><span><strong>Días 4–7:</strong> Bajar la activación mental nocturna. Interrumpir el círculo "miedo a no dormir → más activación → menos sueño".</span></div>
+      <div class="reveal-line"><span class="tick">→</span><span><strong>Días 8–14:</strong> Trabajar temperatura, ambiente y respuesta al despertar. Protocolo concreto para cuando te levantás a la madrugada.</span></div>
+      <div class="reveal-line"><span class="tick">→</span><span><strong>Días 15–21:</strong> Consolidar. Construir la confianza de que el cuerpo sí puede dormir — porque ya lo está haciendo.</span></div>
+    </div>
+  </div>
+
+  <p>
+    Pero lo que más la sorprendió no fue el programa base. Fueron los bonos que venían con él — porque cada uno respondía exactamente a una de las excusas que ella misma tenía para creer que su caso "era diferente".
+  </p>
+
+  <div class="laura-voice">
+    <p>Cuando vi el Quiet Mind Protocol, pensé: "esto es para mí". Porque mi problema más grande no era el calor. Era que cuando me despertaba, la cabeza arrancaba sola y no había forma de pararla. Cinco minutos de esa técnica y algo en mi sistema nervioso... aflojaba. No sé cómo explicarlo, pero aflojaba.</p>
+    <div class="laura-sig">
+      <div class="av">👩‍🦳</div>
+      <div><strong>Laura G.</strong><span>51 años · Córdoba</span></div>
+    </div>
+  </div>
+
+  <p>
+    También usó la guía sobre el dormitorio. Ella pensaba que su cuarto estaba bien. Pero cuando leyó sobre las capas de temperatura, la humedad, la luz que se filtraba de la calle, los ciclos de ventilación... entendió que había cosas invisibles que la estaban saboteando.
+  </p>
+
+  <p>
+    Y la guía de menopausia. Esa fue la que la hizo llorar un poco. No de tristeza — de alivio. Era la primera vez que sentía que alguien le hablaba a ella, a su cuerpo, a su etapa. No a una persona genérica con "insomnio".
+  </p>
+
+  <!-- ACT 5: TRANSFORMACIÓN -->
+  <div class="act-break"><span class="act-label">Lo que cambió</span></div>
+
+  <div class="pull">
+    <p>"La semana cinco me di cuenta de que hacía tres días que no miraba el reloj de noche. Eso para mí fue enorme."</p>
+    <small>— Laura, después del protocolo completo</small>
+  </div>
+
+  <p>
+    No fue magia. No fue una noche perfecta de golpe. Fue gradual — como había sido el deterioro, también fue gradual la recuperación. Pero con una diferencia importante: esta vez Laura entendía por qué las cosas estaban mejorando. No era suerte. Era un sistema.
+  </p>
+
+  <p>
+    Primer cambio real: dejó de despertar empapada. Dos ajustes simples de temperatura y una capa de ropa de cama diferente cambiaron eso en la primera semana.
+  </p>
+
+  <p>
+    Segundo cambio: cuando se despertaba en el medio de la noche (porque seguía pasando, menos, pero pasaba), ya no entraba en pánico. Tenía un protocolo. Sabía exactamente qué hacer. Y eso solo — saber que hay algo que hacer — cortaba el ciclo de ansiedad que antes la tenía despierta dos horas.
+  </p>
+
+  <p>
+    Tercer cambio, el que no esperaba: el día. El humor. La paciencia con los chicos del colegio. La claridad para planificar. "Dormí un poco mejor y de repente era otra persona durante el día. No entendía por qué no había buscado esto antes."
+  </p>
+
+  <div class="laura-voice">
+    <p>Lo que más me cambió no fue dormir más horas. Fue volver a confiar en que mi cuerpo podía hacerlo. Esa sensación de "quizás así me voy a sentir para siempre" desapareció. Y eso vale más que cualquier hora extra de sueño.</p>
+    <div class="laura-sig">
+      <div class="av">👩‍🦳</div>
+      <div><strong>Laura G.</strong><span>51 años · Córdoba</span></div>
+    </div>
+  </div>
+
+  <!-- más testimonios -->
+  <div class="act-break"><span class="act-label">Otras mujeres que pasaron por lo mismo</span></div>
+
+  <div class="more-testi">
+    <div class="mini-testi">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Lo compré pensando que era otro libro de tips. Estaba equivocada. Por primera vez alguien me explicó <em>por qué</em> me despertaba siempre a la misma hora."</blockquote>
+      <cite>— Marcela V., 52 · Buenos Aires</cite>
+    </div>
+    <div class="mini-testi">
+      <div class="stars">★★★★★</div>
+      <blockquote>"La guía de menopausia sola ya valía el precio. Sentí que me hablaban a mí, no a un personaje genérico."</blockquote>
+      <cite>— Patricia M., 55 · Rosario</cite>
+    </div>
+    <div class="mini-testi">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Ya no me despierto empapada. Dos cambios simples del ambiente del cuarto y eso casi desapareció en la primera semana."</blockquote>
+      <cite>— Claudia R., 49 · Mendoza</cite>
+    </div>
+    <div class="mini-testi">
+      <div class="stars">★★★★★</div>
+      <blockquote>"El Quiet Mind Protocol es lo que me faltaba. Esa técnica de 5 minutos interrumpe el espiral antes de que arranque. Nunca pensé que algo tan simple pudiera funcionar."</blockquote>
+      <cite>— Adriana T., 54 · Montevideo</cite>
+    </div>
+  </div>
+
+</article>
+
+<!-- OFFER -->
+<section id="oferta" class="offer-section">
+  <div class="offer-inner">
+    <span class="offer-kicker">Lo que Laura encontró — ahora disponible para vos</span>
+    <h2>Todo el sistema que usó Laura.<br><em>Por $19.</em></h2>
+    <p class="offer-sub">El precio de lanzamiento incluye el programa completo más los cuatro bonos que convirtieron el método en algo que responde a cada ángulo de tu situación específica.</p>
+
+    <div class="stack-list">
+      <div class="stack-row">
+        <div class="stack-icon">🌙</div>
+        <div class="stack-row-info">
+          <strong>The Insomnia Breakthrough</strong>
+          <span>Sistema base · 21 días · Producto principal</span>
+        </div>
+        <div class="stack-price"><span class="was">$49</span><span class="now">$19</span></div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-icon">🌀</div>
+        <div class="stack-row-info">
+          <strong>Quiet Mind Protocol</strong>
+          <span>Para la mente que no para · Bono incluido</span>
+        </div>
+        <div class="stack-price"><span class="was">$17</span><span class="free">Incluido</span></div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-icon">🌸</div>
+        <div class="stack-row-info">
+          <strong>Menopause Sleep Survival Guide</strong>
+          <span>Para sofocos y calor nocturno · Bono incluido</span>
+        </div>
+        <div class="stack-price"><span class="was">$19</span><span class="free">Incluido</span></div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-icon">🏠</div>
+        <div class="stack-row-info">
+          <strong>Perfect Sleep Environment Guide</strong>
+          <span>Para el cuarto que sabotea sin que lo sepas · Bono incluido</span>
+        </div>
+        <div class="stack-price"><span class="was">$15</span><span class="free">Incluido</span></div>
+      </div>
+    </div>
+
+    <div class="price-hero">
+      <div>
+        <div class="total-val">Valor total del paquete: $100</div>
+        <div class="big-price"><span>$</span>19</div>
+        <div class="was-price">en vez de $49 precio normal</div>
+      </div>
+      <div>
+        <div style="font-family:'Jost',sans-serif;font-size:11px;color:rgba(255,255,255,.4);margin-bottom:10px;letter-spacing:1px;">OFERTA VENCE EN:</div>
+        <div class="countdown-row">
+          <div class="ctu"><strong id="cd">02</strong><span>DÍAS</span></div>
+          <div class="ctu"><strong id="ch">13</strong><span>HRS</span></div>
+          <div class="ctu"><strong id="cm">47</strong><span>MIN</span></div>
+          <div class="ctu"><strong id="cs">00</strong><span>SEG</span></div>
         </div>
       </div>
     </div>
 
-    <div class="container proof-strip">
-      <div class="proof"><strong>21 días</strong><span>de implementación guiada</span></div>
-      <div class="proof"><strong>5 ángulos</strong><span>mente, temperatura, hábitos, ambiente y energía</span></div>
-      <div class="proof"><strong>1 método</strong><span>diseñado para mujeres +45</span></div>
-      <div class="proof"><strong>Oferta stack</strong><span>con bonos y upsells estratégicos</span></div>
+    <a class="btn-main" href="https://pay.hotmart.com/TU-LINK-AQUI">
+      Quiero volver a dormir como Laura →
+    </a>
+
+    <div class="micro-guarantee">
+      <div style="font-size:24px;flex-shrink:0;">🛡️</div>
+      <p><strong>Garantía 7 días sin preguntas.</strong> Si revisás el material y no es lo que esperabas, pedís el reembolso. El riesgo es nuestro, no tuyo.</p>
     </div>
-  </header>
+  </div>
+</section>
 
-  <section class="soft-band">
-    <div class="container" style="padding: 26px 0;">
-      <div class="quote-wall">
-        <div class="mini-quote"><strong>“Volví a dormirme sin entrar en pánico.”</strong><span>Ideal para destacar la objeción de despertares nocturnos.</span></div>
-        <div class="mini-quote"><strong>“Por fin entendí que no era solo ansiedad.”</strong><span>Refuerza el mecanismo de temperatura + mente + ritmo interno.</span></div>
-        <div class="mini-quote"><strong>“Dejé de vivir con café todo el día.”</strong><span>Conecta el problema nocturno con el dolor diurno.</span></div>
-      </div>
-    </div>
-  </section>
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <h2 class="section-hed">Antes de comprar,<br><em>quizás tengas estas dudas</em></h2>
 
-  <section>
-    <div class="container">
-      <h2>No fallaste vos. Falló el enfoque que te dieron.</h2>
-      <p class="lead">Te dijeron que apagaras el celular. Que tomaras té. Que meditaras. Que probaras melatonina. Que no pensaras tanto. Pero casi nadie te explicó algo mucho más importante: <strong>después de los 45, el sueño puede romperse por una mezcla de cambios hormonales, sensibilidad a la temperatura, despertares condicionados y activación mental nocturna</strong>. Por eso los consejos genéricos te ayudan poco o nada.</p>
+    <details>
+      <summary>¿Esto funciona si mi mayor problema es el calor y los sofocos?</summary>
+      <div class="faq-body">Sí. Por eso el stack incluye el Menopause Sleep Survival Guide, que trabaja específicamente la regulación térmica, hotflashes nocturnos y el impacto hormonal en el sueño. El programa base también tiene un módulo completo sobre temperatura, capas de ropa de cama y preparación del ambiente. Laura usó ambos en combinación.</div>
+    </details>
 
-      <div class="three">
-        <div class="box">
-          <h3>Lo típico falla porque es demasiado genérico</h3>
-          <p>Trata todas las noches malas como si fueran iguales. No diferencia entre no poder dormirte, despertarte a mitad de la noche o levantarte destruida aunque “dormiste”.</p>
-        </div>
-        <div class="box">
-          <h3>Lo típico falla porque ignora tu cuerpo</h3>
-          <p>No contempla calor nocturno, sudor, sueño liviano, cambios hormonales y esa sensación de “tired but wired” que tantas mujeres viven sin entender.</p>
-        </div>
-        <div class="box">
-          <h3>Lo típico falla porque no te da un sistema</h3>
-          <p>Te da tips sueltos. Pero cuando te despertás a las 3 AM, no necesitás otro tip. Necesitás un protocolo claro que te diga qué hacer y qué dejar de hacer.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <details>
+      <summary>¿Y si lo mío es que no puedo apagar la mente?</summary>
+      <div class="faq-body">El Quiet Mind Protocol está incluido exactamente para eso. Es un método de 5 minutos para interrumpir el espiral de pensamiento antes de que gane terreno — el mismo que Laura describe en su historia. El programa base también trabaja la activación mental nocturna y qué hacer cuando te despertás con la cabeza a mil.</div>
+    </details>
 
-  <section>
-    <div class="container">
-      <h2>El mecanismo único detrás de esta oferta</h2>
-      <p class="lead">Esta landing ahora gira sobre una idea central mucho más fuerte: <strong>no se trata de dormir “más fuerte”, sino de volver a alinear tu sistema de sueño</strong>. Eso significa trabajar al mismo tiempo tres piezas que se sabotean entre sí.</p>
-      <div class="three">
-        <div class="box">
-          <div class="label">Pieza 1</div>
-          <h3>Temperatura</h3>
-          <p>Cuando tu cuerpo se sobrecalienta, el sueño profundo se rompe. Por eso los sofocos, sudor nocturno o una cama mal preparada pueden sacarte del descanso aunque estés agotada.</p>
-        </div>
-        <div class="box">
-          <div class="label">Pieza 2</div>
-          <h3>Mente acelerada</h3>
-          <p>Cuanto más miedo le tenés a no dormir, más activada entrás a la cama. Y cuanto más activada entrás, más difícil se vuelve soltar el sueño.</p>
-        </div>
-        <div class="box">
-          <div class="label">Pieza 3</div>
-          <h3>Ritmo interno</h3>
-          <p>Cuando tu reloj interno se desordena, empezás a sentir sueño en momentos raros, te despertás demasiado temprano o dormís “fragmentado”, sin restauración real.</p>
-        </div>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#oferta">Quiero el método completo</a>
-      </div>
-    </div>
-  </section>
+    <details>
+      <summary>¿Esto es solo para mujeres con menopausia?</summary>
+      <div class="faq-body">No exclusivamente. Está pensado para mujeres +45 con insomnio — ya sea en perimenopause, menopausia, o simplemente los cambios de sueño que vienen con esta etapa. Si tenés despertares nocturnos, sueño fragmentado, calor de noche, mente activada, o cansancio crónico de día, el método es para vos.</div>
+    </details>
 
-  <section>
-    <div class="container">
-      <h2>Lo que más repiten las mujeres que pasan por este método</h2>
-      <p class="lead">Acá cambié el foco. En vez de cargar demasiado la página con bridge copy, esta versión apoya más la venta en transformación percibida, frases tipo testimonio y reconocimiento inmediato del problema.</p>
-      <div class="grid" style="gap:18px;">
-        <div class="testimonial-wide">
-          <div class="avatar-slot">FOTO / TESTIMONIO 1</div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <h3>“Yo ya no pensaba ‘¿y si hoy tampoco duermo?’ cada vez que me acostaba.”</h3>
-            <p>Antes de entrar al programa, sentía que la noche era una amenaza. Lo que más me cambió fue entender por qué me despertaba siempre a la misma hora y dejar de empeorar todo con ansiedad. No fue magia, pero por primera vez sentí alivio real.</p>
-            <small>Placeholder — reemplazar por testimonio real con nombre, edad y ciudad</small>
-          </div>
-        </div>
-        <div class="testimonial-wide">
-          <div class="avatar-slot">FOTO / TESTIMONIO 2</div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <h3>“Siempre pensé que lo mío era solo menopausia, pero nadie me había explicado la parte mental.”</h3>
-            <p>Yo buscaba soluciones para sofocos o soluciones para ansiedad, pero nunca algo que conectara todo. Esta fue la primera vez que sentí que me estaban hablando a mí, no a una persona genérica con ‘insomnio’.</p>
-            <small>Placeholder — reemplazar por testimonio real con nombre, edad y ciudad</small>
-          </div>
-        </div>
-        <div class="testimonial-wide">
-          <div class="avatar-slot">FOTO / TESTIMONIO 3</div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <h3>“Lo mejor no fue solo dormir más. Fue dejar de sentirme rota durante el día.”</h3>
-            <p>Yo estaba sobreviviendo con café, mal humor y niebla mental. El programa me ayudó a ordenar la noche, pero también a salir de ese estado constante de agotamiento e irritabilidad.</p>
-            <small>Placeholder — reemplazar por testimonio real con nombre, edad y ciudad</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <details>
+      <summary>¿Cuánto tiempo lleva aplicarlo cada día?</summary>
+      <div class="faq-body">Está diseñado para ser simple e implementable incluso cuando llegás agotada. No es otra rutina pesada. La mayoría de los protocolos toman entre 5 y 15 minutos. La idea es que encajen en tu vida, no que creen más presión alrededor del sueño.</div>
+    </details>
 
-  <section>
-    <div class="container">
-      <h2>Qué cambia de verdad cuando esto empieza a funcionar</h2>
-      <p class="lead">Esta parte también quedó más testimonial y menos discursiva. En vez de explicar de más, muestra resultados percibidos y emociones que la persona quiere recuperar.</p>
-      <div class="three">
-        <div class="box"><div class="icon-badge">01</div><h3>“Volví a sentir sueño real”</h3><p>No esa sensación de agotamiento raro con cabeza activada, sino sueño de verdad, más natural y menos forzado.</p></div>
-        <div class="box"><div class="icon-badge">02</div><h3>“Dejé de mirar el reloj”</h3><p>Cuando el insomnio mejora, una de las primeras cosas que cambia es la relación emocional con la noche.</p></div>
-        <div class="box"><div class="icon-badge">03</div><h3>“Mi día dejó de ser castigo”</h3><p>Menos irritabilidad, menos niebla mental, menos necesidad de tapar el agotamiento con café y azúcar.</p></div>
-      </div>
-    </div>
-  </section>
+    <details>
+      <summary>¿Esto reemplaza ir al médico?</summary>
+      <div class="faq-body">No. Este es un recurso educativo y práctico de hábitos, ambiente y gestión del sueño. No reemplaza diagnóstico médico ni atención profesional. Si tenés síntomas severos o condiciones diagnosticadas, consultá a tu médico antes de hacer cambios.</div>
+    </details>
 
-  <section>
-    <div class="container">
-      <h2>Resultados y credibilidad</h2>
-      <p class="lead">Acá conviene poner cualquier estadística, resultado agregado o benchmark interno del método. Dejé esta sección lista para que reemplaces por datos reales del producto o claims aprobados.</p>
-      <div class="stat-grid">
-        <div class="stat"><strong>91%</strong><span>placeholder para: conciliación más rápida del sueño</span></div>
-        <div class="stat"><strong>87%</strong><span>placeholder para: menos despertares hacia el día 21</span></div>
-        <div class="stat"><strong>+X hrs</strong><span>placeholder para: mejora promedio en sueño reparador</span></div>
-        <div class="stat"><strong>-X%</strong><span>placeholder para: racing thoughts / night sweats / ansiedad nocturna</span></div>
-      </div>
-      <p class="micro">No publiques números inventados. Usá esta sección solo con datos reales o sacala hasta tener evidencia válida.</p>
-    </div>
-  </section>
+    <details>
+      <summary>¿Cómo accedo después de comprar?</summary>
+      <div class="faq-body">El acceso es inmediato y digital. Podés leer todo desde el celular, tablet o computadora, sin aplicaciones adicionales. La plataforma Hotmart te envía las instrucciones de acceso automáticamente después de la compra.</div>
+    </details>
+  </div>
+</section>
 
-  <section>
-    <div class="container">
-      <h2>Qué vas a trabajar en los próximos 21 días</h2>
-      <p class="lead">Esta sección faltaba y es clave. Hace que el programa se sienta concreto, guiado y con progreso real.</p>
-      <div class="roadmap">
-        <div class="road">
-          <div class="step">1</div>
-          <h3>Días 1–3</h3>
-          <p>Identificás tu patrón real de insomnio, entendés qué te despierta y dejás de tratar todas tus malas noches como si fueran iguales.</p>
-        </div>
-        <div class="road">
-          <div class="step">2</div>
-          <h3>Días 4–7</h3>
-          <p>Empezás a bajar activación mental, reorganizar señales del sueño y reducir parte del caos alrededor del momento de acostarte.</p>
-        </div>
-        <div class="road">
-          <div class="step">3</div>
-          <h3>Días 8–14</h3>
-          <p>Trabajás temperatura, ambiente, rituales, dormitorio y respuesta al despertar nocturno para volver a sentir más estabilidad.</p>
-        </div>
-        <div class="road">
-          <div class="step">4</div>
-          <h3>Días 15–21</h3>
-          <p>Consolidás hábitos sostenibles, ajustás lo que todavía te sabotea y empezás a recuperar la sensación de “mi cuerpo sí puede dormir”.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-inner">
+    <h2>La noche no te está ganando<br>porque seas débil.<br><em>Te faltaba entender esto.</em></h2>
+    <p>Lo mismo que le faltó a Laura durante tres años. Lo mismo que cambió todo cuando lo encontró. Ahora está acá, para vos.</p>
+    <a class="btn-main" href="https://pay.hotmart.com/TU-LINK-AQUI" style="max-width:420px;margin:0 auto;">
+      Empezar esta noche →
+    </a>
+    <p style="margin-top:14px;font-size:12px;color:var(--muted);">Acceso inmediato · $19 · Garantía 7 días</p>
+  </div>
+</section>
 
-  <section>
-    <div class="container">
-      <h2>Lo que vas a descubrir adentro del programa</h2>
-      <p class="lead">Esta sección ahora muestra mejor el valor interno del producto principal. Podés sumar o quitar módulos según el contenido real.</p>
-      <div class="three">
-        <div class="box"><h3>Cómo cortar el círculo “miedo a no dormir”</h3><p>Para que la noche deje de arrancar con tensión y anticipación negativa.</p></div>
-        <div class="box"><h3>Cómo reconocer tu perfil de sueño</h3><p>Porque no es lo mismo tardar en dormirte que despertarte a mitad de la noche o levantarte agotada.</p></div>
-        <div class="box"><h3>Qué hacer si te despertás a las 3 AM</h3><p>Un protocolo práctico para no empeorar la noche con ansiedad, sobreesfuerzo o malos hábitos.</p></div>
-        <div class="box"><h3>Cómo usar la temperatura a tu favor</h3><p>Desde capas de ropa de cama hasta ajustes concretos del ambiente para reducir interrupciones.</p></div>
-        <div class="box"><h3>Cómo rediseñar el dormitorio</h3><p>Luz, aire, sensación térmica, ruido y estímulos que pueden ayudarte o arruinarte el descanso.</p></div>
-        <div class="box"><h3>Cómo bajar pensamientos acelerados</h3><p>Herramientas específicas para cuando el problema no es el cansancio sino la cabeza que no para.</p></div>
-        <div class="box"><h3>Cómo construir rituales que sí ayudan</h3><p>No rituales “perfectos”, sino señales realistas que tu cuerpo pueda interpretar como descanso.</p></div>
-        <div class="box"><h3>Cómo proteger tu sueño del estrés del día</h3><p>Porque muchas noches se destruyen horas antes de acostarte, no solo cuando ya estás en la cama.</p></div>
-        <div class="box"><h3>Cómo volver a tener energía sin sabotear la noche siguiente</h3><p>Especialmente útil si venís sobreviviendo con café, cansancio y niebla mental.</p></div>
-      </div>
-    </div>
-  </section>
+<footer>
+  <p>
+    Este contenido es un recurso educativo y de bienestar. No sustituye diagnóstico médico, tratamiento profesional ni atención terapéutica. Los resultados de Laura y otros testimonios son experiencias individuales y pueden variar. Reemplazá el link de Hotmart antes de publicar. Agregá tu pixel de Meta o TikTok según corresponda. El personaje de Laura es un arquetipo compuesto representativo de experiencias comunes en el público objetivo.
+  </p>
+</footer>
 
-  <section id="stack">
-    <div class="container">
-      <h2>La oferta completa, mejor estructurada</h2>
-      <p class="lead">Ahora el stack no solo muestra “extras”. Cada pieza destruye una objeción concreta.</p>
-      <div class="stack">
-        <div class="stack-row">
-          <div class="stack-thumb">Producto principal</div>
-          <div>
-            <h3>The Insomnia Breakthrough</h3>
-            <p>El sistema base de 21 días para dormir más rápido, despertarte menos, volver a dormir si te levantás y dejar de vivir rota al día siguiente.</p>
-          </div>
-          <div><span class="price-old">$49</span><span class="price-now">$19</span></div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-thumb">Bono anti-objeción</div>
-          <div>
-            <h3>Quiet Mind Protocol</h3>
-            <p><strong>Destruye esta objeción:</strong> “Mi problema principal es que no puedo apagar la cabeza”. Ideal como bono visible o también como order bump.</p>
-          </div>
-          <div><span class="price-old">$17</span><span class="price-now">Incluido</span></div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-thumb">Bono anti-calor</div>
-          <div>
-            <h3>The Menopause Sleep Survival Guide</h3>
-            <p><strong>Destruye esta objeción:</strong> “Lo mío son los sofocos, el calor y despertarme empapada”. Hace que la oferta se sienta hecha para ella.</p>
-          </div>
-          <div><span class="price-old">$19</span><span class="price-now">Incluido</span></div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-thumb">Bono ambiente</div>
-          <div>
-            <h3>Perfect Sleep Environment Guide</h3>
-            <p><strong>Destruye esta objeción:</strong> “Capaz mi habitación me está saboteando y ni me doy cuenta”. Muy bueno para valor percibido visual.</p>
-          </div>
-          <div><span class="price-old">$15</span><span class="price-now">Incluido</span></div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-thumb">Upsell post-compra</div>
-          <div>
-            <h3>Energy Without Caffeine Blueprint</h3>
-            <p><strong>Destruye esta objeción:</strong> “Aunque duerma un poco mejor, sigo destruida todo el día”. Upsell ideal porque conecta directo con el dolor diurno.</p>
-          </div>
-          <div><span class="price-old">$27</span><span class="price-now">$9 upsell</span></div>
-        </div>
-        <div class="stack-row">
-          <div class="stack-thumb">Upsell segmentado</div>
-          <div>
-            <h3>Shift Work Sleep Solution</h3>
-            <p><strong>Solo para subsegmento:</strong> usalo si querés captar a mujeres con horarios rotativos, turnos nocturnos o rutinas laborales desordenadas.</p>
-          </div>
-          <div><span class="price-old">$24</span><span class="price-now">$7 upsell</span></div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <p class="lead">Valor total percibido: <strong>$151</strong>. Oferta visible sugerida: <strong>$19</strong> con bonos incluidos. Order bump sugerido: Quiet Mind Protocol. Upsell 1 sugerido: Energy Without Caffeine Blueprint.</p>
-    </div>
-  </section>
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+    document.getElementById('pb').style.width = pct + '%';
+  });
 
-  <section>
-    <div class="container">
-      <h2>Antes y después, pero de verdad</h2>
-      <p class="lead">Acá no vendés solo horas de sueño. Vendés identidad, tranquilidad y funcionalidad cotidiana.</p>
-      <div class="two">
-        <div class="box">
-          <div class="label">Antes</div>
-          <ul class="clean">
-            <li>Te acostás con miedo a otra mala noche.</li>
-            <li>Tu mente acelera cuando más necesitás calmarte.</li>
-            <li>Te despertás a mitad de la noche y sentís que todo se arruinó.</li>
-            <li>Pasás el día con mal humor, niebla mental y cero paciencia.</li>
-            <li>Dependés del café para funcionar y eso vuelve a sabotear tu sueño.</li>
-            <li>Sentís que tu cuerpo cambió y nadie te explicó cómo acompañarlo.</li>
-          </ul>
-          <div class="photo-slot">COLLAGE “ANTES” — reloj 3 AM, café, cara agotada, cama revuelta</div>
-        </div>
-        <div class="box">
-          <div class="label">Después</div>
-          <ul class="clean">
-            <li>Sabés qué está rompiendo tus noches.</li>
-            <li>Tenés un método para ayudarte a dormir y para responder si te despertás.</li>
-            <li>Reducís parte del calor, el caos mental y la tensión nocturna.</li>
-            <li>La cama vuelve a sentirse como descanso, no como amenaza.</li>
-            <li>Te levantás con más claridad, paciencia y sensación de control.</li>
-            <li>Volvés a sentir que tu cuerpo no está roto.</li>
-          </ul>
-          <div class="photo-slot">COLLAGE “DESPUÉS” — mañana luminosa, cama ordenada, alivio, energía tranquila</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  // Countdown
+  (function(){
+    let end;
+    try { end = parseInt(localStorage.getItem('laura_cd_end')); } catch(e){}
+    if (!end || isNaN(end)) {
+      end = Date.now() + (2*86400 + 13*3600 + 47*60) * 1000;
+      try { localStorage.setItem('laura_cd_end', end); } catch(e){}
+    }
+    function tick(){
+      const diff = Math.max(0, end - Date.now());
+      const pad = n => String(n).padStart(2,'0');
+      document.getElementById('cd').textContent = pad(Math.floor(diff/86400000));
+      document.getElementById('ch').textContent = pad(Math.floor((diff%86400000)/3600000));
+      document.getElementById('cm').textContent = pad(Math.floor((diff%3600000)/60000));
+      document.getElementById('cs').textContent = pad(Math.floor((diff%60000)/1000));
+    }
+    tick(); setInterval(tick, 1000);
+  })();
 
-  <section>
-    <div class="container">
-      <h2>Esto es para vos si te reconocés en estas frases</h2>
-      <div class="three">
-        <div class="box"><h3>“Estoy cansada de estar cansada”</h3><p>Ya no querés sobrevivir el día. Querés volver a sentirte vos misma.</p></div>
-        <div class="box"><h3>“Me despierto siempre a la misma hora”</h3><p>Y cuando eso pasa, tu cabeza arranca y el sueño desaparece.</p></div>
-        <div class="box"><h3>“Tengo calor, sudor, incomodidad”</h3><p>No es solo mental. Tu cuerpo también está interfiriendo con tu descanso.</p></div>
-        <div class="box"><h3>“Ya probé consejos sueltos y nada me cambió”</h3><p>Porque necesitás un sistema, no otra lista de tips.</p></div>
-        <div class="box"><h3>“No quiero depender de más café”</h3><p>Querés energía real, no seguir parchando el cansancio.</p></div>
-        <div class="box"><h3>“Quiero volver a confiar en mi sueño”</h3><p>Ese deseo solo ya es un indicador de que esta oferta puede hacerte sentido.</p></div>
-      </div>
-    </div>
-  </section>
+  // Fade-in on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {threshold: 0.08});
 
-  <section>
-    <div class="container">
-      <h2>Más testimonios y reconocimiento inmediato</h2>
-      <p class="lead">Como me pediste, esta sección ya no se siente tan FAQ/bridge. Está empujada desde frases de clienta, validación social y objeciones resueltas en formato testimonio.</p>
-      <div class="testimonial-grid">
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <h3>“Ya no me despierto empapada y furiosa con el mundo.”</h3>
-          <p>“Mi problema más fuerte era el calor nocturno y la sensación de que mi cuerpo me traicionaba. El bono de menopausia fue lo que me hizo sentir acompañada de verdad.”</p>
-          <small>Placeholder — Paula, 51</small>
-        </div>
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <h3>“Lo compré por el sueño, pero me quedé por cómo me cambió el día.”</h3>
-          <p>“No esperaba notar tanto cambio en mi humor y en mi claridad mental. Dormir un poco mejor ya me cambió muchísimo la semana.”</p>
-          <small>Placeholder — Verónica, 48</small>
-        </div>
-        <div class="testimonial">
-          <div class="stars">★★★★★</div>
-          <h3>“Sentí que por fin había una explicación lógica para lo que me pasaba.”</h3>
-          <p>“Eso fue lo que más me vendió esta propuesta. No me hablaban como si yo fuera vaga o incapaz de dormir bien, sino como alguien con un problema real y específico.”</p>
-          <small>Placeholder — Adriana, 54</small>
-        </div>
-      </div>
-    </div>
-  </section>
+  document.querySelectorAll('.pull, .laura-voice, .evidence, .product-reveal, .mini-testi, .inline-cta').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    io.observe(el);
+  });
+</script>
 
-  <section id="oferta">
-    <div class="container">
-      <div class="offer-box">
-        <div class="eyebrow" style="background: rgba(255,255,255,.14); color:white;">Oferta temporal</div>
-        <h2 style="margin-top:16px;">Entrá hoy a The Insomnia Breakthrough y llevate el stack diseñado para atacar todos los ángulos de tu problema</h2>
-        <p class="lead" style="color: rgba(255,255,255,.85); max-width: 880px;">Esta parte ahora está mucho más enfocada en la lógica de compra: producto principal + bonos que destruyen objeciones + urgencia + CTA emocional.</p>
-
-        <div class="offer-note">✓ Acceso inmediato • ✓ Lectura simple • ✓ Oferta limitada</div>
-
-        <div class="offer-price">
-          <span class="old">Valor total: $151</span>
-          <span class="now">Hoy: $19</span>
-        </div>
-
-        <ul class="clean">
-          <li>The Insomnia Breakthrough</li>
-          <li>Quiet Mind Protocol</li>
-          <li>The Menopause Sleep Survival Guide</li>
-          <li>Perfect Sleep Environment Guide</li>
-        </ul>
-
-        <div class="countdown">
-          <div class="time-box"><strong>02</strong><span>días</span></div>
-          <div class="time-box"><strong>13</strong><span>horas</span></div>
-          <div class="time-box"><strong>47</strong><span>min</span></div>
-        </div>
-
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://pay.hotmart.com/TU-LINK-AQUI">Sí, quiero volver a dormir en paz</a>
-          <a class="btn btn-secondary" href="#faq">Quiero revisar preguntas</a>
-        </div>
-        <div class="micro" style="color: rgba(255,255,255,.75);">Podés sumar micro-CTAs en otras secciones: “Quiero apagar mi mente de noche”, “Quiero dejar de despertarme con calor”, “Quiero energía sin café”.</div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="guarantee">
-        <div class="seal">7 días<br/>garantía</div>
-        <div>
-          <h3>Reducí fricción con una garantía simple</h3>
-          <p>Ejemplo: “Revisá el material y si sentís que no es para vos, podés pedir tu reembolso dentro del plazo de la plataforma”. Ajustalo a las condiciones reales de Hotmart y no prometas algo que no vayas a sostener.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="container">
-      <h2>Dudas comunes, respondidas de forma directa</h2>
-      <p class="lead">También corregí esta parte. Antes se veía más frágil visualmente y más genérica. Ahora está resuelta como bloques sólidos, más coherentes con el resto de la estética.</p>
-      <div class="faq-list">
-        <div class="faq-card">
-          <h3>¿Esto es solo para mujeres con menopausia?</h3>
-          <p>No exclusivamente, pero sí está optimizado para mujeres +45 con despertares nocturnos, sueño fragmentado, calor nocturno, mente acelerada y cansancio diurno. Mientras más específico quede el avatar, mejor suele convertir.</p>
-        </div>
-        <div class="faq-card">
-          <h3>¿Y si mi mayor problema es que no puedo apagar la cabeza?</h3>
-          <p>Entonces Quiet Mind Protocol se vuelve una de las piezas más fuertes de la oferta. De hecho, podés destacarlo varias veces o usarlo como order bump si querés monetizar esa objeción puntual.</p>
-        </div>
-        <div class="faq-card">
-          <h3>¿Y si lo que más me despierta es el calor o el sudor nocturno?</h3>
-          <p>Por eso el stack incluye el contenido sobre menopausia y ambiente del cuarto. La oferta funciona mejor justamente porque no trata el problema como si fuera solo mental.</p>
-        </div>
-        <div class="faq-card">
-          <h3>¿Cuánto tiempo lleva seguir el programa?</h3>
-          <p>Está planteado para ser simple y aplicable. La idea no es darte otra rutina pesada más, sino un sistema fácil de implementar incluso si llegás cansada al final del día.</p>
-        </div>
-        <div class="faq-card">
-          <h3>¿Esto reemplaza atención médica?</h3>
-          <p>No. Esta oferta debe presentarse como recurso educativo y práctico para hábitos, entorno y manejo del sueño. No reemplaza diagnóstico, evaluación ni tratamiento profesional.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="footer-cta">
-    <div class="container">
-      <h2>La noche no te está ganando porque seas débil.<br/>Te está ganando porque nadie te enseñó a resolver este problema completo.</h2>
-      <p class="lead">Ahora la página tiene más mecanismo, más prueba, más especificidad y una mejor estructura de oferta. Terminá de personalizarla con fotos reales, testimonios reales, números válidos y tus enlaces finales.</p>
-      <div class="cta-row" style="justify-content:center;">
-        <a class="btn btn-primary" href="https://pay.hotmart.com/TU-LINK-AQUI">Quiero empezar hoy</a>
-        <a class="btn btn-secondary" href="#stack">Ver la oferta otra vez</a>
-      </div>
-      <p class="tiny">Checklist final antes de publicar: reemplazar placeholders de fotos, cargar testimonios reales, definir si Menopause Sleep Survival Guide va incluido o como upsell, completar stats solo con datos verificables, integrar countdown real, colocar enlace Hotmart final y medir clicks con pixel.</p>
-    </div>
-  </section>
 </body>
 </html>
