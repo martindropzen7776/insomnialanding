@@ -6,756 +6,233 @@
   <title>Cómo Laura volvió a dormir — The Insomnia Breakthrough</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1473861204280690');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1473861204280690&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-  
   <style>
-    :root {
-      --paper:   #faf6f0;
-      --paper2:  #f5ede0;
-      --ink:     #1c1512;
-      --ink2:    #2e2218;
-      --muted:   #7a6a58;
-      --terra:   #b5533c;
-      --terra2:  #8f3d28;
-      --blush:   #e8c4b0;
-      --blush2:  #f0ddd0;
-      --sage:    #5a7a5e;
-      --sage-bg: #eaf0e8;
-      --border:  #ddd0c0;
-      --max: 680px;
+    :root{
+      --paper:#faf6f0;--paper2:#f5ede0;--ink:#1c1512;--ink2:#2e2218;
+      --muted:#7a6a58;--terra:#b5533c;--terra2:#8f3d28;
+      --blush:#e8c4b0;--blush2:#f0ddd0;--sage:#5a7a5e;
+      --border:#ddd0c0;--max:680px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'Lora', Georgia, serif;
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
-
-    /* ── TOPBAR ── */
-    .topbar{
-      background: var(--ink);
-      color: #e8d8c8;
-      text-align: center;
-      padding: 12px 20px;
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: .4px;
-    }
-    .topbar strong{color: var(--blush);}
-
-    /* ── HERO ── */
-    .hero{
-      background: linear-gradient(170deg, #2e1e14 0%, #1c1512 100%);
-      padding: 70px 24px 60px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before{
-      content:'';
-      position:absolute;
-      width:600px;height:600px;
-      border-radius:50%;
-      background: radial-gradient(circle, rgba(181,83,60,.22) 0%, transparent 68%);
-      top:-200px;left:50%;transform:translateX(-50%);
-      pointer-events:none;
-    }
-    .hero-kicker{
-      display:inline-block;
-      font-family:'Jost',sans-serif;
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:2.5px;
-      text-transform:uppercase;
-      color: var(--blush);
-      opacity:.8;
-      margin-bottom:24px;
-    }
-    .hero h1{
-      font-family:'Cormorant Garamond',serif;
-      font-size: clamp(36px, 6vw, 72px);
-      font-weight:700;
-      color:#faf6f0;
-      line-height:1.08;
-      letter-spacing:-.5px;
-      max-width:740px;
-      margin:0 auto 22px;
-    }
-    .hero h1 em{
-      font-style:italic;
-      color: var(--blush);
-    }
-    .hero-byline{
-      font-family:'Jost',sans-serif;
-      font-size:14px;
-      color:rgba(255,255,255,.42);
-      letter-spacing:.3px;
-      margin-bottom:36px;
-    }
-    .hero-byline span{color:rgba(255,255,255,.65);}
-
-    /* ── avatar ── */
-    .avatar-circle{
-      width:90px;height:90px;
-      border-radius:50%;
-      background: linear-gradient(145deg, #c49a78, #8a5e42);
-      border:3px solid rgba(255,255,255,.15);
-      margin:0 auto 14px;
-      display:flex;align-items:center;justify-content:center;
-      font-size:36px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.4);
-    }
-    .avatar-name{
-      font-family:'Cormorant Garamond',serif;
-      font-size:18px;
-      font-style:italic;
-      color:rgba(255,255,255,.7);
-      margin-bottom:4px;
-    }
-
-    /* ── reading progress ── */
-    .progress-bar{
-      position:fixed;top:0;left:0;
-      height:3px;
-      background: linear-gradient(90deg, var(--terra), var(--blush));
-      width:0%;
-      z-index:999;
-      transition:width .1s;
-    }
-
-    /* ── ARTICLE BODY ── */
-    .article{
-      max-width: var(--max);
-      margin:0 auto;
-      padding: 60px 24px 80px;
-    }
-
-    /* narrative text */
-    .article p{
-      font-size: clamp(16px, 2vw, 18px);
-      line-height:1.85;
-      color: var(--ink2);
-      margin-bottom:26px;
-    }
-    .article p.opening{
-      font-family:'Cormorant Garamond',serif;
-      font-size: clamp(20px, 2.8vw, 26px);
-      font-style:italic;
-      color: var(--ink);
-      line-height:1.6;
-      margin-bottom:32px;
-    }
-
-    /* section breaks */
-    .act-break{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      margin:52px 0 40px;
-    }
-    .act-break::before,.act-break::after{
-      content:'';flex:1;
-      height:1px;background:var(--border);
-    }
-    .act-label{
-      font-family:'Jost',sans-serif;
-      font-size:10px;
-      font-weight:700;
-      letter-spacing:2.5px;
-      text-transform:uppercase;
-      color:var(--muted);
-      white-space:nowrap;
-    }
-
-    /* pull quotes */
-    .pull{
-      border-left: 4px solid var(--terra);
-      padding: 22px 28px;
-      margin: 36px -28px;
-      background: var(--paper2);
-    }
-    .pull p{
-      font-family:'Cormorant Garamond',serif;
-      font-size: clamp(22px, 3vw, 30px);
-      font-style:italic;
-      font-weight:600;
-      color: var(--ink);
-      line-height:1.45;
-      margin:0;
-    }
-    .pull small{
-      display:block;
-      margin-top:10px;
-      font-family:'Jost',sans-serif;
-      font-size:12px;
-      color:var(--muted);
-      font-style:normal;
-    }
-
-    /* highlight box - evidence/science */
-    .evidence{
-      background: #f0ede6;
-      border:1px solid var(--border);
-      border-radius:4px;
-      padding:28px 32px;
-      margin:36px 0;
-      position:relative;
-    }
-    .evidence::before{
-      content:'Lo que descubrió Laura';
-      display:block;
-      font-family:'Jost',sans-serif;
-      font-size:10px;
-      font-weight:700;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:var(--terra);
-      margin-bottom:14px;
-    }
-    .evidence p{
-      font-size:15.5px !important;
-      margin-bottom:14px !important;
-      color:var(--ink2);
-    }
+    body{background:var(--paper);color:var(--ink);font-family:'Lora',Georgia,serif;line-height:1.8;overflow-x:hidden;}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--blush));width:0%;z-index:999;transition:width .1s;}
+    .topbar{background:var(--ink);color:#e8d8c8;text-align:center;padding:12px 20px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;letter-spacing:.4px;}
+    .topbar strong{color:var(--blush);}
+    .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgMzgwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icm9vbSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZDBkMWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYTEwMjAiLz48L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJtb29ubGlnaHQiIGN4PSI4MCUiIGN5PSIyMCUiIHI9IjQwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MwYzhlMCIgc3RvcC1vcGFjaXR5PSIwLjE1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDFhIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJjbG9ja2dsb3ciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UwMzAzMCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4MDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iMzgwIiBmaWxsPSJ1cmwoI3Jvb20pIi8+CiAgPHJlY3Qgd2lkdGg9IjkwMCIgaGVpZ2h0PSIzODAiIGZpbGw9InVybCgjbW9vbmxpZ2h0KSIvPgogIDxyZWN0IHg9IjY4MCIgeT0iMzAiIHdpZHRoPSIxNjAiIGhlaWdodD0iMjIwIiByeD0iNCIgZmlsbD0iIzBhMTAyMCIgc3Ryb2tlPSIjMmEyYTNhIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSI2ODMiIHk9IjMzIiB3aWR0aD0iNzQiIGhlaWdodD0iMjE0IiBmaWxsPSIjMGUxODI4Ii8+CiAgPHJlY3QgeD0iNzYyIiB5PSIzMyIgd2lkdGg9Ijc1IiBoZWlnaHQ9IjIxNCIgZmlsbD0iIzBlMTgyOCIvPgogIDxyZWN0IHg9IjY4MCIgeT0iMTMzIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjQiIGZpbGw9IiMyYTJhM2EiLz4KICA8Y2lyY2xlIGN4PSI3MjAiIGN5PSI5MCIgcj0iMjgiIGZpbGw9IiNlOGUwYzgiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjczMCIgY3k9IjgyIiByPSIyMCIgZmlsbD0iIzBlMTgyOCIvPgogIDxjaXJjbGUgY3g9Ijc5MCIgY3k9IjYwIiByPSIxLjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjgiLz4KICA8Y2lyY2xlIGN4PSI4MTAiIGN5PSI0NSIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNiIvPgogIDxjaXJjbGUgY3g9Ijc3NSIgY3k9IjQwIiByPSIxLjIiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjciLz4KICA8Y2lyY2xlIGN4PSI4MjUiIGN5PSI4MCIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNSIvPgogIDxyZWN0IHg9IjYwIiB5PSIyMjAiIHdpZHRoPSIxMzAiIGhlaWdodD0iMTIwIiByeD0iNCIgZmlsbD0iIzJhMWExMiIvPgogIDxyZWN0IHg9Ijg1IiB5PSIxOTUiIHdpZHRoPSI3MCIgaGVpZ2h0PSI1NSIgcng9IjYiIGZpbGw9IiMxYTFhMmEiLz4KICA8cmVjdCB4PSI4OCIgeT0iMTk4IiB3aWR0aD0iNjQiIGhlaWdodD0iNDQiIHJ4PSI0IiBmaWxsPSIjMTAwODA4Ii8+CiAgPHRleHQgeD0iMTIwIiB5PSIyMjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNlMDMwMzAiIGZvbnQtd2VpZ2h0PSJib2xkIj4zOjIwPC90ZXh0PgogIDx0ZXh0IHg9IjEyMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjkiIGZpbGw9IiNlMDMwMzAiIG9wYWNpdHk9IjAuNyI+QU08L3RleHQ+CiAgPHJlY3QgeD0iODUiIHk9IjE5NSIgd2lkdGg9IjcwIiBoZWlnaHQ9IjQ5IiByeD0iNCIgZmlsbD0idXJsKCNjbG9ja2dsb3cpIiBvcGFjaXR5PSIwLjQiLz4KICA8cmVjdCB4PSIxNzAiIHk9IjE5MCIgd2lkdGg9IjYiIGhlaWdodD0iNDAiIGZpbGw9IiM0YTMwMjAiLz4KICA8ZWxsaXBzZSBjeD0iMTczIiBjeT0iMTkwIiByeD0iMjIiIHJ5PSIxNCIgZmlsbD0iIzNhMjgxOCIvPgogIDxyZWN0IHg9IjAiIHk9IjI0MCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxNDAiIGZpbGw9IiMyYTFhMGUiLz4KICA8cmVjdCB4PSIwIiB5PSIyMDAiIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAiIHJ4PSIwIiBmaWxsPSIjM2EyODE4Ii8+CiAgPHJlY3QgeD0iMjAiIHk9IjIwNSIgd2lkdGg9Ijg2MCIgaGVpZ2h0PSI1MCIgcng9IjYiIGZpbGw9IiM0YTMwMjAiLz4KICA8cmVjdCB4PSI4MCIgeT0iMjM1IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZThlMGQ4Ii8+CiAgPHJlY3QgeD0iOTAiIHk9IjI0NCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI4MiIgcng9IjE2IiBmaWxsPSIjZjBlY2U0Ii8+CiAgPHJlY3QgeD0iMzgwIiB5PSIyMzUiIHdpZHRoPSIyNDAiIGhlaWdodD0iMTAwIiByeD0iMjAiIGZpbGw9IiNlMGQ4ZDAiLz4KICA8cmVjdCB4PSIwIiB5PSIyOTUiIHdpZHRoPSI5MDAiIGhlaWdodD0iODUiIHJ4PSIwIiBmaWxsPSIjNGE1ODc4Ii8+CiAgPHJlY3QgeD0iMCIgeT0iMjk1IiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjEyIiByeD0iMCIgZmlsbD0iIzVhNjg4OCIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2MCwxNjApIj4KICAgIDxyZWN0IHg9Ii0zOCIgeT0iNzAiIHdpZHRoPSI3NiIgaGVpZ2h0PSI4MCIgcng9IjEwIiBmaWxsPSIjM2EzMDUwIi8+CiAgICA8cmVjdCB4PSItMTIiIHk9IjQ4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjgiIHJ4PSI4IiBmaWxsPSIjYzA4ODYwIi8+CiAgICA8ZWxsaXBzZSBjeD0iMCIgY3k9IjMwIiByeD0iMzUiIHJ5PSIzOCIgZmlsbD0iI2MwODg2MCIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSI1IiByeD0iMzciIHJ5PSIyNCIgZmlsbD0iI2IwYTg5OCIvPgogICAgPHBhdGggZD0iTS0zNiAxNSBRLTQyIDUgLTM1IC04IFEtMjIgLTE4IC04IC0xNSIgZmlsbD0iI2IwYTg5OCIvPgogICAgPHBhdGggZD0iTTM2IDE1IFE0MiA1IDM1IC04IiBmaWxsPSJub25lIiBzdHJva2U9IiNiMGE4OTgiIHN0cm9rZS13aWR0aD0iMTAiLz4KICAgIDxwYXRoIGQ9Ik0tMzAgLTUgUS0yMCAtMjAgLTUgLTE4IiBzdHJva2U9IiNjMGI4YjAiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIvPgogICAgPGVsbGlwc2UgY3g9Ii0xMiIgY3k9IjMyIiByeD0iNyIgcnk9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxlbGxpcHNlIGN4PSIxMiIgY3k9IjMyIiByeD0iNyIgcnk9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxjaXJjbGUgY3g9Ii0xMSIgY3k9IjMzIiByPSI0IiBmaWxsPSIjNWEzYTJhIi8+CiAgICA8Y2lyY2xlIGN4PSIxMyIgY3k9IjMzIiByPSI0IiBmaWxsPSIjNWEzYTJhIi8+CiAgICA8cGF0aCBkPSJNLTE4IDM4IFEtMTEgNDEgLTQgMzgiIHN0cm9rZT0iI2EwNzA1MCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNiIvPgogICAgPHBhdGggZD0iTTYgMzggUTEzIDQxIDIwIDM4IiBzdHJva2U9IiNhMDcwNTAiIHN0cm9rZS13aWR0aD0iMS41IiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjYiLz4KICAgIDxwYXRoIGQ9Ik0tMTAgNTIgUTAgNTYgMTAgNTIiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CiAgICA8ZWxsaXBzZSBjeD0iMjUiIGN5PSIxMCIgcng9IjIwIiByeT0iMTAiIGZpbGw9IiNjMDg4NjAiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwyNSwxMCkiLz4KICAgIDxwYXRoIGQ9Ik0xMCA4IFEyNSAyIDM4IDEyIiBzdHJva2U9IiNiMDc4NTAiIHN0cm9rZS13aWR0aD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjU4MCIgY3k9IjEyMCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA4KSIvPgogIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiLz4KICA8Y2lyY2xlIGN4PSI2MjUiIGN5PSI3OCIgcj0iMjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDx0ZXh0IHg9IjYyNSIgeT0iODQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9InJnYmEoMjI0LDQ4LDQ4LDAuNykiPjM6MjA8L3RleHQ+CiAgPGVsbGlwc2UgY3g9IjQ1MCIgY3k9IjM3NSIgcng9IjIwMCIgcnk9IjgiIGZpbGw9InJnYmEoMCwwLDAsMC4zKSIvPgo8L3N2Zz4=");background-size:cover;background-position:center 25%;filter:brightness(.22) saturate(.6);}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(170deg,rgba(28,21,18,.65) 0%,rgba(46,30,20,.35) 55%,rgba(28,21,18,.9) 100%);}
+    .hero-content{position:relative;z-index:1;padding:80px 24px 70px;max-width:780px;margin:0 auto;}
+    .hero-kicker{display:inline-block;font-family:'Jost',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blush);opacity:.85;margin-bottom:28px;}
+    .laura-hero-photo{width:110px;height:110px;border-radius:50%;border:3px solid rgba(232,196,176,.45);overflow:hidden;margin:0 auto 16px;box-shadow:0 16px 48px rgba(0,0,0,.5);background:#8a5e42;}
+    .laura-hero-photo img{width:100%;height:100%;object-fit:cover;}
+    .avatar-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:rgba(255,255,255,.65);margin-bottom:24px;}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,6.5vw,76px);font-weight:700;color:#faf6f0;line-height:1.07;letter-spacing:-.5px;margin-bottom:22px;}
+    .hero h1 em{font-style:italic;color:var(--blush);}
+    .hero-byline{font-family:'Jost',sans-serif;font-size:15px;color:rgba(255,255,255,.48);letter-spacing:.3px;line-height:1.7;}
+    .hero-byline span{color:rgba(255,255,255,.68);}
+    .article{max-width:var(--max);margin:0 auto;padding:64px 24px 80px;}
+    .article p{font-size:clamp(16px,2vw,18px);line-height:1.85;color:var(--ink2);margin-bottom:26px;}
+    .article p.opening{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.8vw,26px);font-style:italic;color:var(--ink);line-height:1.6;margin-bottom:32px;}
+    .act-break{display:flex;align-items:center;gap:16px;margin:52px 0 40px;}
+    .act-break::before,.act-break::after{content:'';flex:1;height:1px;background:var(--border);}
+    .act-label{font-family:'Jost',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+    .pull{border-left:4px solid var(--terra);padding:22px 28px;margin:36px -12px;background:var(--paper2);}
+    .pull p{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,30px);font-style:italic;font-weight:600;color:var(--ink);line-height:1.45;margin:0;}
+    .pull small{display:block;margin-top:10px;font-family:'Jost',sans-serif;font-size:12px;color:var(--muted);font-style:normal;}
+    .ambient-wide{max-width:860px;margin:40px auto;padding:0 24px;}
+    .ambient-wide img{width:100%;display:block;height:380px;object-fit:cover;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.15);}
+    .ambient-wide .caption{font-family:'Jost',sans-serif;font-size:11px;color:var(--muted);text-align:center;margin-top:10px;letter-spacing:.5px;font-style:italic;}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin:36px 0;}
+    .split-img{border-radius:6px;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.12);}
+    .split-img img{width:100%;height:280px;object-fit:cover;display:block;}
+    .split-text p{font-size:16px !important;margin-bottom:16px !important;}
+    .evidence{background:#f0ede6;border:1px solid var(--border);border-radius:4px;padding:28px 32px;margin:36px 0;position:relative;}
+    .evidence::before{content:'Lo que descubrió Laura';display:block;font-family:'Jost',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--terra);margin-bottom:14px;}
+    .evidence p{font-size:15.5px !important;margin-bottom:14px !important;color:var(--ink2);}
     .evidence p:last-child{margin-bottom:0 !important;}
-    .evidence ul{
-      padding-left:20px;
-      margin-bottom:14px;
-    }
-    .evidence ul li{
-      font-size:15px;
-      color:var(--ink2);
-      margin-bottom:8px;
-      line-height:1.65;
-    }
-
-    /* letter/quote from Laura - handwriting feel */
-    .laura-voice{
-      background: white;
-      border:1px solid var(--blush);
-      border-radius:4px;
-      padding:30px 34px;
-      margin:36px 0;
-      position:relative;
-      box-shadow: 2px 4px 20px rgba(0,0,0,.06);
-    }
-    .laura-voice::before{
-      content:'"';
-      font-family:'Cormorant Garamond',serif;
-      font-size:80px;
-      color:var(--blush);
-      position:absolute;
-      top:-10px;left:20px;
-      line-height:1;
-    }
-    .laura-voice p{
-      font-family:'Cormorant Garamond',serif;
-      font-size: clamp(18px, 2.4vw, 22px);
-      font-style:italic;
-      line-height:1.7;
-      color:var(--ink);
-      margin-bottom:14px !important;
-      padding-top:30px;
-    }
+    .evidence ul{padding-left:20px;margin-bottom:14px;}
+    .evidence ul li{font-size:15px;color:var(--ink2);margin-bottom:8px;line-height:1.65;}
+    .laura-voice{background:white;border:1px solid var(--blush);border-radius:4px;padding:30px 34px;margin:36px 0;position:relative;box-shadow:2px 4px 20px rgba(0,0,0,.06);}
+    .laura-voice::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:80px;color:var(--blush);position:absolute;top:-10px;left:20px;line-height:1;}
+    .laura-voice p{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.4vw,22px);font-style:italic;line-height:1.7;color:var(--ink);margin-bottom:14px !important;padding-top:30px;}
     .laura-voice p:first-child{padding-top:40px;}
     .laura-voice p:last-child{margin-bottom:0 !important;}
-    .laura-sig{
-      display:flex;align-items:center;gap:12px;
-      margin-top:18px;
-      padding-top:16px;
-      border-top:1px solid var(--blush2);
-    }
-    .laura-sig .av{
-      width:38px;height:38px;border-radius:50%;
-      background:linear-gradient(145deg,#c49a78,#8a5e42);
-      display:flex;align-items:center;justify-content:center;
-      font-size:16px;flex-shrink:0;
-    }
-    .laura-sig div strong{
-      display:block;font-family:'Jost',sans-serif;
-      font-size:13px;font-weight:700;color:var(--ink);
-    }
-    .laura-sig div span{
-      font-size:12px;color:var(--muted);
-      font-family:'Jost',sans-serif;
-    }
-
-    /* inline CTA button */
-    .inline-cta{
-      background: linear-gradient(135deg, var(--terra), var(--terra2));
-      color:white;
-      border-radius:8px;
-      padding:26px 30px;
-      margin:44px 0;
-      text-align:center;
-      box-shadow: 0 16px 40px rgba(181,83,60,.3);
-    }
-    .inline-cta p{
-      font-family:'Jost',sans-serif;
-      font-size:13px;
-      color:rgba(255,255,255,.7);
-      margin-bottom:8px !important;
-      font-weight:500;
-      letter-spacing:.3px;
-    }
-    .inline-cta .cta-head{
-      font-family:'Cormorant Garamond',serif;
-      font-size: clamp(20px, 3vw, 26px);
-      font-style:italic;
-      color:white;
-      margin-bottom:18px !important;
-      line-height:1.35;
-    }
-    .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      background:white;
-      color: var(--terra2);
-      padding:14px 28px;
-      border-radius:6px;
-      font-family:'Jost',sans-serif;
-      font-size:15px;
-      font-weight:700;
-      text-decoration:none;
-      box-shadow: 0 8px 24px rgba(0,0,0,.15);
-      transition:transform .2s;
-    }
+    .laura-sig{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--blush2);}
+    .laura-sig .av-photo{width:42px;height:42px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--blush);background:#8a5e42;}
+    .laura-sig .av-photo img{width:100%;height:100%;object-fit:cover;}
+    .laura-sig div strong{display:block;font-family:'Jost',sans-serif;font-size:13px;font-weight:700;color:var(--ink);}
+    .laura-sig div span{font-size:12px;color:var(--muted);font-family:'Jost',sans-serif;}
+    .inline-cta{background:linear-gradient(135deg,var(--terra),var(--terra2));color:white;border-radius:8px;padding:26px 30px;margin:44px 0;text-align:center;box-shadow:0 16px 40px rgba(181,83,60,.3);}
+    .inline-cta p{font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,.7);margin-bottom:8px !important;font-weight:500;letter-spacing:.3px;}
+    .inline-cta .cta-head{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,26px);font-style:italic;color:white;margin-bottom:18px !important;line-height:1.35;}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--terra2);padding:14px 28px;border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.15);transition:transform .2s;}
     .btn:hover{transform:translateY(-1px);}
-    .btn-small-text{
-      display:block;
-      font-family:'Jost',sans-serif;
-      font-size:11px;
-      color:rgba(255,255,255,.55);
-      margin-top:12px;
-      letter-spacing:.3px;
-    }
-
-    /* product reveal box */
-    .product-reveal{
-      border:2px solid var(--border);
-      border-radius:6px;
-      overflow:hidden;
-      margin:40px 0;
-    }
-    .product-reveal-header{
-      background:var(--ink);
-      padding:20px 28px;
-      display:flex;align-items:center;gap:16px;
-    }
+    .btn-small-text{display:block;font-family:'Jost',sans-serif;font-size:11px;color:rgba(255,255,255,.55);margin-top:12px;letter-spacing:.3px;}
+    .product-reveal{border:2px solid var(--border);border-radius:6px;overflow:hidden;margin:40px 0;}
+    .product-reveal-header{background:var(--ink);padding:20px 28px;display:flex;align-items:center;gap:16px;}
     .product-reveal-header .icon{font-size:28px;}
-    .product-reveal-header h3{
-      font-family:'Cormorant Garamond',serif;
-      font-size:22px;font-weight:700;
-      color:#faf6f0;margin:0;
-    }
-    .product-reveal-header small{
-      font-family:'Jost',sans-serif;
-      font-size:11px;color:rgba(255,255,255,.5);
-      letter-spacing:1.5px;text-transform:uppercase;
-      display:block;margin-top:2px;
-    }
+    .product-reveal-header h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#faf6f0;margin:0;}
+    .product-reveal-header small{font-family:'Jost',sans-serif;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:2px;}
     .product-reveal-body{padding:24px 28px;}
-    .product-reveal-body p{
-      font-size:15px !important;
-      color:var(--muted);
-      margin-bottom:16px !important;
-    }
-    .reveal-line{
-      display:flex;align-items:flex-start;gap:12px;
-      padding:12px 0;
-      border-bottom:1px solid var(--border);
-      font-size:15px;
-      color:var(--ink2);
-    }
+    .product-reveal-body p{font-size:15px !important;color:var(--muted);margin-bottom:16px !important;}
+    .reveal-line{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--ink2);}
     .reveal-line:last-child{border-bottom:none;}
     .reveal-line .tick{color:var(--sage);font-weight:700;flex-shrink:0;margin-top:2px;}
-
-    /* stack / offer */
-    .offer-section{
-      background: var(--ink);
-      padding:64px 24px;
-      position:relative;
-      overflow:hidden;
-    }
-    .offer-section::before{
-      content:'';
-      position:absolute;
-      width:500px;height:500px;border-radius:50%;
-      background:radial-gradient(circle,rgba(181,83,60,.18),transparent 70%);
-      top:-150px;right:-150px;
-    }
+    .more-testi{max-width:var(--max);margin:0 auto;padding:0 0 20px;}
+    .mini-testi{background:white;border:1px solid var(--border);border-radius:6px;padding:24px 28px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
+    .testi-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+    .testi-photo{width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--blush2);background:#8a7060;}
+    .testi-photo img{width:100%;height:100%;object-fit:cover;}
+    .testi-meta strong{display:block;font-family:'Jost',sans-serif;font-size:14px;font-weight:700;color:var(--ink);}
+    .testi-meta span{font-family:'Jost',sans-serif;font-size:12px;color:var(--muted);}
+    .mini-testi .stars{color:#d4883a;font-size:13px;margin-bottom:10px;}
+    .mini-testi blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);line-height:1.6;}
+    .offer-section{background:var(--ink);padding:64px 24px;position:relative;overflow:hidden;}
+    .offer-section::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(181,83,60,.18),transparent 70%);top:-150px;right:-150px;}
     .offer-inner{max-width:660px;margin:0 auto;}
-    .offer-kicker{
-      font-family:'Jost',sans-serif;
-      font-size:10px;font-weight:700;
-      letter-spacing:2.5px;text-transform:uppercase;
-      color:var(--blush);opacity:.8;
-      margin-bottom:16px;display:block;
-    }
-    .offer-inner h2{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(30px,5vw,50px);
-      font-weight:700;color:#faf6f0;
-      line-height:1.15;margin-bottom:12px;
-    }
+    .offer-kicker{font-family:'Jost',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blush);opacity:.8;margin-bottom:16px;display:block;}
+    .offer-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,50px);font-weight:700;color:#faf6f0;line-height:1.15;margin-bottom:12px;}
     .offer-inner h2 em{font-style:italic;color:var(--blush);}
-    .offer-sub{
-      font-family:'Jost',sans-serif;
-      font-size:15px;
-      color:rgba(255,255,255,.55);
-      margin-bottom:36px;
-      line-height:1.65;
-    }
-
+    .offer-sub{font-family:'Jost',sans-serif;font-size:15px;color:rgba(255,255,255,.55);margin-bottom:36px;line-height:1.65;}
     .stack-list{display:grid;gap:12px;margin-bottom:36px;}
-    .stack-row{
-      display:flex;align-items:center;gap:16px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:8px;
-      padding:16px 20px;
-    }
+    .stack-row{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:16px 20px;}
     .stack-icon{font-size:22px;flex-shrink:0;}
     .stack-row-info{flex:1;}
-    .stack-row-info strong{
-      display:block;
-      font-family:'Jost',sans-serif;
-      font-size:14px;font-weight:700;color:#faf6f0;
-      margin-bottom:2px;
-    }
-    .stack-row-info span{
-      font-family:'Jost',sans-serif;
-      font-size:12px;color:rgba(255,255,255,.45);
-    }
-    .stack-price{
-      font-family:'Jost',sans-serif;
-      text-align:right;flex-shrink:0;
-    }
-    .stack-price .was{
-      display:block;font-size:12px;
-      text-decoration:line-through;
-      color:rgba(255,255,255,.3);
-    }
-    .stack-price .now{
-      font-size:15px;font-weight:700;
-      color:rgba(255,255,255,.7);
-    }
+    .stack-row-info strong{display:block;font-family:'Jost',sans-serif;font-size:14px;font-weight:700;color:#faf6f0;margin-bottom:2px;}
+    .stack-row-info span{font-family:'Jost',sans-serif;font-size:12px;color:rgba(255,255,255,.45);}
+    .stack-price{font-family:'Jost',sans-serif;text-align:right;flex-shrink:0;}
+    .stack-price .was{display:block;font-size:12px;text-decoration:line-through;color:rgba(255,255,255,.3);}
+    .stack-price .now{font-size:15px;font-weight:700;color:rgba(255,255,255,.7);}
     .stack-price .free{color:#8ec89a;font-weight:700;font-size:14px;}
-
-    .price-hero{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:8px;padding:28px 30px;
-      margin-bottom:24px;
-      display:flex;align-items:center;justify-content:space-between;
-      flex-wrap:wrap;gap:20px;
-    }
-    .price-hero .total-val{
-      font-family:'Jost',sans-serif;
-      font-size:13px;color:rgba(255,255,255,.4);
-      margin-bottom:6px;
-    }
-    .price-hero .big-price{
-      font-family:'Cormorant Garamond',serif;
-      font-size:64px;font-weight:700;color:white;
-      line-height:1;
-    }
-    .price-hero .big-price span{
-      font-size:28px;vertical-align:super;margin-right:2px;
-    }
-    .price-hero .was-price{
-      font-family:'Jost',sans-serif;
-      font-size:16px;
-      text-decoration:line-through;
-      color:rgba(255,255,255,.35);
-    }
-    .countdown-row{
-      display:flex;gap:10px;flex-wrap:wrap;
-    }
-    .ctu{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:8px;padding:12px 16px;text-align:center;min-width:72px;
-    }
+    .price-hero{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 30px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+    .price-hero .total-val{font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,.4);margin-bottom:6px;}
+    .price-hero .big-price{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:700;color:white;line-height:1;}
+    .price-hero .big-price span{font-size:28px;vertical-align:super;margin-right:2px;}
+    .price-hero .was-price{font-family:'Jost',sans-serif;font-size:16px;text-decoration:line-through;color:rgba(255,255,255,.35);}
+    .countdown-row{display:flex;gap:10px;flex-wrap:wrap;}
+    .ctu{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:12px 16px;text-align:center;min-width:72px;}
     .ctu strong{display:block;font-size:26px;font-weight:900;color:white;font-family:'Jost',sans-serif;}
     .ctu span{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:1px;font-family:'Jost',sans-serif;}
-
-    .btn-main{
-      display:flex;align-items:center;justify-content:center;gap:10px;
-      background:linear-gradient(135deg,var(--terra),var(--terra2));
-      color:white;
-      padding:20px 36px;
-      border-radius:8px;
-      font-family:'Jost',sans-serif;
-      font-size:17px;font-weight:700;
-      text-decoration:none;
-      box-shadow:0 20px 50px rgba(181,83,60,.4);
-      transition:transform .2s,box-shadow .2s;
-      text-align:center;
-    }
+    .btn-main{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--terra),var(--terra2));color:white;padding:20px 36px;border-radius:8px;font-family:'Jost',sans-serif;font-size:17px;font-weight:700;text-decoration:none;box-shadow:0 20px 50px rgba(181,83,60,.4);transition:transform .2s,box-shadow .2s;text-align:center;}
     .btn-main:hover{transform:translateY(-2px);box-shadow:0 28px 60px rgba(181,83,60,.5);}
-    .micro-guarantee{
-      display:flex;align-items:center;gap:12px;
-      margin-top:18px;
-      padding:14px 18px;
-      background:rgba(90,122,94,.15);
-      border:1px solid rgba(90,122,94,.25);
-      border-radius:8px;
-    }
-    .micro-guarantee p{
-      font-family:'Jost',sans-serif;
-      font-size:13px;color:rgba(255,255,255,.65);
-      margin:0 !important;line-height:1.55;
-    }
+    .micro-guarantee{display:flex;align-items:center;gap:12px;margin-top:18px;padding:14px 18px;background:rgba(90,122,94,.15);border:1px solid rgba(90,122,94,.25);border-radius:8px;}
+    .micro-guarantee p{font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,.65);margin:0 !important;line-height:1.55;}
     .micro-guarantee strong{color:rgba(255,255,255,.85);}
-
-    /* FAQ */
-    .faq-section{
-      background:var(--paper2);
-      padding:64px 24px;
-    }
+    .faq-section{background:var(--paper2);padding:64px 24px;}
     .faq-inner{max-width:var(--max);margin:0 auto;}
-    .faq-inner .section-hed{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(26px,4vw,40px);
-      font-weight:700;
-      color:var(--ink);
-      margin-bottom:32px;
-      line-height:1.2;
-    }
+    .faq-inner .section-hed{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,40px);font-weight:700;color:var(--ink);margin-bottom:32px;line-height:1.2;}
     .faq-inner .section-hed em{font-style:italic;color:var(--terra);}
-    details{
-      background:white;
-      border:1px solid var(--border);
-      border-radius:4px;
-      margin-bottom:10px;
-      box-shadow:0 2px 8px rgba(0,0,0,.04);
-    }
+    details{background:white;border:1px solid var(--border);border-radius:4px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
     details[open]{border-color:var(--blush);}
-    summary{
-      cursor:pointer;list-style:none;
-      padding:20px 22px;
-      font-family:'Jost',sans-serif;
-      font-size:15px;font-weight:600;
-      color:var(--ink);
-      display:flex;justify-content:space-between;align-items:center;gap:12px;
-    }
+    summary{cursor:pointer;list-style:none;padding:20px 22px;font-family:'Jost',sans-serif;font-size:15px;font-weight:600;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:12px;}
     summary::-webkit-details-marker{display:none;}
     summary::after{content:'+';font-size:20px;color:var(--terra);flex-shrink:0;transition:transform .2s;}
     details[open] summary::after{transform:rotate(45deg);}
-    details .faq-body{
-      padding:0 22px 20px;
-      font-family:'Jost',sans-serif;
-      font-size:14.5px;color:var(--muted);
-      line-height:1.75;
-    }
-
-    /* more testimonials */
-    .more-testi{
-      max-width:var(--max);margin:0 auto;
-      padding:0 0 20px;
-    }
-    .mini-testi{
-      background:white;
-      border:1px solid var(--border);
-      border-radius:4px;
-      padding:24px 28px;
-      margin-bottom:16px;
-      box-shadow:0 2px 10px rgba(0,0,0,.04);
-    }
-    .mini-testi .stars{color:#d4883a;font-size:13px;margin-bottom:10px;}
-    .mini-testi blockquote{
-      font-family:'Cormorant Garamond',serif;
-      font-style:italic;
-      font-size:18px;
-      color:var(--ink);
-      line-height:1.6;
-      margin-bottom:12px;
-    }
-    .mini-testi cite{
-      font-family:'Jost',sans-serif;
-      font-size:12px;color:var(--muted);font-style:normal;
-    }
-
-    /* final cta */
-    .final-cta{
-      background:var(--paper);
-      padding:64px 24px;
-      text-align:center;
-    }
+    details .faq-body{padding:0 22px 20px;font-family:'Jost',sans-serif;font-size:14.5px;color:var(--muted);line-height:1.75;}
+    .final-cta{background:var(--paper);padding:64px 24px;text-align:center;}
     .final-inner{max-width:560px;margin:0 auto;}
-    .final-inner h2{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(28px,4.5vw,44px);
-      font-weight:700;
-      line-height:1.2;
-      color:var(--ink);
-      margin-bottom:16px;
-    }
+    .final-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,44px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:16px;}
     .final-inner h2 em{font-style:italic;color:var(--terra);}
-    .final-inner p{
-      font-family:'Jost',sans-serif;
-      font-size:15px;color:var(--muted);
-      margin-bottom:28px;line-height:1.7;
-    }
-
-    /* footer */
-    footer{
-      background:var(--ink2);
-      padding:32px 24px;
-      text-align:center;
-    }
-    footer p{
-      font-family:'Jost',sans-serif;
-      font-size:11.5px;color:rgba(255,255,255,.28);
-      line-height:1.75;max-width:640px;margin:0 auto;
-    }
-
-    @media(max-width:600px){
+    .final-inner p{font-family:'Jost',sans-serif;font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.7;}
+    footer{background:var(--ink2);padding:32px 24px;text-align:center;}
+    footer p{font-family:'Jost',sans-serif;font-size:11.5px;color:rgba(255,255,255,.28);line-height:1.75;max-width:640px;margin:0 auto;}
+    @media(max-width:700px){
+      .split{grid-template-columns:1fr;}
       .pull{margin:30px 0;}
       .price-hero{flex-direction:column;align-items:flex-start;}
+      .ambient-wide{padding:0 16px;}
+      .ambient-wide img{height:240px;}
     }
   </style>
 </head>
 <body>
 
 <div class="progress-bar" id="pb"></div>
-
-<!-- TOPBAR -->
-<div class="topbar">
-  Oferta de lanzamiento · Solo por tiempo limitado · <strong>$19 en vez de $49</strong>
-</div>
+<div class="topbar">Oferta de lanzamiento · Solo por tiempo limitado · <strong>$19 en vez de $49</strong></div>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-kicker">Historia real · Personaje arquetipo</div>
-  <div class="avatar-circle">👩‍🦳</div>
-  <div class="avatar-name">Laura, 51 años — Córdoba</div>
-  <h1>Tres años sin dormir bien.<br>Hasta que <em>entendió<br>por qué.</em></h1>
-  <p class="hero-byline">
-    Esto es lo que Laura le contaría a su mejor amiga<br>
-    <span>si pudiera explicarle cómo cambió todo.</span>
-  </p>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-kicker">Historia real · Personaje arquetipo</div>
+    <div class="laura-hero-photo">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0OWE3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhhNWU0MiIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InNraW4iIGN4PSI1MCUiIGN5PSIzNSUiIHI9IjU1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4YzRhMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M4OTY2YSIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNsZSI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0idXJsKCNiZykiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE3NSIgcng9IjY1IiByeT0iNDUiIGZpbGw9IiM0YTYwODAiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPHJlY3QgeD0iODUiIHk9IjEzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0idXJsKCNza2luKSIvPgogIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxMDUiIHJ4PSI0MiIgcnk9IjQ4IiBmaWxsPSJ1cmwoI3NraW4pIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjcyIiByeD0iNDQiIHJ5PSIyOCIgZmlsbD0iI2MwYjhiMCIvPgogIDxwYXRoIGQ9Ik01OCA5MCBRNTIgNzUgNjAgNjIgUTcwIDUyIDg1IDU1IFExMDAgNTAgMTE1IDU1IFExMzAgNTIgMTQwIDYyIFExNDggNzUgMTQyIDkwIiBmaWxsPSIjYzBiOGIwIi8+CiAgPHBhdGggZD0iTTU4IDkwIFE1NSAxMDAgNjAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTE0MiA5MCBRMTQ1IDEwMCAxNDAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTc1IDU4IFE4NSA1MiA5NSA1NCIgc3Ryb2tlPSIjZTBkOGQwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMDUgNTMgUTExNSA1MSAxMjUgNTYiIHN0cm9rZT0iI2UwZDhkMCIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8ZWxsaXBzZSBjeD0iODIiIGN5PSIxMDUiIHJ4PSI5IiByeT0iNyIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iMTE4IiBjeT0iMTA1IiByeD0iOSIgcnk9IjciIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iODMiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSIxMTkiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMTIyIiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPHBhdGggZD0iTTczIDk2IFE4MiA5MSA5MSA5NSIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTEwOSA5NSBRMTE4IDkxIDEyNyA5NiIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTk3IDExMCBROTUgMTIyIDkwIDEyNiBRMTAwIDEyOSAxMTAgMTI2IFExMDUgMTIyIDEwMyAxMTAiIHN0cm9rZT0iI2MwOTA2YSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNODYgMTM4IFExMDAgMTQ4IDExNCAxMzgiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjEyNSIgcng9IjEyIiByeT0iOCIgZmlsbD0iI2UwODg3OCIgb3BhY2l0eT0iMC4yNSIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxMjUiIHJ4PSIxMiIgcnk9IjgiIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMjUiLz4KICA8Y2lyY2xlIGN4PSI1OCIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgogIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgo8L3N2Zz4=" alt="Laura, 51 años"/>
+    </div>
+    <div class="avatar-name">Laura, 51 años — Córdoba</div>
+    <h1>Tres años sin dormir bien.<br>Hasta que <em>entendió<br>por qué.</em></h1>
+    <p class="hero-byline">Esto es lo que Laura le contaría a su mejor amiga<br><span>si pudiera explicarle cómo cambió todo.</span></p>
+  </div>
 </div>
 
 <!-- ARTICLE -->
 <article class="article">
+  <p class="opening">Si me hubieras visto hace dos años, me habrías visto funcionar. Perfectamente funcional. Maestra de primaria, mamá, esposa. El tipo de persona que anota todo en una agenda y llega a tiempo a todos lados.</p>
+  <p>Pero adentro de esa agenda impecable había una nota que nadie más veía: <em>Noche número 847 sin dormir bien.</em> (No la anoté de verdad, pero podría haberlo hecho.)</p>
+  <p>Empezó a los 48, más o menos. No fue dramático. Fue gradual, casi imperceptible. Empecé a despertarme a la madrugada y a costarme volver a dormir. Al principio pensé que era estrés de fin de año. Después del verano. Después "el trabajo". Siempre tenía una explicación razonable.</p>
+</article>
 
-  <!-- ACT 1: LA VIDA ANTES -->
-  <p class="opening">
-    Si me hubieras visto hace dos años, me habrías visto funcionar. Perfectamente funcional. Maestra de primaria, mamá, esposa. El tipo de persona que anota todo en una agenda y llega a tiempo a todos lados.
-  </p>
+<!-- IMAGEN AMBIENTAL 1: mujer despierta de noche -->
+<div class="ambient-wide">
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgMzgwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icm9vbSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZDBkMWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYTEwMjAiLz48L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJtb29ubGlnaHQiIGN4PSI4MCUiIGN5PSIyMCUiIHI9IjQwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MwYzhlMCIgc3RvcC1vcGFjaXR5PSIwLjE1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDFhIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJjbG9ja2dsb3ciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UwMzAzMCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4MDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iMzgwIiBmaWxsPSJ1cmwoI3Jvb20pIi8+CiAgPHJlY3Qgd2lkdGg9IjkwMCIgaGVpZ2h0PSIzODAiIGZpbGw9InVybCgjbW9vbmxpZ2h0KSIvPgogIDxyZWN0IHg9IjY4MCIgeT0iMzAiIHdpZHRoPSIxNjAiIGhlaWdodD0iMjIwIiByeD0iNCIgZmlsbD0iIzBhMTAyMCIgc3Ryb2tlPSIjMmEyYTNhIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSI2ODMiIHk9IjMzIiB3aWR0aD0iNzQiIGhlaWdodD0iMjE0IiBmaWxsPSIjMGUxODI4Ii8+CiAgPHJlY3QgeD0iNzYyIiB5PSIzMyIgd2lkdGg9Ijc1IiBoZWlnaHQ9IjIxNCIgZmlsbD0iIzBlMTgyOCIvPgogIDxyZWN0IHg9IjY4MCIgeT0iMTMzIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjQiIGZpbGw9IiMyYTJhM2EiLz4KICA8Y2lyY2xlIGN4PSI3MjAiIGN5PSI5MCIgcj0iMjgiIGZpbGw9IiNlOGUwYzgiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjczMCIgY3k9IjgyIiByPSIyMCIgZmlsbD0iIzBlMTgyOCIvPgogIDxjaXJjbGUgY3g9Ijc5MCIgY3k9IjYwIiByPSIxLjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjgiLz4KICA8Y2lyY2xlIGN4PSI4MTAiIGN5PSI0NSIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNiIvPgogIDxjaXJjbGUgY3g9Ijc3NSIgY3k9IjQwIiByPSIxLjIiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjciLz4KICA8Y2lyY2xlIGN4PSI4MjUiIGN5PSI4MCIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNSIvPgogIDxyZWN0IHg9IjYwIiB5PSIyMjAiIHdpZHRoPSIxMzAiIGhlaWdodD0iMTIwIiByeD0iNCIgZmlsbD0iIzJhMWExMiIvPgogIDxyZWN0IHg9Ijg1IiB5PSIxOTUiIHdpZHRoPSI3MCIgaGVpZ2h0PSI1NSIgcng9IjYiIGZpbGw9IiMxYTFhMmEiLz4KICA8cmVjdCB4PSI4OCIgeT0iMTk4IiB3aWR0aD0iNjQiIGhlaWdodD0iNDQiIHJ4PSI0IiBmaWxsPSIjMTAwODA4Ii8+CiAgPHRleHQgeD0iMTIwIiB5PSIyMjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNlMDMwMzAiIGZvbnQtd2VpZ2h0PSJib2xkIj4zOjIwPC90ZXh0PgogIDx0ZXh0IHg9IjEyMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjkiIGZpbGw9IiNlMDMwMzAiIG9wYWNpdHk9IjAuNyI+QU08L3RleHQ+CiAgPHJlY3QgeD0iODUiIHk9IjE5NSIgd2lkdGg9IjcwIiBoZWlnaHQ9IjQ5IiByeD0iNCIgZmlsbD0idXJsKCNjbG9ja2dsb3cpIiBvcGFjaXR5PSIwLjQiLz4KICA8cmVjdCB4PSIxNzAiIHk9IjE5MCIgd2lkdGg9IjYiIGhlaWdodD0iNDAiIGZpbGw9IiM0YTMwMjAiLz4KICA8ZWxsaXBzZSBjeD0iMTczIiBjeT0iMTkwIiByeD0iMjIiIHJ5PSIxNCIgZmlsbD0iIzNhMjgxOCIvPgogIDxyZWN0IHg9IjAiIHk9IjI0MCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxNDAiIGZpbGw9IiMyYTFhMGUiLz4KICA8cmVjdCB4PSIwIiB5PSIyMDAiIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAiIHJ4PSIwIiBmaWxsPSIjM2EyODE4Ii8+CiAgPHJlY3QgeD0iMjAiIHk9IjIwNSIgd2lkdGg9Ijg2MCIgaGVpZ2h0PSI1MCIgcng9IjYiIGZpbGw9IiM0YTMwMjAiLz4KICA8cmVjdCB4PSI4MCIgeT0iMjM1IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZThlMGQ4Ii8+CiAgPHJlY3QgeD0iOTAiIHk9IjI0NCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI4MiIgcng9IjE2IiBmaWxsPSIjZjBlY2U0Ii8+CiAgPHJlY3QgeD0iMzgwIiB5PSIyMzUiIHdpZHRoPSIyNDAiIGhlaWdodD0iMTAwIiByeD0iMjAiIGZpbGw9IiNlMGQ4ZDAiLz4KICA8cmVjdCB4PSIwIiB5PSIyOTUiIHdpZHRoPSI5MDAiIGhlaWdodD0iODUiIHJ4PSIwIiBmaWxsPSIjNGE1ODc4Ii8+CiAgPHJlY3QgeD0iMCIgeT0iMjk1IiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjEyIiByeD0iMCIgZmlsbD0iIzVhNjg4OCIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2MCwxNjApIj4KICAgIDxyZWN0IHg9Ii0zOCIgeT0iNzAiIHdpZHRoPSI3NiIgaGVpZ2h0PSI4MCIgcng9IjEwIiBmaWxsPSIjM2EzMDUwIi8+CiAgICA8cmVjdCB4PSItMTIiIHk9IjQ4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjgiIHJ4PSI4IiBmaWxsPSIjYzA4ODYwIi8+CiAgICA8ZWxsaXBzZSBjeD0iMCIgY3k9IjMwIiByeD0iMzUiIHJ5PSIzOCIgZmlsbD0iI2MwODg2MCIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSI1IiByeD0iMzciIHJ5PSIyNCIgZmlsbD0iI2IwYTg5OCIvPgogICAgPHBhdGggZD0iTS0zNiAxNSBRLTQyIDUgLTM1IC04IFEtMjIgLTE4IC04IC0xNSIgZmlsbD0iI2IwYTg5OCIvPgogICAgPHBhdGggZD0iTTM2IDE1IFE0MiA1IDM1IC04IiBmaWxsPSJub25lIiBzdHJva2U9IiNiMGE4OTgiIHN0cm9rZS13aWR0aD0iMTAiLz4KICAgIDxwYXRoIGQ9Ik0tMzAgLTUgUS0yMCAtMjAgLTUgLTE4IiBzdHJva2U9IiNjMGI4YjAiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIvPgogICAgPGVsbGlwc2UgY3g9Ii0xMiIgY3k9IjMyIiByeD0iNyIgcnk9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxlbGxpcHNlIGN4PSIxMiIgY3k9IjMyIiByeD0iNyIgcnk9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxjaXJjbGUgY3g9Ii0xMSIgY3k9IjMzIiByPSI0IiBmaWxsPSIjNWEzYTJhIi8+CiAgICA8Y2lyY2xlIGN4PSIxMyIgY3k9IjMzIiByPSI0IiBmaWxsPSIjNWEzYTJhIi8+CiAgICA8cGF0aCBkPSJNLTE4IDM4IFEtMTEgNDEgLTQgMzgiIHN0cm9rZT0iI2EwNzA1MCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNiIvPgogICAgPHBhdGggZD0iTTYgMzggUTEzIDQxIDIwIDM4IiBzdHJva2U9IiNhMDcwNTAiIHN0cm9rZS13aWR0aD0iMS41IiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjYiLz4KICAgIDxwYXRoIGQ9Ik0tMTAgNTIgUTAgNTYgMTAgNTIiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CiAgICA8ZWxsaXBzZSBjeD0iMjUiIGN5PSIxMCIgcng9IjIwIiByeT0iMTAiIGZpbGw9IiNjMDg4NjAiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwyNSwxMCkiLz4KICAgIDxwYXRoIGQ9Ik0xMCA4IFEyNSAyIDM4IDEyIiBzdHJva2U9IiNiMDc4NTAiIHN0cm9rZS13aWR0aD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjU4MCIgY3k9IjEyMCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA4KSIvPgogIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiLz4KICA8Y2lyY2xlIGN4PSI2MjUiIGN5PSI3OCIgcj0iMjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDx0ZXh0IHg9IjYyNSIgeT0iODQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9InJnYmEoMjI0LDQ4LDQ4LDAuNykiPjM6MjA8L3RleHQ+CiAgPGVsbGlwc2UgY3g9IjQ1MCIgY3k9IjM3NSIgcng9IjIwMCIgcnk9IjgiIGZpbGw9InJnYmEoMCwwLDAsMC4zKSIvPgo8L3N2Zz4=" alt="Mujer despierta a las 3AM mirando el reloj"/>
+  <div class="caption">Las noches que parecen eternas. Laura las conoció bien.</div>
+</div>
 
-  <p>
-    Pero adentro de esa agenda impecable había una nota que nadie más veía: <em>Noche número 847 sin dormir bien.</em> (No la anoté de verdad, pero podría haberlo hecho.)
-  </p>
-
-  <p>
-    Empezó a los 48, más o menos. No fue dramático. Fue gradual, casi imperceptible. Empecé a despertarme a la madrugada y a costarme volver a dormir. Al principio pensé que era estrés de fin de año. Después del verano. Después "el trabajo". Siempre tenía una explicación razonable.
-  </p>
-
+<article class="article">
   <div class="pull">
     <p>"Me acostaba exhausta. Cerraba los ojos. Y me quedaba mirando el techo durante horas, con la mente girando sola."</p>
     <small>— Laura, 51 · Córdoba</small>
   </div>
+  <p>Lo más raro era eso: yo <em>estaba</em> cansada. No era que no tuviera sueño. Era que el sueño llegaba hasta la puerta y después se iba. Como si mi cuerpo hubiera olvidado el paso final.</p>
+  <p>Empecé a sudar de noche sin entender por qué. Me despertaba con calor, me destapaba, me volvía a tapar. A veces me levantaba, caminaba por la cocina, tomaba agua, me volvía a acostar. Y la mente arrancaba sola: los chicos del colegio, la reunión del martes, si había apagado el gas, una conversación de hace tres semanas.</p>
+  <p>A la mañana siguiente, café. Mucho café. Y la sensación de que el día iba a ser largo.</p>
 
-  <p>
-    Lo más raro era eso: yo <em>estaba</em> cansada. No era que no tuviera sueño. Era que el sueño llegaba hasta la puerta y después se iba. Como si mi cuerpo hubiera olvidado el paso final.
-  </p>
-
-  <p>
-    Empecé a sudar de noche sin entender por qué. Me despertaba con calor, me destapaba, me volvía a tapar. A veces me levantaba, caminaba por la cocina, tomaba agua, me volvía a acostar. Y la mente, que en teoría estaba durmiendo, arrancaba sola: los chicos del colegio, la reunión del martes, si había apagado el gas, una conversación de hace tres semanas que no terminé bien.
-  </p>
-
-  <p>
-    A la mañana siguiente, café. Mucho café. Y la sensación de que el día iba a ser largo.
-  </p>
-
-  <!-- ACT 2: LO QUE PROBÓ -->
   <div class="act-break"><span class="act-label">Lo que probó</span></div>
 
-  <p>
-    No soy de las que se quedan quietas. Si hay un problema, busco cómo resolverlo. Así que busqué.
-  </p>
-
-  <p>
-    Melatonina. Empecé con la dosis baja, después subí. Me ayudaba a dormirme más rápido, pero igual me despertaba a las 3 AM y ya no podía volver. Mi médica me dijo que era "normal para mi edad" y me sugirió higiene del sueño.
-  </p>
+  <p>No soy de las que se quedan quietas. Si hay un problema, busco cómo resolverlo. Así que busqué.</p>
+  <p>Melatonina. Empecé con la dosis baja, después subí. Me ayudaba a dormirme más rápido, pero igual me despertaba a las 3 AM y ya no podía volver. Mi médica me dijo que era "normal para mi edad" y me sugirió higiene del sueño.</p>
 
   <div class="laura-voice">
     <p>Así que apagué el celular a las 9 PM. Tomé té de valeriana. Compré una máscara de ojos. Puse música de lluvia. Hice una rutina de yoga de 20 minutos antes de acostarme.</p>
     <p>La primera noche, nada. La segunda, nada. La tercera... bueno, igual dormí un poco mejor, pero a los cinco días ya habíamos vuelto al mismo lugar de siempre.</p>
     <div class="laura-sig">
-      <div class="av">👩‍🦳</div>
-      <div>
-        <strong>Laura G.</strong>
-        <span>51 años · Maestra · Córdoba</span>
-      </div>
+      <div class="av-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0OWE3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhhNWU0MiIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InNraW4iIGN4PSI1MCUiIGN5PSIzNSUiIHI9IjU1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4YzRhMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M4OTY2YSIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNsZSI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0idXJsKCNiZykiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE3NSIgcng9IjY1IiByeT0iNDUiIGZpbGw9IiM0YTYwODAiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPHJlY3QgeD0iODUiIHk9IjEzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0idXJsKCNza2luKSIvPgogIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxMDUiIHJ4PSI0MiIgcnk9IjQ4IiBmaWxsPSJ1cmwoI3NraW4pIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjcyIiByeD0iNDQiIHJ5PSIyOCIgZmlsbD0iI2MwYjhiMCIvPgogIDxwYXRoIGQ9Ik01OCA5MCBRNTIgNzUgNjAgNjIgUTcwIDUyIDg1IDU1IFExMDAgNTAgMTE1IDU1IFExMzAgNTIgMTQwIDYyIFExNDggNzUgMTQyIDkwIiBmaWxsPSIjYzBiOGIwIi8+CiAgPHBhdGggZD0iTTU4IDkwIFE1NSAxMDAgNjAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTE0MiA5MCBRMTQ1IDEwMCAxNDAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTc1IDU4IFE4NSA1MiA5NSA1NCIgc3Ryb2tlPSIjZTBkOGQwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMDUgNTMgUTExNSA1MSAxMjUgNTYiIHN0cm9rZT0iI2UwZDhkMCIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8ZWxsaXBzZSBjeD0iODIiIGN5PSIxMDUiIHJ4PSI5IiByeT0iNyIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iMTE4IiBjeT0iMTA1IiByeD0iOSIgcnk9IjciIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iODMiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSIxMTkiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMTIyIiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPHBhdGggZD0iTTczIDk2IFE4MiA5MSA5MSA5NSIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTEwOSA5NSBRMTE4IDkxIDEyNyA5NiIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTk3IDExMCBROTUgMTIyIDkwIDEyNiBRMTAwIDEyOSAxMTAgMTI2IFExMDUgMTIyIDEwMyAxMTAiIHN0cm9rZT0iI2MwOTA2YSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNODYgMTM4IFExMDAgMTQ4IDExNCAxMzgiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjEyNSIgcng9IjEyIiByeT0iOCIgZmlsbD0iI2UwODg3OCIgb3BhY2l0eT0iMC4yNSIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxMjUiIHJ4PSIxMiIgcnk9IjgiIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMjUiLz4KICA8Y2lyY2xlIGN4PSI1OCIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgogIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgo8L3N2Zz4=" alt="Laura"/></div>
+      <div><strong>Laura G.</strong><span>51 años · Maestra · Córdoba</span></div>
     </div>
   </div>
 
-  <p>
-    Probé sin gluten una semana porque leí que podía ayudar. Probé el magnesio. Probé dormir con calcetines porque alguien me dijo que regulaba la temperatura. Probé leer antes de acostarme. Probé no leer. Probé más ejercicio. Probé menos ejercicio.
-  </p>
-
-  <p>
-    Y cada vez que algo no funcionaba, la voz de mi cabeza se volvía un poco más oscura: <em>"Capaz esto es para siempre. Capaz así me voy a sentir el resto de mi vida."</em>
-  </p>
+  <p>Probé sin gluten. Probé el magnesio. Probé dormir con calcetines. Probé leer antes de acostarme. Probé no leer. Más ejercicio. Menos ejercicio.</p>
 
   <div class="pull">
     <p>"El cansancio no era lo peor. Lo peor era la sensación de que mi cuerpo me había traicionado y que nadie podía explicarme por qué."</p>
   </div>
 
-  <!-- ACT 3: EL DESCUBRIMIENTO -->
   <div class="act-break"><span class="act-label">Lo que nadie le había explicado</span></div>
 
-  <p>
-    Un martes a la tarde, estaba corrigiendo trabajos prácticos con una taza de café frío cuando mi amiga Graciela me mandó un mensaje. Ella había pasado por algo parecido el año anterior y lo había resuelto. Me mandó un link con un comentario simple: <em>"Leé esto. En serio."</em>
-  </p>
-
-  <p>
-    Era un artículo sobre lo que le pasa al sueño después de los 45. Y fue la primera vez en años que sentí que alguien me estaba explicando <em>mi situación específica</em>, no el insomnio en general.
-  </p>
+  <p>Un martes a la tarde, estaba corrigiendo trabajos cuando mi amiga Graciela me mandó un link con un comentario simple: <em>"Leé esto. En serio."</em></p>
+  <p>Era un artículo sobre lo que le pasa al sueño después de los 45. Y fue la primera vez en años que sentí que alguien me estaba explicando <em>mi situación específica.</em></p>
 
   <div class="evidence">
     <p>Después de los 45, el sueño cambia por tres razones que se combinan entre sí:</p>
     <ul>
-      <li><strong>El estrógeno regula la temperatura corporal.</strong> Cuando baja o fluctúa, el cuerpo pierde la capacidad de enfriarse naturalmente de noche. Por eso el calor, los sofocos, el sudor — no son "caprichosos", son una falla del termostato interno.</li>
+      <li><strong>El estrógeno regula la temperatura corporal.</strong> Cuando baja o fluctúa, tu cuerpo pierde la capacidad de enfriarse naturalmente de noche. Por eso el calor, los sofocos, el sudor — no son caprichosos, son una falla del termostato interno.</li>
       <li><strong>La progesterona tiene efecto calmante sobre el cerebro.</strong> Cuando disminuye, el sistema nervioso se vuelve más reactivo de noche. Más fácil de despertar. Más difícil de volver a soltar.</li>
-      <li><strong>El ritmo circadiano se desincroniza.</strong> El reloj interno pierde precisión. Por eso las mujeres de esta etapa se despiertan siempre a la misma hora, sienten sueño en momentos raros, o duermen fragmentado sin restauración real.</li>
+      <li><strong>El ritmo circadiano se desincroniza.</strong> El reloj interno pierde precisión. Por eso las mujeres de esta etapa se despiertan siempre a la misma hora y duermen de forma fragmentada sin restauración real.</li>
     </ul>
     <p>Estas tres cosas se sabotean entre sí. Resolver solo una no alcanza. Por eso los consejos genéricos fallan.</p>
   </div>
 
-  <p>
-    Leí eso y me quedé quieta un momento. Pensé: <em>eso es exactamente lo que me está pasando.</em> No tres problemas distintos. Un sistema que se desbalanceó por razones concretas, específicas, que tienen una lógica.
-  </p>
+  <p>Leí eso y me quedé quieta un momento. Pensé: <em>eso es exactamente lo que me está pasando.</em> No tres problemas distintos. Un sistema que se desbalanceó por razones concretas que tienen una lógica. Y si tenían una lógica, podían tener una solución.</p>
+</article>
 
-  <p>
-    Y si tenían una lógica, podían tener una solución.
-  </p>
+<!-- IMAGEN AMBIENTAL 2: dormitorio oscuro -->
+<div class="ambient-wide">
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgNDAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0id2FsbGdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMWExMjIwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjQxODIwIi8+PC9saW5lYXJHcmFkaWVudD4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0ibGFtcGdsb3ciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YwYzA2MCIgc3RvcC1vcGFjaXR5PSIwLjgiLz48c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iI2UwOTAwYSIgc3RvcC1vcGFjaXR5PSIwLjE1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTA5MDBhIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJsYW1wZ2xvdzIiIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YwYzA2MCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlMDkwMGEiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJlZGZyYW1lIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzVhMzgyMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNhMjAxMCIvPjwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJsYW5rZXQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjOGE2MDgwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNmE0MDYwIi8+PC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjkwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjd2FsbGdyYWQpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjQwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0MCIgcng9IjYiIGZpbGw9IiMwYTBlMTgiIHN0cm9rZT0iIzNhMmExOCIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHJlY3QgeD0iNDQiIHk9IjQ0IiB3aWR0aD0iODMiIGhlaWdodD0iMjMyIiBmaWxsPSIjMGMxMjIwIi8+CiAgPHJlY3QgeD0iMTMyIiB5PSI0NCIgd2lkdGg9Ijg0IiBoZWlnaHQ9IjIzMiIgZmlsbD0iIzBjMTIyMCIvPgogIDxyZWN0IHg9IjQwIiB5PSIxNTIiIHdpZHRoPSIxODAiIGhlaWdodD0iNiIgZmlsbD0iIzNhMmExOCIvPgogIDxwYXRoIGQ9Ik0zMCAzMCBRNTAgODAgNDUgMTYwIFE0MiAyNDAgNTAgMjkwIiBmaWxsPSIjNGEyYTM4IiBvcGFjaXR5PSIwLjkiLz4KICA8cGF0aCBkPSJNMjMwIDMwIFEyMTAgODAgMjE1IDE2MCBRMjE4IDI0MCAyMTAgMjkwIiBmaWxsPSIjNGEyYTM4IiBvcGFjaXR5PSIwLjkiLz4KICA8cmVjdCB4PSI0NCIgeT0iNDQiIHdpZHRoPSIxNzIiIGhlaWdodD0iMjM1IiBmaWxsPSJyZ2JhKDE2MCwxODAsMjIwLDAuMDYpIi8+CiAgPGNpcmNsZSBjeD0iMTMwIiBjeT0iMTAwIiByPSIzNSIgZmlsbD0iI2U4ZTRkOCIgb3BhY2l0eT0iMC44NSIvPgogIDxjaXJjbGUgY3g9IjE0NCIgY3k9IjkwIiByPSIyNiIgZmlsbD0iIzBjMTIyMCIvPgogIDxjaXJjbGUgY3g9IjgwIiBjeT0iNjUiIHI9IjEuNSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNyIvPgogIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjU1IiByPSIxIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC41Ii8+CiAgPHJlY3QgeD0iMzAiIHk9IjI4NSIgd2lkdGg9IjExMCIgaGVpZ2h0PSI4NSIgcng9IjQiIGZpbGw9IiMzYTIwMTAiLz4KICA8cmVjdCB4PSI2OCIgeT0iMjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI0MiIgZmlsbD0iIzVhMzgyMCIvPgogIDxwYXRoIGQ9Ik00NiAyNDggUTc2IDIzNSAxMDYgMjQ4IiBmaWxsPSIjOGE3MDYwIi8+CiAgPGVsbGlwc2UgY3g9Ijc2IiBjeT0iMjU2IiByeD0iMzYiIHJ5PSIyMiIgZmlsbD0iIzhhNzA2MCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjI4NSIgcng9IjEyMCIgcnk9IjYwIiBmaWxsPSJ1cmwoI2xhbXBnbG93KSIvPgogIDxyZWN0IHg9IjM1IiB5PSIyNjgiIHdpZHRoPSIxOCIgaGVpZ2h0PSIyMiIgcng9IjIiIGZpbGw9IiM4YTUwNDAiLz4KICA8cmVjdCB4PSI1NCIgeT0iMjY1IiB3aWR0aD0iMTYiIGhlaWdodD0iMjUiIHJ4PSIyIiBmaWxsPSIjNGE2MDgwIi8+CiAgPHJlY3QgeD0iMTEwIiB5PSIyNzIiIHdpZHRoPSIxNiIgaGVpZ2h0PSIyNCIgcng9IjMiIGZpbGw9InJnYmEoMTYwLDIwMCwyMjAsMC4zKSIgc3Ryb2tlPSJyZ2JhKDIwMCwyMzAsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxyZWN0IHg9IjAiIHk9IjIyMCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSI3MCIgZmlsbD0idXJsKCNiZWRmcmFtZSkiLz4KICA8cmVjdCB4PSIxMCIgeT0iMjI1IiB3aWR0aD0iODgwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzRhMmExOCIvPgogIDxyZWN0IHg9IjMwIiB5PSIyMzAiIHdpZHRoPSIxODAiIGhlaWdodD0iNTAiIHJ4PSI2IiBmaWxsPSIjNWEzYTIyIiBzdHJva2U9IiM2YTRhMmEiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxyZWN0IHg9IjIyMCIgeT0iMjMwIiB3aWR0aD0iNDYwIiBoZWlnaHQ9IjUwIiByeD0iNiIgZmlsbD0iIzVhM2EyMiIgc3Ryb2tlPSIjNmE0YTJhIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8cmVjdCB4PSI2OTAiIHk9IjIzMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI1MCIgcng9IjYiIGZpbGw9IiM1YTNhMjIiIHN0cm9rZT0iIzZhNGEyYSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHJlY3QgeD0iMCIgeT0iMjkwIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjExMCIgZmlsbD0iIzJhMTgxMCIvPgogIDxyZWN0IHg9IjAiIHk9IjI5NSIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxMDUiIGZpbGw9InVybCgjYmxhbmtldCkiLz4KICA8cmVjdCB4PSIwIiB5PSIyOTUiIHdpZHRoPSI5MDAiIGhlaWdodD0iMjUiIGZpbGw9IiNmMGVjZTgiIG9wYWNpdHk9IjAuOTUiLz4KICA8cmVjdCB4PSIwIiB5PSIzMDgiIHdpZHRoPSI5MDAiIGhlaWdodD0iMTIiIGZpbGw9IiNlMGRjZDgiLz4KICA8cmVjdCB4PSI2MCIgeT0iMjY4IiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjkwIiByeD0iMjIiIGZpbGw9IiNmMGVjZTgiLz4KICA8cmVjdCB4PSI3MiIgeT0iMjc4IiB3aWR0aD0iMjA2IiBoZWlnaHQ9IjcwIiByeD0iMTgiIGZpbGw9IiNmYWY4ZjUiLz4KICA8cmVjdCB4PSI2MTAiIHk9IjI2OCIgd2lkdGg9IjIzMCIgaGVpZ2h0PSI5MCIgcng9IjIyIiBmaWxsPSIjZWNlOGU0Ii8+CiAgPHJlY3QgeD0iNjIyIiB5PSIyNzgiIHdpZHRoPSIyMDYiIGhlaWdodD0iNzAiIHJ4PSIxOCIgZmlsbD0iI2Y1ZjJlZSIvPgogIDxyZWN0IHg9IjM0MCIgeT0iMjc1IiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjgwIiByeD0iMTgiIGZpbGw9IiM5YTY4ODAiLz4KICA8cmVjdCB4PSIzNTIiIHk9IjI4NSIgd2lkdGg9IjE5NiIgaGVpZ2h0PSI2MCIgcng9IjE0IiBmaWxsPSIjYjA3ODkwIi8+CiAgPHJlY3QgeD0iNzYwIiB5PSIyODUiIHdpZHRoPSIxMTAiIGhlaWdodD0iODUiIHJ4PSI0IiBmaWxsPSIjM2EyMDEwIi8+CiAgPHJlY3QgeD0iODAyIiB5PSIyNDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjQyIiBmaWxsPSIjNWEzODIwIi8+CiAgPHBhdGggZD0iTTc3OCAyNDggUTgwNiAyMzUgODM2IDI0OCIgZmlsbD0iIzhhNzA2MCIvPgogIDxlbGxpcHNlIGN4PSI4MDgiIGN5PSIyNTYiIHJ4PSIzNiIgcnk9IjIyIiBmaWxsPSIjOGE3MDYwIi8+CiAgPGVsbGlwc2UgY3g9IjgwOCIgY3k9IjI4NSIgcng9IjEyMCIgcnk9IjYwIiBmaWxsPSJ1cmwoI2xhbXBnbG93MikiLz4KICA8cmVjdCB4PSI3NzAiIHk9IjI3MCIgd2lkdGg9IjI4IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzFhMWEyYSIvPgogIDxyZWN0IHg9IjAiIHk9IjM3MCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzFhMGUwOCIvPgogIDxlbGxpcHNlIGN4PSI0NTAiIGN5PSIzNzUiIHJ4PSIzMDAiIHJ5PSIxMiIgZmlsbD0iIzNhMjAzMCIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPg==" alt="Dormitorio oscuro y cálido de noche"/>
+  <div class="caption">El dormitorio puede ayudarte o sabotearte — y muchas veces no lo sabés.</div>
+</div>
 
-  <!-- mid-article CTA 1 -->
+<article class="article">
   <div class="inline-cta">
     <p>¿Te suena familiar lo que le pasó a Laura?</p>
     <p class="cta-head">"El método que finalmente me explicó por qué — y cómo resolverlo."</p>
@@ -763,20 +240,14 @@ src="https://www.facebook.com/tr?id=1473861204280690&ev=PageView&noscript=1"
     <span class="btn-small-text">Acceso inmediato · Garantía 7 días · $19 precio de lanzamiento</span>
   </div>
 
-  <!-- ACT 4: EL MÉTODO -->
   <div class="act-break"><span class="act-label">El método que encontró</span></div>
 
-  <p>
-    Lo que encontró Laura — y lo que después exploró semana a semana — fue un protocolo de 21 días diseñado específicamente para mujeres en esta etapa. No un libro de tips. No una lista de cosas que "deberías hacer". Un sistema con una secuencia que tenía sentido.
-  </p>
+  <p>Lo que encontró Laura fue un protocolo de 21 días diseñado específicamente para mujeres en esta etapa. No un libro de tips. Un sistema con una secuencia que tenía sentido.</p>
 
   <div class="product-reveal">
     <div class="product-reveal-header">
       <div class="icon">🌙</div>
-      <div>
-        <small>Producto principal</small>
-        <h3>The Insomnia Breakthrough</h3>
-      </div>
+      <div><small>Producto principal</small><h3>The Insomnia Breakthrough</h3></div>
     </div>
     <div class="product-reveal-body">
       <p>Lo que Laura recorrió semana a semana:</p>
@@ -787,27 +258,17 @@ src="https://www.facebook.com/tr?id=1473861204280690&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <p>
-    Pero lo que más la sorprendió no fue el programa base. Fueron los bonos que venían con él — porque cada uno respondía exactamente a una de las excusas que ella misma tenía para creer que su caso "era diferente".
-  </p>
-
   <div class="laura-voice">
-    <p>Cuando vi el Quiet Mind Protocol, pensé: "esto es para mí". Porque mi problema más grande no era el calor. Era que cuando me despertaba, la cabeza arrancaba sola y no había forma de pararla. Cinco minutos de esa técnica y algo en mi sistema nervioso... aflojaba. No sé cómo explicarlo, pero aflojaba.</p>
+    <p>Cuando vi el Quiet Mind Protocol, pensé: "esto es para mí". Mi problema más grande no era el calor. Era que cuando me despertaba, la cabeza arrancaba sola y no había forma de pararla. Cinco minutos de esa técnica y algo en mi sistema nervioso... aflojaba.</p>
     <div class="laura-sig">
-      <div class="av">👩‍🦳</div>
+      <div class="av-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0OWE3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhhNWU0MiIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InNraW4iIGN4PSI1MCUiIGN5PSIzNSUiIHI9IjU1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4YzRhMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M4OTY2YSIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNsZSI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0idXJsKCNiZykiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE3NSIgcng9IjY1IiByeT0iNDUiIGZpbGw9IiM0YTYwODAiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPHJlY3QgeD0iODUiIHk9IjEzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0idXJsKCNza2luKSIvPgogIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxMDUiIHJ4PSI0MiIgcnk9IjQ4IiBmaWxsPSJ1cmwoI3NraW4pIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjcyIiByeD0iNDQiIHJ5PSIyOCIgZmlsbD0iI2MwYjhiMCIvPgogIDxwYXRoIGQ9Ik01OCA5MCBRNTIgNzUgNjAgNjIgUTcwIDUyIDg1IDU1IFExMDAgNTAgMTE1IDU1IFExMzAgNTIgMTQwIDYyIFExNDggNzUgMTQyIDkwIiBmaWxsPSIjYzBiOGIwIi8+CiAgPHBhdGggZD0iTTU4IDkwIFE1NSAxMDAgNjAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTE0MiA5MCBRMTQ1IDEwMCAxNDAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTc1IDU4IFE4NSA1MiA5NSA1NCIgc3Ryb2tlPSIjZTBkOGQwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMDUgNTMgUTExNSA1MSAxMjUgNTYiIHN0cm9rZT0iI2UwZDhkMCIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8ZWxsaXBzZSBjeD0iODIiIGN5PSIxMDUiIHJ4PSI5IiByeT0iNyIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iMTE4IiBjeT0iMTA1IiByeD0iOSIgcnk9IjciIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iODMiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSIxMTkiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMTIyIiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPHBhdGggZD0iTTczIDk2IFE4MiA5MSA5MSA5NSIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTEwOSA5NSBRMTE4IDkxIDEyNyA5NiIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTk3IDExMCBROTUgMTIyIDkwIDEyNiBRMTAwIDEyOSAxMTAgMTI2IFExMDUgMTIyIDEwMyAxMTAiIHN0cm9rZT0iI2MwOTA2YSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNODYgMTM4IFExMDAgMTQ4IDExNCAxMzgiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjEyNSIgcng9IjEyIiByeT0iOCIgZmlsbD0iI2UwODg3OCIgb3BhY2l0eT0iMC4yNSIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxMjUiIHJ4PSIxMiIgcnk9IjgiIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMjUiLz4KICA8Y2lyY2xlIGN4PSI1OCIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgogIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgo8L3N2Zz4=" alt="Laura"/></div>
       <div><strong>Laura G.</strong><span>51 años · Córdoba</span></div>
     </div>
   </div>
 
-  <p>
-    También usó la guía sobre el dormitorio. Ella pensaba que su cuarto estaba bien. Pero cuando leyó sobre las capas de temperatura, la humedad, la luz que se filtraba de la calle, los ciclos de ventilación... entendió que había cosas invisibles que la estaban saboteando.
-  </p>
+  <p>También usó la guía sobre el dormitorio. Ella pensaba que su cuarto estaba bien. Pero cuando leyó sobre las capas de temperatura, la humedad, la luz que se filtraba de la calle... entendió que había cosas invisibles que la estaban saboteando.</p>
+  <p>Y la guía de menopausia. Esa fue la que la hizo llorar un poco. No de tristeza — de alivio. Era la primera vez que sentía que alguien le hablaba a ella, a su cuerpo, a su etapa.</p>
 
-  <p>
-    Y la guía de menopausia. Esa fue la que la hizo llorar un poco. No de tristeza — de alivio. Era la primera vez que sentía que alguien le hablaba a ella, a su cuerpo, a su etapa. No a una persona genérica con "insomnio".
-  </p>
-
-  <!-- ACT 5: TRANSFORMACIÓN -->
   <div class="act-break"><span class="act-label">Lo que cambió</span></div>
 
   <div class="pull">
@@ -815,56 +276,68 @@ src="https://www.facebook.com/tr?id=1473861204280690&ev=PageView&noscript=1"
     <small>— Laura, después del protocolo completo</small>
   </div>
 
-  <p>
-    No fue magia. No fue una noche perfecta de golpe. Fue gradual — como había sido el deterioro, también fue gradual la recuperación. Pero con una diferencia importante: esta vez Laura entendía por qué las cosas estaban mejorando. No era suerte. Era un sistema.
-  </p>
+  <p>No fue magia. Fue gradual — como había sido el deterioro, también fue gradual la recuperación. Pero esta vez Laura entendía por qué las cosas mejoraban. No era suerte. Era un sistema.</p>
+</article>
 
-  <p>
-    Primer cambio real: dejó de despertar empapada. Dos ajustes simples de temperatura y una capa de ropa de cama diferente cambiaron eso en la primera semana.
-  </p>
+<!-- SPLIT: imagen mañana + transformación -->
+<div style="max-width:860px;margin:0 auto;padding:0 24px;">
+  <div class="split">
+    <div class="split-img">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgMzgwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmOGM0MiIvPjxzdG9wIG9mZnNldD0iMzAlIiBzdG9wLWNvbG9yPSIjZmZiMzQ3Ii8+PHN0b3Agb2Zmc2V0PSI2NSUiIHN0b3AtY29sb3I9IiNmZmQ1ODAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmY1ZTAiLz48L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJzdW4iIGN4PSIzMCUiIGN5PSI3MCUiIHI9IjI1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZjVhMCIvPjxzdG9wIG9mZnNldD0iNDAlIiBzdG9wLWNvbG9yPSIjZmZkZDAwIiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmOGMwMCIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icm9vbWxpZ2h0IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFhMTIxOCIvPjxzdG9wIG9mZnNldD0iMzUlIiBzdG9wLWNvbG9yPSIjMmExZTI4Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWExMjE4Ii8+PC9saW5lYXJHcmFkaWVudD4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0id2luZG93bGlnaHQiIGN4PSIzNSUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZTBhMCIgc3RvcC1vcGFjaXR5PSIwLjM1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY4YzQyIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjM4MCIgZmlsbD0idXJsKCNyb29tbGlnaHQpIi8+CiAgPHJlY3QgeD0iMjcwIiB5PSIzMCIgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyODAiIHJ4PSI4IiBmaWxsPSJ1cmwoI3NreSkiIHN0cm9rZT0iIzVhNDAzMCIgc3Ryb2tlLXdpZHRoPSI2Ii8+CiAgPHJlY3QgeD0iMjcwIiB5PSIzMCIgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyODAiIGZpbGw9InVybCgjc3VuKSIvPgogIDxyZWN0IHg9IjQ0NCIgeT0iMzAiIHdpZHRoPSI4IiBoZWlnaHQ9IjI4MCIgZmlsbD0iIzVhNDAzMCIvPgogIDxyZWN0IHg9IjI3MCIgeT0iMTY4IiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjgiIGZpbGw9IiM1YTQwMzAiLz4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjM4MCIgZmlsbD0idXJsKCN3aW5kb3dsaWdodCkiLz4KICA8ZWxsaXBzZSBjeD0iMzEwIiBjeT0iMzEwIiByeD0iNjAiIHJ5PSIxMDAiIGZpbGw9IiMyYTUwMzAiIG9wYWNpdHk9IjAuNCIvPgogIDxlbGxpcHNlIGN4PSI1OTAiIGN5PSIzMjAiIHJ4PSI1MCIgcnk9IjgwIiBmaWxsPSIjMmE1MDMwIiBvcGFjaXR5PSIwLjM1Ii8+CiAgPHBhdGggZD0iTTM0MCA4MCBRMzQ2IDc0IDM1MiA4MCIgc3Ryb2tlPSIjM2EyMDE4IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNMzkwIDYwIFEzOTcgNTMgNDA0IDYwIiBzdHJva2U9IiMzYTIwMTgiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik00NDAgOTUgUTQ0NyA4OCA0NTQgOTUiIHN0cm9rZT0iIzNhMjAxOCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTI2NCAyNCBRMjQwIDEwMCAyNDggMjAwIFEyNTIgMjgwIDI2MCAzMTAiIGZpbGw9IiM2YTQ4NTgiLz4KICA8cGF0aCBkPSJNNjM2IDI0IFE2NjAgMTAwIDY1MiAyMDAgUTY0OCAyODAgNjQwIDMxMCIgZmlsbD0iIzZhNDg1OCIvPgogIDxyZWN0IHg9IjAiIHk9IjI3MCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxMTAiIGZpbGw9IiMzYTI4MTgiLz4KICA8cmVjdCB4PSIwIiB5PSIyNzUiIHdpZHRoPSI5MDAiIGhlaWdodD0iMTA1IiBmaWxsPSIjZThlNGUwIi8+CiAgPHJlY3QgeD0iMCIgeT0iMjc1IiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjZjVmMmVlIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjgwLDE3MCkiPgogICAgPHJlY3QgeD0iLTQwIiB5PSI2NSIgd2lkdGg9IjgwIiBoZWlnaHQ9Ijg1IiByeD0iMTIiIGZpbGw9IiNkNGEwYzAiIG9wYWNpdHk9IjAuOCIvPgogICAgPHJlY3QgeD0iLTEyIiB5PSI0MiIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iOCIgZmlsbD0iI2Q0YTg3OCIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSIyMiIgcng9IjM2IiByeT0iNDAiIGZpbGw9IiNkNGE4NzgiLz4KICAgIDxlbGxpcHNlIGN4PSIwIiBjeT0iLTIiIHJ4PSIzOCIgcnk9IjI0IiBmaWxsPSIjNWEzODI4Ii8+CiAgICA8cGF0aCBkPSJNLTM2IDEyIFEtNDQgMiAtMzYgLTEwIFEtMjQgLTIyIC04IC0xOCIgZmlsbD0iIzVhMzgyOCIvPgogICAgPHBhdGggZD0iTTM2IDEyIFE0NCAyIDM2IC0xMCIgc3Ryb2tlPSIjNWEzODI4IiBzdHJva2Utd2lkdGg9IjEyIiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNLTIwIC0xNSBRLTUgLTIyIDEwIC0xOCIgc3Ryb2tlPSIjOGE2ODQ4IiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNiIvPgogICAgPGVsbGlwc2UgY3g9Ii0xMiIgY3k9IjI0IiByeD0iOCIgcnk9IjYiIGZpbGw9IndoaXRlIi8+CiAgICA8ZWxsaXBzZSBjeD0iMTIiIGN5PSIyNCIgcng9IjgiIHJ5PSI2IiBmaWxsPSJ3aGl0ZSIvPgogICAgPGNpcmNsZSBjeD0iLTExIiBjeT0iMjUiIHI9IjUiIGZpbGw9IiM1YTNhMjgiLz4KICAgIDxjaXJjbGUgY3g9IjEzIiBjeT0iMjUiIHI9IjUiIGZpbGw9IiM1YTNhMjgiLz4KICAgIDxjaXJjbGUgY3g9Ii05IiBjeT0iMjMiIHI9IjIiIGZpbGw9IndoaXRlIi8+CiAgICA8Y2lyY2xlIGN4PSIxNSIgY3k9IjIzIiByPSIyIiBmaWxsPSJ3aGl0ZSIvPgogICAgPHBhdGggZD0iTS0xMiA0MiBRMCA1MiAxMiA0MiIgc3Ryb2tlPSIjYzA3MDUwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8ZWxsaXBzZSBjeD0iLTIwIiBjeT0iMzQiIHJ4PSIxMSIgcnk9IjciIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMyIvPgogICAgPGVsbGlwc2UgY3g9IjIwIiBjeT0iMzQiIHJ4PSIxMSIgcnk9IjciIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMyIvPgogICAgPHBhdGggZD0iTTM1IDc1IFE2MCA1NSA3NSA0MCIgc3Ryb2tlPSIjZDRhODc4IiBzdHJva2Utd2lkdGg9IjE0IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxlbGxpcHNlIGN4PSI3OCIgY3k9IjM4IiByeD0iMTIiIHJ5PSIxMCIgZmlsbD0iI2Q0YTg3OCIgdHJhbnNmb3JtPSJyb3RhdGUoLTIwLDc4LDM4KSIvPgogICAgPGVsbGlwc2UgY3g9IjE1IiBjeT0iMjAiIHJ4PSIyMCIgcnk9IjI1IiBmaWxsPSIjZmZlMGEwIiBvcGFjaXR5PSIwLjE1Ii8+CiAgPC9nPgogIDxyZWN0IHg9IjU2MCIgeT0iMjY4IiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjgwIiByeD0iMjAiIGZpbGw9IiNmNWYwZWEiLz4KICA8ZWxsaXBzZSBjeD0iNDAwIiBjeT0iMzc1IiByeD0iMzUwIiByeT0iMTUiIGZpbGw9IiNmZjhjNDIiIG9wYWNpdHk9IjAuMDgiLz4KPC9zdmc+" alt="Mujer descansada al amanecer"/>
+    </div>
+    <div class="split-text">
+      <p><strong>Primer cambio real:</strong> dejó de despertar empapada. Dos ajustes simples de temperatura cambiaron eso en la primera semana.</p>
+      <p><strong>Segundo cambio:</strong> cuando se despertaba de madrugada, ya no entraba en pánico. Tenía un protocolo. Sabía exactamente qué hacer.</p>
+      <p><strong>Tercer cambio, el que no esperaba:</strong> el día. El humor. La paciencia. "Dormí un poco mejor y de repente era otra persona."</p>
+    </div>
+  </div>
+</div>
 
-  <p>
-    Segundo cambio: cuando se despertaba en el medio de la noche (porque seguía pasando, menos, pero pasaba), ya no entraba en pánico. Tenía un protocolo. Sabía exactamente qué hacer. Y eso solo — saber que hay algo que hacer — cortaba el ciclo de ansiedad que antes la tenía despierta dos horas.
-  </p>
-
-  <p>
-    Tercer cambio, el que no esperaba: el día. El humor. La paciencia con los chicos del colegio. La claridad para planificar. "Dormí un poco mejor y de repente era otra persona durante el día. No entendía por qué no había buscado esto antes."
-  </p>
-
+<article class="article">
   <div class="laura-voice">
     <p>Lo que más me cambió no fue dormir más horas. Fue volver a confiar en que mi cuerpo podía hacerlo. Esa sensación de "quizás así me voy a sentir para siempre" desapareció. Y eso vale más que cualquier hora extra de sueño.</p>
     <div class="laura-sig">
-      <div class="av">👩‍🦳</div>
+      <div class="av-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0OWE3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhhNWU0MiIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InNraW4iIGN4PSI1MCUiIGN5PSIzNSUiIHI9IjU1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4YzRhMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M4OTY2YSIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNsZSI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0idXJsKCNiZykiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE3NSIgcng9IjY1IiByeT0iNDUiIGZpbGw9IiM0YTYwODAiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPHJlY3QgeD0iODUiIHk9IjEzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0idXJsKCNza2luKSIvPgogIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxMDUiIHJ4PSI0MiIgcnk9IjQ4IiBmaWxsPSJ1cmwoI3NraW4pIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjcyIiByeD0iNDQiIHJ5PSIyOCIgZmlsbD0iI2MwYjhiMCIvPgogIDxwYXRoIGQ9Ik01OCA5MCBRNTIgNzUgNjAgNjIgUTcwIDUyIDg1IDU1IFExMDAgNTAgMTE1IDU1IFExMzAgNTIgMTQwIDYyIFExNDggNzUgMTQyIDkwIiBmaWxsPSIjYzBiOGIwIi8+CiAgPHBhdGggZD0iTTU4IDkwIFE1NSAxMDAgNjAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTE0MiA5MCBRMTQ1IDEwMCAxNDAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTc1IDU4IFE4NSA1MiA5NSA1NCIgc3Ryb2tlPSIjZTBkOGQwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMDUgNTMgUTExNSA1MSAxMjUgNTYiIHN0cm9rZT0iI2UwZDhkMCIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8ZWxsaXBzZSBjeD0iODIiIGN5PSIxMDUiIHJ4PSI5IiByeT0iNyIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iMTE4IiBjeT0iMTA1IiByeD0iOSIgcnk9IjciIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iODMiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSIxMTkiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMTIyIiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPHBhdGggZD0iTTczIDk2IFE4MiA5MSA5MSA5NSIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTEwOSA5NSBRMTE4IDkxIDEyNyA5NiIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTk3IDExMCBROTUgMTIyIDkwIDEyNiBRMTAwIDEyOSAxMTAgMTI2IFExMDUgMTIyIDEwMyAxMTAiIHN0cm9rZT0iI2MwOTA2YSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNODYgMTM4IFExMDAgMTQ4IDExNCAxMzgiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjEyNSIgcng9IjEyIiByeT0iOCIgZmlsbD0iI2UwODg3OCIgb3BhY2l0eT0iMC4yNSIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxMjUiIHJ4PSIxMiIgcnk9IjgiIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMjUiLz4KICA8Y2lyY2xlIGN4PSI1OCIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgogIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgo8L3N2Zz4=" alt="Laura"/></div>
       <div><strong>Laura G.</strong><span>51 años · Córdoba</span></div>
     </div>
   </div>
 
-  <!-- más testimonios -->
   <div class="act-break"><span class="act-label">Otras mujeres que pasaron por lo mismo</span></div>
 
   <div class="more-testi">
     <div class="mini-testi">
+      <div class="testi-header">
+        <div class="testi-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzlhNzA2MCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzZhNDgzOCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIi8+PC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjYmcpIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iMTEyIiByeD0iNDUiIHJ5PSIzMCIgZmlsbD0iIzNhNDA1MCIgY2xpcC1wYXRoPSJ1cmwoI2MpIi8+CiAgPHJlY3QgeD0iNDkiIHk9IjgyIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHJ4PSI2IiBmaWxsPSIjZDRhODc4Ii8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNjQiIHJ4PSIzMCIgcnk9IjM1IiBmaWxsPSIjZDRhODc4Ii8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNDAiIHJ4PSIzMiIgcnk9IjI0IiBmaWxsPSIjMmExODEwIi8+CiAgPHBhdGggZD0iTTI4IDUzIFEyMiA0MCAzMCAyOCBRNDQgMTYgNjAgMTQgUTc2IDE2IDkwIDI4IFE5OCA0MCA5MiA1MyIgZmlsbD0iIzJhMTgxMCIvPgogIDxwYXRoIGQ9Ik0yOSA1NSBRMjYgNjUgMzAgNzkiIHN0cm9rZT0iIzJhMTgxMCIgc3Ryb2tlLXdpZHRoPSI5IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTkxIDU1IFE5NCA2NSA5MCA3OSIgc3Ryb2tlPSIjMmExODEwIiBzdHJva2Utd2lkdGg9IjkiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDciIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iNzMiIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM0YTJhMTgiLz4KICA8Y2lyY2xlIGN4PSI3NCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM0YTJhMTgiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjYzIiByPSIxLjgiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iNzYiIGN5PSI2MyIgcj0iMS44IiBmaWxsPSJ3aGl0ZSIvPgogIDxwYXRoIGQ9Ik00MiA1NiBRNDggNTMgNTQgNTYiIHN0cm9rZT0iIzdhNTg0OCIgc3Ryb2tlLXdpZHRoPSIxLjgiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNjYgNTYgUTcyIDUzIDc4IDU2IiBzdHJva2U9IiM3YTU4NDgiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTQ0IDI0IFE1MiAxOCA1OCAyMCIgc3Ryb2tlPSIjOWE5MDkwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNNTAgODUgUTYwIDkzIDcwIDg1IiBzdHJva2U9IiNjMDc4NTgiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjQ0IiBjeT0iNzYiIHJ4PSI5IiByeT0iNiIgZmlsbD0iI2UwOTA4MCIgb3BhY2l0eT0iMC4yMiIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9Ijc2IiByeD0iOSIgcnk9IjYiIGZpbGw9IiNlMDkwODAiIG9wYWNpdHk9IjAuMjIiLz4KICAKPC9zdmc+" alt="Marcela"/></div>
+        <div class="testi-meta"><strong>Marcela V.</strong><span>52 años · Buenos Aires</span></div>
+      </div>
       <div class="stars">★★★★★</div>
       <blockquote>"Lo compré pensando que era otro libro de tips. Estaba equivocada. Por primera vez alguien me explicó <em>por qué</em> me despertaba siempre a la misma hora."</blockquote>
-      <cite>— Marcela V., 52 · Buenos Aires</cite>
     </div>
     <div class="mini-testi">
+      <div class="testi-header">
+        <div class="testi-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdhODg3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRhNTg0OCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIi8+PC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjYmcpIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iMTEyIiByeD0iNDUiIHJ5PSIzMCIgZmlsbD0iIzNhNDA1MCIgY2xpcC1wYXRoPSJ1cmwoI2MpIi8+CiAgPHJlY3QgeD0iNDkiIHk9IjgyIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHJ4PSI2IiBmaWxsPSIjYzg5ODcwIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNjQiIHJ4PSIzMCIgcnk9IjM1IiBmaWxsPSIjYzg5ODcwIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNDAiIHJ4PSIzMiIgcnk9IjI0IiBmaWxsPSIjYzhjNGJjIi8+CiAgPHBhdGggZD0iTTI4IDUyIFEyMyA0MCAzMSAyOCBRNDQgMTggNjAgMTYgUTc2IDE4IDg4IDI4IFE5NyA0MCA5MSA1MiIgZmlsbD0iI2M4YzRiYyIvPgogIDxwYXRoIGQ9Ik0yOSA1NSBRMjYgNjUgMzAgNzkiIHN0cm9rZT0iI2M4YzRiYyIgc3Ryb2tlLXdpZHRoPSI5IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTkxIDU1IFE5NCA2NSA5MCA3OSIgc3Ryb2tlPSIjYzhjNGJjIiBzdHJva2Utd2lkdGg9IjkiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDciIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iNzMiIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM2YTQwMjgiLz4KICA8Y2lyY2xlIGN4PSI3NCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM2YTQwMjgiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjYzIiByPSIxLjgiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iNzYiIGN5PSI2MyIgcj0iMS44IiBmaWxsPSJ3aGl0ZSIvPgogIDxyZWN0IHg9IjQwIiB5PSI1OCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEzIiByeD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGE3ODY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxyZWN0IHg9IjYyIiB5PSI1OCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEzIiByeD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGE3ODY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSI1OCIgeTE9IjY0IiB4Mj0iNjIiIHkyPSI2NCIgc3Ryb2tlPSIjOGE3ODY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxwYXRoIGQ9Ik00MiA1NiBRNDggNTMgNTQgNTYiIHN0cm9rZT0iIzdhNTg0OCIgc3Ryb2tlLXdpZHRoPSIxLjgiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNjYgNTYgUTcyIDUzIDc4IDU2IiBzdHJva2U9IiM3YTU4NDgiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTQ2IDIwIFE1NiAxNSA2NCAxOCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNSIvPgogIDxwYXRoIGQ9Ik01MCA4NSBRNjAgOTMgNzAgODUiIHN0cm9rZT0iI2MwNzg1OCIgc3Ryb2tlLXdpZHRoPSIyLjIiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDQiIGN5PSI3NiIgcng9IjkiIHJ5PSI2IiBmaWxsPSIjZTA5MDgwIiBvcGFjaXR5PSIwLjIyIi8+CiAgPGVsbGlwc2UgY3g9Ijc2IiBjeT0iNzYiIHJ4PSI5IiByeT0iNiIgZmlsbD0iI2UwOTA4MCIgb3BhY2l0eT0iMC4yMiIvPgogIAo8L3N2Zz4=" alt="Patricia"/></div>
+        <div class="testi-meta"><strong>Patricia M.</strong><span>55 años · Rosario</span></div>
+      </div>
       <div class="stars">★★★★★</div>
-      <blockquote>"La guía de menopausia sola ya valía el precio. Sentí que me hablaban a mí, no a un personaje genérico."</blockquote>
-      <cite>— Patricia M., 55 · Rosario</cite>
+      <blockquote>"La guía de menopausia sola ya valía el precio. Sentí que me hablaban a mí, no a un personaje genérico con 'insomnio'."</blockquote>
     </div>
     <div class="mini-testi">
+      <div class="testi-header">
+        <div class="testi-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2EwNzg2OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzdhNTA0MCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIi8+PC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjYmcpIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iMTEyIiByeD0iNDUiIHJ5PSIzMCIgZmlsbD0iIzNhNDA1MCIgY2xpcC1wYXRoPSJ1cmwoI2MpIi8+CiAgPHJlY3QgeD0iNDkiIHk9IjgyIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHJ4PSI2IiBmaWxsPSIjZDhhODgwIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNjQiIHJ4PSIzMCIgcnk9IjM1IiBmaWxsPSIjZDhhODgwIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNDAiIHJ4PSIzMiIgcnk9IjI0IiBmaWxsPSIjN2EzODE4Ii8+CiAgPHBhdGggZD0iTTI4IDUzIFEyMiA0MCAzMCAyOCBRNDQgMTYgNjAgMTQgUTc2IDE2IDkwIDI4IFE5OCA0MCA5MiA1MyIgZmlsbD0iIzdhMzgxOCIvPgogIDxwYXRoIGQ9Ik0yOSA1NSBRMjYgNjUgMzAgNzkiIHN0cm9rZT0iIzdhMzgxOCIgc3Ryb2tlLXdpZHRoPSI5IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTkxIDU1IFE5NCA2NSA5MCA3OSIgc3Ryb2tlPSIjN2EzODE4IiBzdHJva2Utd2lkdGg9IjkiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDciIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iNzMiIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM0YTY4MzgiLz4KICA8Y2lyY2xlIGN4PSI3NCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM0YTY4MzgiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjYzIiByPSIxLjgiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iNzYiIGN5PSI2MyIgcj0iMS44IiBmaWxsPSJ3aGl0ZSIvPgogIDxwYXRoIGQ9Ik00MCA1NSBRNDcgNTEgNTQgNTQiIHN0cm9rZT0iIzZhNDgyOCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTY2IDU0IFE3MyA1MSA4MCA1NSIgc3Ryb2tlPSIjNmE0ODI4IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGN4PSI1MiIgY3k9IjcyIiByPSIxLjUiIGZpbGw9IiNjMDkwNzAiIG9wYWNpdHk9IjAuNSIvPjxjaXJjbGUgY3g9IjY4IiBjeT0iNzEiIHI9IjEuNSIgZmlsbD0iI2MwOTA3MCIgb3BhY2l0eT0iMC41Ii8+PHBhdGggZD0iTTMwIDM2IFEzMiA1MCAzNSA2MCIgc3Ryb2tlPSIjYjBhODk4IiBzdHJva2Utd2lkdGg9IjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNNTAgODUgUTYwIDkzIDcwIDg1IiBzdHJva2U9IiNjMDc4NTgiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjQ0IiBjeT0iNzYiIHJ4PSI5IiByeT0iNiIgZmlsbD0iI2UwOTA4MCIgb3BhY2l0eT0iMC4yMiIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9Ijc2IiByeD0iOSIgcnk9IjYiIGZpbGw9IiNlMDkwODAiIG9wYWNpdHk9IjAuMjIiLz4KICAKPC9zdmc+" alt="Claudia"/></div>
+        <div class="testi-meta"><strong>Claudia R.</strong><span>49 años · Mendoza</span></div>
+      </div>
       <div class="stars">★★★★★</div>
       <blockquote>"Ya no me despierto empapada. Dos cambios simples del ambiente del cuarto y eso casi desapareció en la primera semana."</blockquote>
-      <cite>— Claudia R., 49 · Mendoza</cite>
     </div>
     <div class="mini-testi">
+      <div class="testi-header">
+        <div class="testi-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY4Nzg4OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNhNDg1OCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIi8+PC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjYmcpIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iMTEyIiByeD0iNDUiIHJ5PSIzMCIgZmlsbD0iIzNhNDA1MCIgY2xpcC1wYXRoPSJ1cmwoI2MpIi8+CiAgPHJlY3QgeD0iNDkiIHk9IjgyIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHJ4PSI2IiBmaWxsPSIjYzg5ODc4Ii8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNjQiIHJ4PSIzMCIgcnk9IjM1IiBmaWxsPSIjYzg5ODc4Ii8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNDAiIHJ4PSIzMiIgcnk9IjI0IiBmaWxsPSIjMmEyMDMwIi8+CiAgPHBhdGggZD0iTTMwIDU1IFEyNCA0MiAzMiAzMCBRNDQgMjAgNjAgMTggUTc2IDIwIDg4IDMwIFE5NiA0MiA5MCA1NSIgZmlsbD0iIzJhMjAzMCIvPgogIDxwYXRoIGQ9Ik0yOSA1NSBRMjYgNjUgMzAgNzkiIHN0cm9rZT0iIzJhMjAzMCIgc3Ryb2tlLXdpZHRoPSI5IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTkxIDU1IFE5NCA2NSA5MCA3OSIgc3Ryb2tlPSIjMmEyMDMwIiBzdHJva2Utd2lkdGg9IjkiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDciIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iNzMiIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiMyYTFhMjgiLz4KICA8Y2lyY2xlIGN4PSI3NCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiMyYTFhMjgiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjYzIiByPSIxLjgiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iNzYiIGN5PSI2MyIgcj0iMS44IiBmaWxsPSJ3aGl0ZSIvPgogIDxwYXRoIGQ9Ik00MCA2MSBRNDcgNTkgNTUgNjEiIHN0cm9rZT0iIzFhMTAyMCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTY1IDYxIFE3MyA1OSA4MCA2MSIgc3Ryb2tlPSIjMWExMDIwIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNDggMjAgUTU0IDE2IDU4IDE4IiBzdHJva2U9IiNjMGJjYzAiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC43Ii8+PGNpcmNsZSBjeD0iNjAiIGN5PSIyMCIgcj0iMTQiIGZpbGw9IiMzYTI4MzgiLz4KICA8cGF0aCBkPSJNNTAgODUgUTYwIDkzIDcwIDg1IiBzdHJva2U9IiNjMDc4NTgiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjQ0IiBjeT0iNzYiIHJ4PSI5IiByeT0iNiIgZmlsbD0iI2UwOTA4MCIgb3BhY2l0eT0iMC4yMiIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9Ijc2IiByeD0iOSIgcnk9IjYiIGZpbGw9IiNlMDkwODAiIG9wYWNpdHk9IjAuMjIiLz4KICA8Y2lyY2xlIGN4PSIyOCIgY3k9IjcwIiByPSI0IiBmaWxsPSIjYzhhMDYwIi8+PGNpcmNsZSBjeD0iOTIiIGN5PSI3MCIgcj0iNCIgZmlsbD0iI2M4YTA2MCIvPgo8L3N2Zz4=" alt="Adriana"/></div>
+        <div class="testi-meta"><strong>Adriana T.</strong><span>54 años · Montevideo</span></div>
+      </div>
       <div class="stars">★★★★★</div>
-      <blockquote>"El Quiet Mind Protocol es lo que me faltaba. Esa técnica de 5 minutos interrumpe el espiral antes de que arranque. Nunca pensé que algo tan simple pudiera funcionar."</blockquote>
-      <cite>— Adriana T., 54 · Montevideo</cite>
+      <blockquote>"El Quiet Mind Protocol interrumpe el espiral antes de que arranque. Nunca pensé que algo tan simple pudiera funcionar."</blockquote>
     </div>
   </div>
-
 </article>
 
 <!-- OFFER -->
@@ -872,43 +345,13 @@ src="https://www.facebook.com/tr?id=1473861204280690&ev=PageView&noscript=1"
   <div class="offer-inner">
     <span class="offer-kicker">Lo que Laura encontró — ahora disponible para vos</span>
     <h2>Todo el sistema que usó Laura.<br><em>Por $19.</em></h2>
-    <p class="offer-sub">El precio de lanzamiento incluye el programa completo más los cuatro bonos que convirtieron el método en algo que responde a cada ángulo de tu situación específica.</p>
-
+    <p class="offer-sub">El precio de lanzamiento incluye el programa completo más los bonos que responden a cada ángulo de tu situación específica.</p>
     <div class="stack-list">
-      <div class="stack-row">
-        <div class="stack-icon">🌙</div>
-        <div class="stack-row-info">
-          <strong>The Insomnia Breakthrough</strong>
-          <span>Sistema base · 21 días · Producto principal</span>
-        </div>
-        <div class="stack-price"><span class="was">$49</span><span class="now">$19</span></div>
-      </div>
-      <div class="stack-row">
-        <div class="stack-icon">🌀</div>
-        <div class="stack-row-info">
-          <strong>Quiet Mind Protocol</strong>
-          <span>Para la mente que no para · Bono incluido</span>
-        </div>
-        <div class="stack-price"><span class="was">$17</span><span class="free">Incluido</span></div>
-      </div>
-      <div class="stack-row">
-        <div class="stack-icon">🌸</div>
-        <div class="stack-row-info">
-          <strong>Menopause Sleep Survival Guide</strong>
-          <span>Para sofocos y calor nocturno · Bono incluido</span>
-        </div>
-        <div class="stack-price"><span class="was">$19</span><span class="free">Incluido</span></div>
-      </div>
-      <div class="stack-row">
-        <div class="stack-icon">🏠</div>
-        <div class="stack-row-info">
-          <strong>Perfect Sleep Environment Guide</strong>
-          <span>Para el cuarto que sabotea sin que lo sepas · Bono incluido</span>
-        </div>
-        <div class="stack-price"><span class="was">$15</span><span class="free">Incluido</span></div>
-      </div>
+      <div class="stack-row"><div class="stack-icon">🌙</div><div class="stack-row-info"><strong>The Insomnia Breakthrough</strong><span>Sistema base · 21 días · Producto principal</span></div><div class="stack-price"><span class="was">$49</span><span class="now">$19</span></div></div>
+      <div class="stack-row"><div class="stack-icon">🌀</div><div class="stack-row-info"><strong>Quiet Mind Protocol</strong><span>Para la mente que no para · Bono incluido</span></div><div class="stack-price"><span class="was">$17</span><span class="free">Incluido</span></div></div>
+      <div class="stack-row"><div class="stack-icon">🌸</div><div class="stack-row-info"><strong>Menopause Sleep Survival Guide</strong><span>Para sofocos y calor nocturno · Bono incluido</span></div><div class="stack-price"><span class="was">$19</span><span class="free">Incluido</span></div></div>
+      <div class="stack-row"><div class="stack-icon">🏠</div><div class="stack-row-info"><strong>Perfect Sleep Environment Guide</strong><span>Para el cuarto que sabotea sin que lo sepas · Bono incluido</span></div><div class="stack-price"><span class="was">$15</span><span class="free">Incluido</span></div></div>
     </div>
-
     <div class="price-hero">
       <div>
         <div class="total-val">Valor total del paquete: $100</div>
@@ -925,11 +368,7 @@ src="https://www.facebook.com/tr?id=1473861204280690&ev=PageView&noscript=1"
         </div>
       </div>
     </div>
-
-    <a class="btn-main" href="https://pay.hotmart.com/TU-LINK-AQUI">
-      Quiero volver a dormir como Laura →
-    </a>
-
+    <a class="btn-main" href="https://pay.hotmart.com/TU-LINK-AQUI">Quiero volver a dormir como Laura →</a>
     <div class="micro-guarantee">
       <div style="font-size:24px;flex-shrink:0;">🛡️</div>
       <p><strong>Garantía 7 días sin preguntas.</strong> Si revisás el material y no es lo que esperabas, pedís el reembolso. El riesgo es nuestro, no tuyo.</p>
@@ -941,101 +380,49 @@ src="https://www.facebook.com/tr?id=1473861204280690&ev=PageView&noscript=1"
 <section class="faq-section">
   <div class="faq-inner">
     <h2 class="section-hed">Antes de comprar,<br><em>quizás tengas estas dudas</em></h2>
-
-    <details>
-      <summary>¿Esto funciona si mi mayor problema es el calor y los sofocos?</summary>
-      <div class="faq-body">Sí. Por eso el stack incluye el Menopause Sleep Survival Guide, que trabaja específicamente la regulación térmica, hotflashes nocturnos y el impacto hormonal en el sueño. El programa base también tiene un módulo completo sobre temperatura, capas de ropa de cama y preparación del ambiente. Laura usó ambos en combinación.</div>
-    </details>
-
-    <details>
-      <summary>¿Y si lo mío es que no puedo apagar la mente?</summary>
-      <div class="faq-body">El Quiet Mind Protocol está incluido exactamente para eso. Es un método de 5 minutos para interrumpir el espiral de pensamiento antes de que gane terreno — el mismo que Laura describe en su historia. El programa base también trabaja la activación mental nocturna y qué hacer cuando te despertás con la cabeza a mil.</div>
-    </details>
-
-    <details>
-      <summary>¿Esto es solo para mujeres con menopausia?</summary>
-      <div class="faq-body">No exclusivamente. Está pensado para mujeres +45 con insomnio — ya sea en perimenopause, menopausia, o simplemente los cambios de sueño que vienen con esta etapa. Si tenés despertares nocturnos, sueño fragmentado, calor de noche, mente activada, o cansancio crónico de día, el método es para vos.</div>
-    </details>
-
-    <details>
-      <summary>¿Cuánto tiempo lleva aplicarlo cada día?</summary>
-      <div class="faq-body">Está diseñado para ser simple e implementable incluso cuando llegás agotada. No es otra rutina pesada. La mayoría de los protocolos toman entre 5 y 15 minutos. La idea es que encajen en tu vida, no que creen más presión alrededor del sueño.</div>
-    </details>
-
-    <details>
-      <summary>¿Esto reemplaza ir al médico?</summary>
-      <div class="faq-body">No. Este es un recurso educativo y práctico de hábitos, ambiente y gestión del sueño. No reemplaza diagnóstico médico ni atención profesional. Si tenés síntomas severos o condiciones diagnosticadas, consultá a tu médico antes de hacer cambios.</div>
-    </details>
-
-    <details>
-      <summary>¿Cómo accedo después de comprar?</summary>
-      <div class="faq-body">El acceso es inmediato y digital. Podés leer todo desde el celular, tablet o computadora, sin aplicaciones adicionales. La plataforma Hotmart te envía las instrucciones de acceso automáticamente después de la compra.</div>
-    </details>
+    <details><summary>¿Esto funciona si mi mayor problema es el calor y los sofocos?</summary><div class="faq-body">Sí. El stack incluye el Menopause Sleep Survival Guide, que trabaja específicamente la regulación térmica, hotflashes nocturnos y el impacto hormonal en el sueño. El programa base también tiene un módulo completo sobre temperatura y preparación del ambiente.</div></details>
+    <details><summary>¿Y si lo mío es que no puedo apagar la mente?</summary><div class="faq-body">El Quiet Mind Protocol está incluido exactamente para eso. Es un método de 5 minutos para interrumpir el espiral de pensamiento antes de que gane terreno — el mismo que Laura describe en su historia.</div></details>
+    <details><summary>¿Esto es solo para mujeres con menopausia?</summary><div class="faq-body">No exclusivamente. Está pensado para mujeres +45 con insomnio, ya sea en perimenopause, menopausia, o simplemente los cambios de sueño que vienen con esta etapa.</div></details>
+    <details><summary>¿Cuánto tiempo lleva aplicarlo cada día?</summary><div class="faq-body">La mayoría de los protocolos toman entre 5 y 15 minutos. Está diseñado para encajar en tu vida, no para crear más presión alrededor del sueño.</div></details>
+    <details><summary>¿Esto reemplaza ir al médico?</summary><div class="faq-body">No. Es un recurso educativo y práctico de hábitos y gestión del sueño. No reemplaza diagnóstico médico ni atención profesional.</div></details>
+    <details><summary>¿Cómo accedo después de comprar?</summary><div class="faq-body">El acceso es inmediato y digital. Podés leer todo desde el celular, tablet o computadora. Hotmart te envía las instrucciones automáticamente.</div></details>
   </div>
 </section>
 
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="final-inner">
-    <h2>La noche no te está ganando<br>porque seas débil.<br><em>Te faltaba entender esto.</em></h2>
+    <h2>La noche no te está ganando porque seas débil.<br><em>Te faltaba entender esto.</em></h2>
     <p>Lo mismo que le faltó a Laura durante tres años. Lo mismo que cambió todo cuando lo encontró. Ahora está acá, para vos.</p>
-    <a class="btn-main" href="https://pay.hotmart.com/TU-LINK-AQUI" style="max-width:420px;margin:0 auto;">
-      Empezar esta noche →
-    </a>
+    <a class="btn-main" href="https://pay.hotmart.com/TU-LINK-AQUI" style="max-width:420px;margin:0 auto;">Empezar esta noche →</a>
     <p style="margin-top:14px;font-size:12px;color:var(--muted);">Acceso inmediato · $19 · Garantía 7 días</p>
   </div>
 </section>
 
 <footer>
-  <p>
-    Este contenido es un recurso educativo y de bienestar. No sustituye diagnóstico médico, tratamiento profesional ni atención terapéutica. Los resultados de Laura y otros testimonios son experiencias individuales y pueden variar. Reemplazá el link de Hotmart antes de publicar. Agregá tu pixel de Meta o TikTok según corresponda. El personaje de Laura es un arquetipo compuesto representativo de experiencias comunes en el público objetivo.
-  </p>
+  <p>Este contenido es un recurso educativo y de bienestar. No sustituye diagnóstico médico ni atención terapéutica. Los testimonios son experiencias individuales que pueden variar. El personaje de Laura es un arquetipo compuesto representativo. Las ilustraciones son de uso editorial. Reemplazá el link de Hotmart antes de publicar.</p>
 </footer>
 
 <script>
-  // Reading progress bar
-  window.addEventListener('scroll', () => {
-    const d = document.documentElement;
-    const pct = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
-    document.getElementById('pb').style.width = pct + '%';
+  window.addEventListener('scroll',()=>{
+    const d=document.documentElement;
+    document.getElementById('pb').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
   });
-
-  // Countdown
   (function(){
     let end;
-    try { end = parseInt(localStorage.getItem('laura_cd_end')); } catch(e){}
-    if (!end || isNaN(end)) {
-      end = Date.now() + (2*86400 + 13*3600 + 47*60) * 1000;
-      try { localStorage.setItem('laura_cd_end', end); } catch(e){}
-    }
+    try{end=parseInt(localStorage.getItem('laura_v3_end'));}catch(e){}
+    if(!end||isNaN(end)){end=Date.now()+(2*86400+13*3600+47*60)*1000;try{localStorage.setItem('laura_v3_end',end);}catch(e){}}
     function tick(){
-      const diff = Math.max(0, end - Date.now());
-      const pad = n => String(n).padStart(2,'0');
-      document.getElementById('cd').textContent = pad(Math.floor(diff/86400000));
-      document.getElementById('ch').textContent = pad(Math.floor((diff%86400000)/3600000));
-      document.getElementById('cm').textContent = pad(Math.floor((diff%3600000)/60000));
-      document.getElementById('cs').textContent = pad(Math.floor((diff%60000)/1000));
+      const diff=Math.max(0,end-Date.now()),pad=n=>String(n).padStart(2,'0');
+      document.getElementById('cd').textContent=pad(Math.floor(diff/86400000));
+      document.getElementById('ch').textContent=pad(Math.floor((diff%86400000)/3600000));
+      document.getElementById('cm').textContent=pad(Math.floor((diff%3600000)/60000));
+      document.getElementById('cs').textContent=pad(Math.floor((diff%60000)/1000));
     }
-    tick(); setInterval(tick, 1000);
+    tick();setInterval(tick,1000);
   })();
-
-  // Fade-in on scroll
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, {threshold: 0.08});
-
-  document.querySelectorAll('.pull, .laura-voice, .evidence, .product-reveal, .mini-testi, .inline-cta').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity .6s ease, transform .6s ease';
-    io.observe(el);
-  });
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}})},{threshold:0.08});
+  document.querySelectorAll('.pull,.laura-voice,.evidence,.product-reveal,.mini-testi,.inline-cta,.ambient-wide,.split').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .65s ease, transform .65s ease';io.observe(el);});
 </script>
-
 </body>
 </html>
