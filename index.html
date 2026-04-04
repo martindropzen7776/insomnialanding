@@ -1,428 +1,1109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cómo Laura volvió a dormir — The Insomnia Breakthrough</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --paper:#faf6f0;--paper2:#f5ede0;--ink:#1c1512;--ink2:#2e2218;
-      --muted:#7a6a58;--terra:#b5533c;--terra2:#8f3d28;
-      --blush:#e8c4b0;--blush2:#f0ddd0;--sage:#5a7a5e;
-      --border:#ddd0c0;--max:680px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:var(--paper);color:var(--ink);font-family:'Lora',Georgia,serif;line-height:1.8;overflow-x:hidden;}
-    .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--blush));width:0%;z-index:999;transition:width .1s;}
-    .topbar{background:var(--ink);color:#e8d8c8;text-align:center;padding:12px 20px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;letter-spacing:.4px;}
-    .topbar strong{color:var(--blush);}
-    .hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
-    .hero-bg{position:absolute;inset:0;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgMzgwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icm9vbSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZDBkMWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYTEwMjAiLz48L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJtb29ubGlnaHQiIGN4PSI4MCUiIGN5PSIyMCUiIHI9IjQwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MwYzhlMCIgc3RvcC1vcGFjaXR5PSIwLjE1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDFhIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJjbG9ja2dsb3ciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UwMzAzMCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4MDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iMzgwIiBmaWxsPSJ1cmwoI3Jvb20pIi8+CiAgPHJlY3Qgd2lkdGg9IjkwMCIgaGVpZ2h0PSIzODAiIGZpbGw9InVybCgjbW9vbmxpZ2h0KSIvPgogIDxyZWN0IHg9IjY4MCIgeT0iMzAiIHdpZHRoPSIxNjAiIGhlaWdodD0iMjIwIiByeD0iNCIgZmlsbD0iIzBhMTAyMCIgc3Ryb2tlPSIjMmEyYTNhIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSI2ODMiIHk9IjMzIiB3aWR0aD0iNzQiIGhlaWdodD0iMjE0IiBmaWxsPSIjMGUxODI4Ii8+CiAgPHJlY3QgeD0iNzYyIiB5PSIzMyIgd2lkdGg9Ijc1IiBoZWlnaHQ9IjIxNCIgZmlsbD0iIzBlMTgyOCIvPgogIDxyZWN0IHg9IjY4MCIgeT0iMTMzIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjQiIGZpbGw9IiMyYTJhM2EiLz4KICA8Y2lyY2xlIGN4PSI3MjAiIGN5PSI5MCIgcj0iMjgiIGZpbGw9IiNlOGUwYzgiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjczMCIgY3k9IjgyIiByPSIyMCIgZmlsbD0iIzBlMTgyOCIvPgogIDxjaXJjbGUgY3g9Ijc5MCIgY3k9IjYwIiByPSIxLjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjgiLz4KICA8Y2lyY2xlIGN4PSI4MTAiIGN5PSI0NSIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNiIvPgogIDxjaXJjbGUgY3g9Ijc3NSIgY3k9IjQwIiByPSIxLjIiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjciLz4KICA8Y2lyY2xlIGN4PSI4MjUiIGN5PSI4MCIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNSIvPgogIDxyZWN0IHg9IjYwIiB5PSIyMjAiIHdpZHRoPSIxMzAiIGhlaWdodD0iMTIwIiByeD0iNCIgZmlsbD0iIzJhMWExMiIvPgogIDxyZWN0IHg9Ijg1IiB5PSIxOTUiIHdpZHRoPSI3MCIgaGVpZ2h0PSI1NSIgcng9IjYiIGZpbGw9IiMxYTFhMmEiLz4KICA8cmVjdCB4PSI4OCIgeT0iMTk4IiB3aWR0aD0iNjQiIGhlaWdodD0iNDQiIHJ4PSI0IiBmaWxsPSIjMTAwODA4Ii8+CiAgPHRleHQgeD0iMTIwIiB5PSIyMjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNlMDMwMzAiIGZvbnQtd2VpZ2h0PSJib2xkIj4zOjIwPC90ZXh0PgogIDx0ZXh0IHg9IjEyMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjkiIGZpbGw9IiNlMDMwMzAiIG9wYWNpdHk9IjAuNyI+QU08L3RleHQ+CiAgPHJlY3QgeD0iODUiIHk9IjE5NSIgd2lkdGg9IjcwIiBoZWlnaHQ9IjQ5IiByeD0iNCIgZmlsbD0idXJsKCNjbG9ja2dsb3cpIiBvcGFjaXR5PSIwLjQiLz4KICA8cmVjdCB4PSIxNzAiIHk9IjE5MCIgd2lkdGg9IjYiIGhlaWdodD0iNDAiIGZpbGw9IiM0YTMwMjAiLz4KICA8ZWxsaXBzZSBjeD0iMTczIiBjeT0iMTkwIiByeD0iMjIiIHJ5PSIxNCIgZmlsbD0iIzNhMjgxOCIvPgogIDxyZWN0IHg9IjAiIHk9IjI0MCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxNDAiIGZpbGw9IiMyYTFhMGUiLz4KICA8cmVjdCB4PSIwIiB5PSIyMDAiIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAiIHJ4PSIwIiBmaWxsPSIjM2EyODE4Ii8+CiAgPHJlY3QgeD0iMjAiIHk9IjIwNSIgd2lkdGg9Ijg2MCIgaGVpZ2h0PSI1MCIgcng9IjYiIGZpbGw9IiM0YTMwMjAiLz4KICA8cmVjdCB4PSI4MCIgeT0iMjM1IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZThlMGQ4Ii8+CiAgPHJlY3QgeD0iOTAiIHk9IjI0NCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI4MiIgcng9IjE2IiBmaWxsPSIjZjBlY2U0Ii8+CiAgPHJlY3QgeD0iMzgwIiB5PSIyMzUiIHdpZHRoPSIyNDAiIGhlaWdodD0iMTAwIiByeD0iMjAiIGZpbGw9IiNlMGQ4ZDAiLz4KICA8cmVjdCB4PSIwIiB5PSIyOTUiIHdpZHRoPSI5MDAiIGhlaWdodD0iODUiIHJ4PSIwIiBmaWxsPSIjNGE1ODc4Ii8+CiAgPHJlY3QgeD0iMCIgeT0iMjk1IiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjEyIiByeD0iMCIgZmlsbD0iIzVhNjg4OCIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2MCwxNjApIj4KICAgIDxyZWN0IHg9Ii0zOCIgeT0iNzAiIHdpZHRoPSI3NiIgaGVpZ2h0PSI4MCIgcng9IjEwIiBmaWxsPSIjM2EzMDUwIi8+CiAgICA8cmVjdCB4PSItMTIiIHk9IjQ4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjgiIHJ4PSI4IiBmaWxsPSIjYzA4ODYwIi8+CiAgICA8ZWxsaXBzZSBjeD0iMCIgY3k9IjMwIiByeD0iMzUiIHJ5PSIzOCIgZmlsbD0iI2MwODg2MCIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSI1IiByeD0iMzciIHJ5PSIyNCIgZmlsbD0iI2IwYTg5OCIvPgogICAgPHBhdGggZD0iTS0zNiAxNSBRLTQyIDUgLTM1IC04IFEtMjIgLTE4IC04IC0xNSIgZmlsbD0iI2IwYTg5OCIvPgogICAgPHBhdGggZD0iTTM2IDE1IFE0MiA1IDM1IC04IiBmaWxsPSJub25lIiBzdHJva2U9IiNiMGE4OTgiIHN0cm9rZS13aWR0aD0iMTAiLz4KICAgIDxwYXRoIGQ9Ik0tMzAgLTUgUS0yMCAtMjAgLTUgLTE4IiBzdHJva2U9IiNjMGI4YjAiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIvPgogICAgPGVsbGlwc2UgY3g9Ii0xMiIgY3k9IjMyIiByeD0iNyIgcnk9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxlbGxpcHNlIGN4PSIxMiIgY3k9IjMyIiByeD0iNyIgcnk9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxjaXJjbGUgY3g9Ii0xMSIgY3k9IjMzIiByPSI0IiBmaWxsPSIjNWEzYTJhIi8+CiAgICA8Y2lyY2xlIGN4PSIxMyIgY3k9IjMzIiByPSI0IiBmaWxsPSIjNWEzYTJhIi8+CiAgICA8cGF0aCBkPSJNLTE4IDM4IFEtMTEgNDEgLTQgMzgiIHN0cm9rZT0iI2EwNzA1MCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNiIvPgogICAgPHBhdGggZD0iTTYgMzggUTEzIDQxIDIwIDM4IiBzdHJva2U9IiNhMDcwNTAiIHN0cm9rZS13aWR0aD0iMS41IiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjYiLz4KICAgIDxwYXRoIGQ9Ik0tMTAgNTIgUTAgNTYgMTAgNTIiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CiAgICA8ZWxsaXBzZSBjeD0iMjUiIGN5PSIxMCIgcng9IjIwIiByeT0iMTAiIGZpbGw9IiNjMDg4NjAiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwyNSwxMCkiLz4KICAgIDxwYXRoIGQ9Ik0xMCA4IFEyNSAyIDM4IDEyIiBzdHJva2U9IiNiMDc4NTAiIHN0cm9rZS13aWR0aD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjU4MCIgY3k9IjEyMCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA4KSIvPgogIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiLz4KICA8Y2lyY2xlIGN4PSI2MjUiIGN5PSI3OCIgcj0iMjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDx0ZXh0IHg9IjYyNSIgeT0iODQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9InJnYmEoMjI0LDQ4LDQ4LDAuNykiPjM6MjA8L3RleHQ+CiAgPGVsbGlwc2UgY3g9IjQ1MCIgY3k9IjM3NSIgcng9IjIwMCIgcnk9IjgiIGZpbGw9InJnYmEoMCwwLDAsMC4zKSIvPgo8L3N2Zz4=");background-size:cover;background-position:center 25%;filter:brightness(.22) saturate(.6);}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(170deg,rgba(28,21,18,.65) 0%,rgba(46,30,20,.35) 55%,rgba(28,21,18,.9) 100%);}
-    .hero-content{position:relative;z-index:1;padding:80px 24px 70px;max-width:780px;margin:0 auto;}
-    .hero-kicker{display:inline-block;font-family:'Jost',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blush);opacity:.85;margin-bottom:28px;}
-    .laura-hero-photo{width:110px;height:110px;border-radius:50%;border:3px solid rgba(232,196,176,.45);overflow:hidden;margin:0 auto 16px;box-shadow:0 16px 48px rgba(0,0,0,.5);background:#8a5e42;}
-    .laura-hero-photo img{width:100%;height:100%;object-fit:cover;}
-    .avatar-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:rgba(255,255,255,.65);margin-bottom:24px;}
-    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,6.5vw,76px);font-weight:700;color:#faf6f0;line-height:1.07;letter-spacing:-.5px;margin-bottom:22px;}
-    .hero h1 em{font-style:italic;color:var(--blush);}
-    .hero-byline{font-family:'Jost',sans-serif;font-size:15px;color:rgba(255,255,255,.48);letter-spacing:.3px;line-height:1.7;}
-    .hero-byline span{color:rgba(255,255,255,.68);}
-    .article{max-width:var(--max);margin:0 auto;padding:64px 24px 80px;}
-    .article p{font-size:clamp(16px,2vw,18px);line-height:1.85;color:var(--ink2);margin-bottom:26px;}
-    .article p.opening{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.8vw,26px);font-style:italic;color:var(--ink);line-height:1.6;margin-bottom:32px;}
-    .act-break{display:flex;align-items:center;gap:16px;margin:52px 0 40px;}
-    .act-break::before,.act-break::after{content:'';flex:1;height:1px;background:var(--border);}
-    .act-label{font-family:'Jost',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
-    .pull{border-left:4px solid var(--terra);padding:22px 28px;margin:36px -12px;background:var(--paper2);}
-    .pull p{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,30px);font-style:italic;font-weight:600;color:var(--ink);line-height:1.45;margin:0;}
-    .pull small{display:block;margin-top:10px;font-family:'Jost',sans-serif;font-size:12px;color:var(--muted);font-style:normal;}
-    .ambient-wide{max-width:860px;margin:40px auto;padding:0 24px;}
-    .ambient-wide img{width:100%;display:block;height:380px;object-fit:cover;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.15);}
-    .ambient-wide .caption{font-family:'Jost',sans-serif;font-size:11px;color:var(--muted);text-align:center;margin-top:10px;letter-spacing:.5px;font-style:italic;}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;margin:36px 0;}
-    .split-img{border-radius:6px;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.12);}
-    .split-img img{width:100%;height:280px;object-fit:cover;display:block;}
-    .split-text p{font-size:16px !important;margin-bottom:16px !important;}
-    .evidence{background:#f0ede6;border:1px solid var(--border);border-radius:4px;padding:28px 32px;margin:36px 0;position:relative;}
-    .evidence::before{content:'Lo que descubrió Laura';display:block;font-family:'Jost',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--terra);margin-bottom:14px;}
-    .evidence p{font-size:15.5px !important;margin-bottom:14px !important;color:var(--ink2);}
-    .evidence p:last-child{margin-bottom:0 !important;}
-    .evidence ul{padding-left:20px;margin-bottom:14px;}
-    .evidence ul li{font-size:15px;color:var(--ink2);margin-bottom:8px;line-height:1.65;}
-    .laura-voice{background:white;border:1px solid var(--blush);border-radius:4px;padding:30px 34px;margin:36px 0;position:relative;box-shadow:2px 4px 20px rgba(0,0,0,.06);}
-    .laura-voice::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:80px;color:var(--blush);position:absolute;top:-10px;left:20px;line-height:1;}
-    .laura-voice p{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.4vw,22px);font-style:italic;line-height:1.7;color:var(--ink);margin-bottom:14px !important;padding-top:30px;}
-    .laura-voice p:first-child{padding-top:40px;}
-    .laura-voice p:last-child{margin-bottom:0 !important;}
-    .laura-sig{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--blush2);}
-    .laura-sig .av-photo{width:42px;height:42px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--blush);background:#8a5e42;}
-    .laura-sig .av-photo img{width:100%;height:100%;object-fit:cover;}
-    .laura-sig div strong{display:block;font-family:'Jost',sans-serif;font-size:13px;font-weight:700;color:var(--ink);}
-    .laura-sig div span{font-size:12px;color:var(--muted);font-family:'Jost',sans-serif;}
-    .inline-cta{background:linear-gradient(135deg,var(--terra),var(--terra2));color:white;border-radius:8px;padding:26px 30px;margin:44px 0;text-align:center;box-shadow:0 16px 40px rgba(181,83,60,.3);}
-    .inline-cta p{font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,.7);margin-bottom:8px !important;font-weight:500;letter-spacing:.3px;}
-    .inline-cta .cta-head{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,26px);font-style:italic;color:white;margin-bottom:18px !important;line-height:1.35;}
-    .btn{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--terra2);padding:14px 28px;border-radius:6px;font-family:'Jost',sans-serif;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.15);transition:transform .2s;}
-    .btn:hover{transform:translateY(-1px);}
-    .btn-small-text{display:block;font-family:'Jost',sans-serif;font-size:11px;color:rgba(255,255,255,.55);margin-top:12px;letter-spacing:.3px;}
-    .product-reveal{border:2px solid var(--border);border-radius:6px;overflow:hidden;margin:40px 0;}
-    .product-reveal-header{background:var(--ink);padding:20px 28px;display:flex;align-items:center;gap:16px;}
-    .product-reveal-header .icon{font-size:28px;}
-    .product-reveal-header h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#faf6f0;margin:0;}
-    .product-reveal-header small{font-family:'Jost',sans-serif;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:2px;}
-    .product-reveal-body{padding:24px 28px;}
-    .product-reveal-body p{font-size:15px !important;color:var(--muted);margin-bottom:16px !important;}
-    .reveal-line{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--ink2);}
-    .reveal-line:last-child{border-bottom:none;}
-    .reveal-line .tick{color:var(--sage);font-weight:700;flex-shrink:0;margin-top:2px;}
-    .more-testi{max-width:var(--max);margin:0 auto;padding:0 0 20px;}
-    .mini-testi{background:white;border:1px solid var(--border);border-radius:6px;padding:24px 28px;margin-bottom:16px;box-shadow:0 2px 10px rgba(0,0,0,.04);}
-    .testi-header{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
-    .testi-photo{width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--blush2);background:#8a7060;}
-    .testi-photo img{width:100%;height:100%;object-fit:cover;}
-    .testi-meta strong{display:block;font-family:'Jost',sans-serif;font-size:14px;font-weight:700;color:var(--ink);}
-    .testi-meta span{font-family:'Jost',sans-serif;font-size:12px;color:var(--muted);}
-    .mini-testi .stars{color:#d4883a;font-size:13px;margin-bottom:10px;}
-    .mini-testi blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);line-height:1.6;}
-    .offer-section{background:var(--ink);padding:64px 24px;position:relative;overflow:hidden;}
-    .offer-section::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(181,83,60,.18),transparent 70%);top:-150px;right:-150px;}
-    .offer-inner{max-width:660px;margin:0 auto;}
-    .offer-kicker{font-family:'Jost',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blush);opacity:.8;margin-bottom:16px;display:block;}
-    .offer-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,50px);font-weight:700;color:#faf6f0;line-height:1.15;margin-bottom:12px;}
-    .offer-inner h2 em{font-style:italic;color:var(--blush);}
-    .offer-sub{font-family:'Jost',sans-serif;font-size:15px;color:rgba(255,255,255,.55);margin-bottom:36px;line-height:1.65;}
-    .stack-list{display:grid;gap:12px;margin-bottom:36px;}
-    .stack-row{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:16px 20px;}
-    .stack-icon{font-size:22px;flex-shrink:0;}
-    .stack-row-info{flex:1;}
-    .stack-row-info strong{display:block;font-family:'Jost',sans-serif;font-size:14px;font-weight:700;color:#faf6f0;margin-bottom:2px;}
-    .stack-row-info span{font-family:'Jost',sans-serif;font-size:12px;color:rgba(255,255,255,.45);}
-    .stack-price{font-family:'Jost',sans-serif;text-align:right;flex-shrink:0;}
-    .stack-price .was{display:block;font-size:12px;text-decoration:line-through;color:rgba(255,255,255,.3);}
-    .stack-price .now{font-size:15px;font-weight:700;color:rgba(255,255,255,.7);}
-    .stack-price .free{color:#8ec89a;font-weight:700;font-size:14px;}
-    .price-hero{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:28px 30px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
-    .price-hero .total-val{font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,.4);margin-bottom:6px;}
-    .price-hero .big-price{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:700;color:white;line-height:1;}
-    .price-hero .big-price span{font-size:28px;vertical-align:super;margin-right:2px;}
-    .price-hero .was-price{font-family:'Jost',sans-serif;font-size:16px;text-decoration:line-through;color:rgba(255,255,255,.35);}
-    .countdown-row{display:flex;gap:10px;flex-wrap:wrap;}
-    .ctu{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:12px 16px;text-align:center;min-width:72px;}
-    .ctu strong{display:block;font-size:26px;font-weight:900;color:white;font-family:'Jost',sans-serif;}
-    .ctu span{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:1px;font-family:'Jost',sans-serif;}
-    .btn-main{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--terra),var(--terra2));color:white;padding:20px 36px;border-radius:8px;font-family:'Jost',sans-serif;font-size:17px;font-weight:700;text-decoration:none;box-shadow:0 20px 50px rgba(181,83,60,.4);transition:transform .2s,box-shadow .2s;text-align:center;}
-    .btn-main:hover{transform:translateY(-2px);box-shadow:0 28px 60px rgba(181,83,60,.5);}
-    .micro-guarantee{display:flex;align-items:center;gap:12px;margin-top:18px;padding:14px 18px;background:rgba(90,122,94,.15);border:1px solid rgba(90,122,94,.25);border-radius:8px;}
-    .micro-guarantee p{font-family:'Jost',sans-serif;font-size:13px;color:rgba(255,255,255,.65);margin:0 !important;line-height:1.55;}
-    .micro-guarantee strong{color:rgba(255,255,255,.85);}
-    .faq-section{background:var(--paper2);padding:64px 24px;}
-    .faq-inner{max-width:var(--max);margin:0 auto;}
-    .faq-inner .section-hed{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,40px);font-weight:700;color:var(--ink);margin-bottom:32px;line-height:1.2;}
-    .faq-inner .section-hed em{font-style:italic;color:var(--terra);}
-    details{background:white;border:1px solid var(--border);border-radius:4px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
-    details[open]{border-color:var(--blush);}
-    summary{cursor:pointer;list-style:none;padding:20px 22px;font-family:'Jost',sans-serif;font-size:15px;font-weight:600;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:12px;}
-    summary::-webkit-details-marker{display:none;}
-    summary::after{content:'+';font-size:20px;color:var(--terra);flex-shrink:0;transition:transform .2s;}
-    details[open] summary::after{transform:rotate(45deg);}
-    details .faq-body{padding:0 22px 20px;font-family:'Jost',sans-serif;font-size:14.5px;color:var(--muted);line-height:1.75;}
-    .final-cta{background:var(--paper);padding:64px 24px;text-align:center;}
-    .final-inner{max-width:560px;margin:0 auto;}
-    .final-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,44px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:16px;}
-    .final-inner h2 em{font-style:italic;color:var(--terra);}
-    .final-inner p{font-family:'Jost',sans-serif;font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.7;}
-    footer{background:var(--ink2);padding:32px 24px;text-align:center;}
-    footer p{font-family:'Jost',sans-serif;font-size:11.5px;color:rgba(255,255,255,.28);line-height:1.75;max-width:640px;margin:0 auto;}
-    @media(max-width:700px){
-      .split{grid-template-columns:1fr;}
-      .pull{margin:30px 0;}
-      .price-hero{flex-direction:column;align-items:flex-start;}
-      .ambient-wide{padding:0 16px;}
-      .ambient-wide img{height:240px;}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrategia Multi-Cuenta — Meta Ads</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f3ee;
+    --blue: #1a4fff;
+    --blue-light: #4d78ff;
+    --blue-dim: rgba(26,79,255,0.12);
+    --amber: #f5a623;
+    --green: #00c97d;
+    --red: #ff3b3b;
+    --gray: #1c1c1c;
+    --gray-mid: #2e2e2e;
+    --gray-soft: #888;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-circle {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,79,255,0.18) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    border: 1px solid rgba(77,120,255,0.35);
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 36px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(52px, 7vw, 92px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    max-width: 780px;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--blue-light);
+  }
+
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--gray-soft);
+    max-width: 560px;
+    line-height: 1.6;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-meta {
+    margin-top: 60px;
+    display: flex;
+    gap: 48px;
+    animation: fadeUp 1.1s 0.3s ease both;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-stat strong {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-stat span {
+    font-size: 12px;
+    color: var(--gray-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--gray-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: fadeUp 1.2s 0.5s ease both;
+  }
+
+  .scroll-hint::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gray-soft);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 60px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 40px;
+    background: var(--blue-light);
+    opacity: 0.5;
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--gray-soft);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+
+  /* ── PROBLEMA ── */
+  .problema-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .problema-cell {
+    background: var(--gray);
+    padding: 36px;
+    transition: background 0.3s;
+  }
+
+  .problema-cell:hover { background: var(--gray-mid); }
+
+  .problema-cell.danger {
+    background: rgba(255,59,59,0.07);
+    border: 1px solid rgba(255,59,59,0.15);
+  }
+
+  .problema-cell.danger:hover { background: rgba(255,59,59,0.12); }
+
+  .cell-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .cell-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .cell-text {
+    font-size: 15px;
+    color: var(--gray-soft);
+    line-height: 1.6;
+  }
+
+  .cell-tag {
+    margin-top: 16px;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: rgba(255,59,59,0.15);
+    color: var(--red);
+  }
+
+  /* ── ESTRUCTURA VISUAL ── */
+  .estructura-section {
+    background: var(--gray);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .meta-box {
+    background: var(--blue);
+    border-radius: 12px;
+    padding: 20px 32px;
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 320px;
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+
+  .meta-box small {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.75;
+    margin-top: 4px;
+  }
+
+  .distribucion {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .cuenta-card {
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--black);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+
+  .cuenta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(26,79,255,0.15);
+  }
+
+  .cuenta-card.baneada {
+    border-color: rgba(255,59,59,0.3);
+    background: rgba(255,59,59,0.05);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cuenta-card.baneada::after {
+    content: 'BANEADA';
+    position: absolute;
+    top: 12px;
+    right: -20px;
+    background: var(--red);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 28px;
+    transform: rotate(35deg);
+  }
+
+  .cuenta-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .cuenta-monto {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .cuenta-card.baneada .cuenta-monto {
+    color: var(--red);
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+
+  .cuenta-dia {
+    font-size: 12px;
+    color: var(--gray-soft);
+    margin-top: 2px;
+  }
+
+  .cuenta-fp {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--blue-light);
+    background: rgba(77,120,255,0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+
+  .cuenta-card.baneada .cuenta-fp {
+    color: var(--red);
+    background: rgba(255,59,59,0.1);
+  }
+
+  .resultado-banner {
+    background: rgba(0,201,125,0.08);
+    border: 1px solid rgba(0,201,125,0.2);
+    border-radius: 12px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .resultado-banner .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .resultado-banner p {
+    font-size: 15px;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  /* ── PILARES ── */
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .pilar {
+    padding: 48px 36px;
+    background: var(--gray);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .pilar:hover { background: var(--gray-mid); }
+
+  .pilar:first-child { border-radius: 16px 0 0 16px; }
+  .pilar:last-child { border-radius: 0 16px 16px 0; }
+
+  .pilar-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    letter-spacing: -0.04em;
+  }
+
+  .pilar-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .pilar-icon-wrap.amber { background: rgba(245,166,35,0.15); }
+  .pilar-icon-wrap.blue { background: rgba(26,79,255,0.15); }
+  .pilar-icon-wrap.green { background: rgba(0,201,125,0.15); }
+
+  .pilar h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .pilar p {
+    font-size: 15px;
+    color: var(--gray-soft);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .pilar-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pilar-bullets li {
+    font-size: 13px;
+    color: var(--gray-soft);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .pilar-bullets li::before {
+    content: '→';
+    color: var(--blue-light);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── EXPANSION ── */
+  .expansion-section { }
+
+  .expansion-intro {
+    max-width: 640px;
+    margin-bottom: 60px;
+  }
+
+  .matrix {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .matrix-card {
+    background: var(--gray);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+
+  .matrix-card:hover {
+    border-color: rgba(26,79,255,0.4);
+    transform: translateY(-2px);
+  }
+
+  .matrix-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .matrix-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .matrix-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--blue-dim);
+    color: var(--blue-light);
+    white-space: nowrap;
+  }
+
+  .matrix-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .matrix-row:last-child { border-bottom: none; }
+
+  .matrix-row-label { color: var(--gray-soft); }
+
+  .matrix-row-val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .matrix-row-val.blue { color: var(--blue-light); }
+  .matrix-row-val.green { color: var(--green); }
+  .matrix-row-val.amber { color: var(--amber); }
+
+  .expansion-note {
+    background: var(--gray);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 12px 12px 0;
+    padding: 24px 28px;
+    font-size: 15px;
+    color: var(--gray-soft);
+    line-height: 1.7;
+  }
+
+  .expansion-note strong { color: var(--white); }
+
+  /* ── FANPAGES ── */
+  .fanpages-section { background: var(--gray); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .fanpages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .fp-card {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+
+  .fp-card:hover {
+    border-color: rgba(77,120,255,0.35);
+    transform: translateY(-3px);
+  }
+
+  .fp-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+    background: var(--gray);
+  }
+
+  .fp-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .fp-card p {
+    font-size: 13px;
+    color: var(--gray-soft);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .fp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .fp-tag {
+    font-size: 11px;
+    color: var(--blue-light);
+    background: var(--blue-dim);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* ── CONCLUSION ── */
+  .conclusion {
+    text-align: center;
+    padding: 120px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .conclusion-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,79,255,0.12) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .conclusion h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    max-width: 680px;
+    margin: 0 auto 28px;
+    position: relative;
+  }
+
+  .conclusion p {
+    font-size: 18px;
+    color: var(--gray-soft);
+    max-width: 520px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .conclusion-line {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--blue), transparent);
+    margin: 0 auto 40px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 60px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { padding: 60px 28px; }
+    .section-inner { padding: 72px 28px; }
+    .problema-grid { grid-template-columns: 1fr; }
+    .distribucion { grid-template-columns: 1fr 1fr; }
+    .pilares-grid { grid-template-columns: 1fr; }
+    .pilar:first-child, .pilar:last-child { border-radius: 0; }
+    .matrix { grid-template-columns: 1fr; }
+    .fanpages-grid { grid-template-columns: 1fr; }
+    .hero-meta { flex-direction: column; gap: 24px; }
+    .conclusion { padding: 80px 28px; }
+  }
+</style>
 </head>
 <body>
 
-<div class="progress-bar" id="pb"></div>
-<div class="topbar">Oferta de lanzamiento · Solo por tiempo limitado · <strong>$19 en vez de $49</strong></div>
-
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-kicker">Historia real · Personaje arquetipo</div>
-    <div class="laura-hero-photo">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0OWE3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhhNWU0MiIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InNraW4iIGN4PSI1MCUiIGN5PSIzNSUiIHI9IjU1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4YzRhMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M4OTY2YSIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNsZSI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0idXJsKCNiZykiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE3NSIgcng9IjY1IiByeT0iNDUiIGZpbGw9IiM0YTYwODAiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPHJlY3QgeD0iODUiIHk9IjEzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0idXJsKCNza2luKSIvPgogIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxMDUiIHJ4PSI0MiIgcnk9IjQ4IiBmaWxsPSJ1cmwoI3NraW4pIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjcyIiByeD0iNDQiIHJ5PSIyOCIgZmlsbD0iI2MwYjhiMCIvPgogIDxwYXRoIGQ9Ik01OCA5MCBRNTIgNzUgNjAgNjIgUTcwIDUyIDg1IDU1IFExMDAgNTAgMTE1IDU1IFExMzAgNTIgMTQwIDYyIFExNDggNzUgMTQyIDkwIiBmaWxsPSIjYzBiOGIwIi8+CiAgPHBhdGggZD0iTTU4IDkwIFE1NSAxMDAgNjAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTE0MiA5MCBRMTQ1IDEwMCAxNDAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTc1IDU4IFE4NSA1MiA5NSA1NCIgc3Ryb2tlPSIjZTBkOGQwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMDUgNTMgUTExNSA1MSAxMjUgNTYiIHN0cm9rZT0iI2UwZDhkMCIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8ZWxsaXBzZSBjeD0iODIiIGN5PSIxMDUiIHJ4PSI5IiByeT0iNyIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iMTE4IiBjeT0iMTA1IiByeD0iOSIgcnk9IjciIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iODMiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSIxMTkiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMTIyIiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPHBhdGggZD0iTTczIDk2IFE4MiA5MSA5MSA5NSIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTEwOSA5NSBRMTE4IDkxIDEyNyA5NiIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTk3IDExMCBROTUgMTIyIDkwIDEyNiBRMTAwIDEyOSAxMTAgMTI2IFExMDUgMTIyIDEwMyAxMTAiIHN0cm9rZT0iI2MwOTA2YSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNODYgMTM4IFExMDAgMTQ4IDExNCAxMzgiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjEyNSIgcng9IjEyIiByeT0iOCIgZmlsbD0iI2UwODg3OCIgb3BhY2l0eT0iMC4yNSIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxMjUiIHJ4PSIxMiIgcnk9IjgiIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMjUiLz4KICA8Y2lyY2xlIGN4PSI1OCIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgogIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgo8L3N2Zz4=" alt="Laura, 51 años"/>
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <span class="hero-tag">Estrategia de Escala — Meta Ads</span>
+  <h1>Una sola cuenta<br>es un <em>punto de falla</em> único.</h1>
+  <p class="hero-sub">Para escalar a $10.000 diarios de forma sostenible, la estructura importa tanto como el presupuesto. Así funciona la estrategia multi-cuenta.</p>
+  <div class="hero-meta">
+    <div class="hero-stat">
+      <strong>$10K</strong>
+      <span>Meta diaria</span>
     </div>
-    <div class="avatar-name">Laura, 51 años — Córdoba</div>
-    <h1>Tres años sin dormir bien.<br>Hasta que <em>entendió<br>por qué.</em></h1>
-    <p class="hero-byline">Esto es lo que Laura le contaría a su mejor amiga<br><span>si pudiera explicarle cómo cambió todo.</span></p>
-  </div>
-</div>
-
-<!-- ARTICLE -->
-<article class="article">
-  <p class="opening">Si me hubieras visto hace dos años, me habrías visto funcionar. Perfectamente funcional. Maestra de primaria, mamá, esposa. El tipo de persona que anota todo en una agenda y llega a tiempo a todos lados.</p>
-  <p>Pero adentro de esa agenda impecable había una nota que nadie más veía: <em>Noche número 847 sin dormir bien.</em> (No la anoté de verdad, pero podría haberlo hecho.)</p>
-  <p>Empezó a los 48, más o menos. No fue dramático. Fue gradual, casi imperceptible. Empecé a despertarme a la madrugada y a costarme volver a dormir. Al principio pensé que era estrés de fin de año. Después del verano. Después "el trabajo". Siempre tenía una explicación razonable.</p>
-</article>
-
-<!-- IMAGEN AMBIENTAL 1: mujer despierta de noche -->
-<div class="ambient-wide">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgMzgwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icm9vbSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZDBkMWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYTEwMjAiLz48L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJtb29ubGlnaHQiIGN4PSI4MCUiIGN5PSIyMCUiIHI9IjQwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MwYzhlMCIgc3RvcC1vcGFjaXR5PSIwLjE1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDFhIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJjbG9ja2dsb3ciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UwMzAzMCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4MDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI5MDAiIGhlaWdodD0iMzgwIiBmaWxsPSJ1cmwoI3Jvb20pIi8+CiAgPHJlY3Qgd2lkdGg9IjkwMCIgaGVpZ2h0PSIzODAiIGZpbGw9InVybCgjbW9vbmxpZ2h0KSIvPgogIDxyZWN0IHg9IjY4MCIgeT0iMzAiIHdpZHRoPSIxNjAiIGhlaWdodD0iMjIwIiByeD0iNCIgZmlsbD0iIzBhMTAyMCIgc3Ryb2tlPSIjMmEyYTNhIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSI2ODMiIHk9IjMzIiB3aWR0aD0iNzQiIGhlaWdodD0iMjE0IiBmaWxsPSIjMGUxODI4Ii8+CiAgPHJlY3QgeD0iNzYyIiB5PSIzMyIgd2lkdGg9Ijc1IiBoZWlnaHQ9IjIxNCIgZmlsbD0iIzBlMTgyOCIvPgogIDxyZWN0IHg9IjY4MCIgeT0iMTMzIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjQiIGZpbGw9IiMyYTJhM2EiLz4KICA8Y2lyY2xlIGN4PSI3MjAiIGN5PSI5MCIgcj0iMjgiIGZpbGw9IiNlOGUwYzgiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjczMCIgY3k9IjgyIiByPSIyMCIgZmlsbD0iIzBlMTgyOCIvPgogIDxjaXJjbGUgY3g9Ijc5MCIgY3k9IjYwIiByPSIxLjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjgiLz4KICA8Y2lyY2xlIGN4PSI4MTAiIGN5PSI0NSIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNiIvPgogIDxjaXJjbGUgY3g9Ijc3NSIgY3k9IjQwIiByPSIxLjIiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjciLz4KICA8Y2lyY2xlIGN4PSI4MjUiIGN5PSI4MCIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNSIvPgogIDxyZWN0IHg9IjYwIiB5PSIyMjAiIHdpZHRoPSIxMzAiIGhlaWdodD0iMTIwIiByeD0iNCIgZmlsbD0iIzJhMWExMiIvPgogIDxyZWN0IHg9Ijg1IiB5PSIxOTUiIHdpZHRoPSI3MCIgaGVpZ2h0PSI1NSIgcng9IjYiIGZpbGw9IiMxYTFhMmEiLz4KICA8cmVjdCB4PSI4OCIgeT0iMTk4IiB3aWR0aD0iNjQiIGhlaWdodD0iNDQiIHJ4PSI0IiBmaWxsPSIjMTAwODA4Ii8+CiAgPHRleHQgeD0iMTIwIiB5PSIyMjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNlMDMwMzAiIGZvbnQtd2VpZ2h0PSJib2xkIj4zOjIwPC90ZXh0PgogIDx0ZXh0IHg9IjEyMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ibW9ub3NwYWNlIiBmb250LXNpemU9IjkiIGZpbGw9IiNlMDMwMzAiIG9wYWNpdHk9IjAuNyI+QU08L3RleHQ+CiAgPHJlY3QgeD0iODUiIHk9IjE5NSIgd2lkdGg9IjcwIiBoZWlnaHQ9IjQ5IiByeD0iNCIgZmlsbD0idXJsKCNjbG9ja2dsb3cpIiBvcGFjaXR5PSIwLjQiLz4KICA8cmVjdCB4PSIxNzAiIHk9IjE5MCIgd2lkdGg9IjYiIGhlaWdodD0iNDAiIGZpbGw9IiM0YTMwMjAiLz4KICA8ZWxsaXBzZSBjeD0iMTczIiBjeT0iMTkwIiByeD0iMjIiIHJ5PSIxNCIgZmlsbD0iIzNhMjgxOCIvPgogIDxyZWN0IHg9IjAiIHk9IjI0MCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxNDAiIGZpbGw9IiMyYTFhMGUiLz4KICA8cmVjdCB4PSIwIiB5PSIyMDAiIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAiIHJ4PSIwIiBmaWxsPSIjM2EyODE4Ii8+CiAgPHJlY3QgeD0iMjAiIHk9IjIwNSIgd2lkdGg9Ijg2MCIgaGVpZ2h0PSI1MCIgcng9IjYiIGZpbGw9IiM0YTMwMjAiLz4KICA8cmVjdCB4PSI4MCIgeT0iMjM1IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZThlMGQ4Ii8+CiAgPHJlY3QgeD0iOTAiIHk9IjI0NCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI4MiIgcng9IjE2IiBmaWxsPSIjZjBlY2U0Ii8+CiAgPHJlY3QgeD0iMzgwIiB5PSIyMzUiIHdpZHRoPSIyNDAiIGhlaWdodD0iMTAwIiByeD0iMjAiIGZpbGw9IiNlMGQ4ZDAiLz4KICA8cmVjdCB4PSIwIiB5PSIyOTUiIHdpZHRoPSI5MDAiIGhlaWdodD0iODUiIHJ4PSIwIiBmaWxsPSIjNGE1ODc4Ii8+CiAgPHJlY3QgeD0iMCIgeT0iMjk1IiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjEyIiByeD0iMCIgZmlsbD0iIzVhNjg4OCIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2MCwxNjApIj4KICAgIDxyZWN0IHg9Ii0zOCIgeT0iNzAiIHdpZHRoPSI3NiIgaGVpZ2h0PSI4MCIgcng9IjEwIiBmaWxsPSIjM2EzMDUwIi8+CiAgICA8cmVjdCB4PSItMTIiIHk9IjQ4IiB3aWR0aD0iMjQiIGhlaWdodD0iMjgiIHJ4PSI4IiBmaWxsPSIjYzA4ODYwIi8+CiAgICA8ZWxsaXBzZSBjeD0iMCIgY3k9IjMwIiByeD0iMzUiIHJ5PSIzOCIgZmlsbD0iI2MwODg2MCIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSI1IiByeD0iMzciIHJ5PSIyNCIgZmlsbD0iI2IwYTg5OCIvPgogICAgPHBhdGggZD0iTS0zNiAxNSBRLTQyIDUgLTM1IC04IFEtMjIgLTE4IC04IC0xNSIgZmlsbD0iI2IwYTg5OCIvPgogICAgPHBhdGggZD0iTTM2IDE1IFE0MiA1IDM1IC04IiBmaWxsPSJub25lIiBzdHJva2U9IiNiMGE4OTgiIHN0cm9rZS13aWR0aD0iMTAiLz4KICAgIDxwYXRoIGQ9Ik0tMzAgLTUgUS0yMCAtMjAgLTUgLTE4IiBzdHJva2U9IiNjMGI4YjAiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIvPgogICAgPGVsbGlwc2UgY3g9Ii0xMiIgY3k9IjMyIiByeD0iNyIgcnk9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxlbGxpcHNlIGN4PSIxMiIgY3k9IjMyIiByeD0iNyIgcnk9IjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxjaXJjbGUgY3g9Ii0xMSIgY3k9IjMzIiByPSI0IiBmaWxsPSIjNWEzYTJhIi8+CiAgICA8Y2lyY2xlIGN4PSIxMyIgY3k9IjMzIiByPSI0IiBmaWxsPSIjNWEzYTJhIi8+CiAgICA8cGF0aCBkPSJNLTE4IDM4IFEtMTEgNDEgLTQgMzgiIHN0cm9rZT0iI2EwNzA1MCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNiIvPgogICAgPHBhdGggZD0iTTYgMzggUTEzIDQxIDIwIDM4IiBzdHJva2U9IiNhMDcwNTAiIHN0cm9rZS13aWR0aD0iMS41IiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjYiLz4KICAgIDxwYXRoIGQ9Ik0tMTAgNTIgUTAgNTYgMTAgNTIiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CiAgICA8ZWxsaXBzZSBjeD0iMjUiIGN5PSIxMCIgcng9IjIwIiByeT0iMTAiIGZpbGw9IiNjMDg4NjAiIHRyYW5zZm9ybT0icm90YXRlKC0yMCwyNSwxMCkiLz4KICAgIDxwYXRoIGQ9Ik0xMCA4IFEyNSAyIDM4IDEyIiBzdHJva2U9IiNiMDc4NTAiIHN0cm9rZS13aWR0aD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjU4MCIgY3k9IjEyMCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA4KSIvPgogIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iMTIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiLz4KICA8Y2lyY2xlIGN4PSI2MjUiIGN5PSI3OCIgcj0iMjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgogIDx0ZXh0IHg9IjYyNSIgeT0iODQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9InJnYmEoMjI0LDQ4LDQ4LDAuNykiPjM6MjA8L3RleHQ+CiAgPGVsbGlwc2UgY3g9IjQ1MCIgY3k9IjM3NSIgcng9IjIwMCIgcnk9IjgiIGZpbGw9InJnYmEoMCwwLDAsMC4zKSIvPgo8L3N2Zz4=" alt="Mujer despierta a las 3AM mirando el reloj"/>
-  <div class="caption">Las noches que parecen eternas. Laura las conoció bien.</div>
-</div>
-
-<article class="article">
-  <div class="pull">
-    <p>"Me acostaba exhausta. Cerraba los ojos. Y me quedaba mirando el techo durante horas, con la mente girando sola."</p>
-    <small>— Laura, 51 · Córdoba</small>
-  </div>
-  <p>Lo más raro era eso: yo <em>estaba</em> cansada. No era que no tuviera sueño. Era que el sueño llegaba hasta la puerta y después se iba. Como si mi cuerpo hubiera olvidado el paso final.</p>
-  <p>Empecé a sudar de noche sin entender por qué. Me despertaba con calor, me destapaba, me volvía a tapar. A veces me levantaba, caminaba por la cocina, tomaba agua, me volvía a acostar. Y la mente arrancaba sola: los chicos del colegio, la reunión del martes, si había apagado el gas, una conversación de hace tres semanas.</p>
-  <p>A la mañana siguiente, café. Mucho café. Y la sensación de que el día iba a ser largo.</p>
-
-  <div class="act-break"><span class="act-label">Lo que probó</span></div>
-
-  <p>No soy de las que se quedan quietas. Si hay un problema, busco cómo resolverlo. Así que busqué.</p>
-  <p>Melatonina. Empecé con la dosis baja, después subí. Me ayudaba a dormirme más rápido, pero igual me despertaba a las 3 AM y ya no podía volver. Mi médica me dijo que era "normal para mi edad" y me sugirió higiene del sueño.</p>
-
-  <div class="laura-voice">
-    <p>Así que apagué el celular a las 9 PM. Tomé té de valeriana. Compré una máscara de ojos. Puse música de lluvia. Hice una rutina de yoga de 20 minutos antes de acostarme.</p>
-    <p>La primera noche, nada. La segunda, nada. La tercera... bueno, igual dormí un poco mejor, pero a los cinco días ya habíamos vuelto al mismo lugar de siempre.</p>
-    <div class="laura-sig">
-      <div class="av-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0OWE3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhhNWU0MiIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InNraW4iIGN4PSI1MCUiIGN5PSIzNSUiIHI9IjU1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4YzRhMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M4OTY2YSIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNsZSI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0idXJsKCNiZykiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE3NSIgcng9IjY1IiByeT0iNDUiIGZpbGw9IiM0YTYwODAiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPHJlY3QgeD0iODUiIHk9IjEzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0idXJsKCNza2luKSIvPgogIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxMDUiIHJ4PSI0MiIgcnk9IjQ4IiBmaWxsPSJ1cmwoI3NraW4pIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjcyIiByeD0iNDQiIHJ5PSIyOCIgZmlsbD0iI2MwYjhiMCIvPgogIDxwYXRoIGQ9Ik01OCA5MCBRNTIgNzUgNjAgNjIgUTcwIDUyIDg1IDU1IFExMDAgNTAgMTE1IDU1IFExMzAgNTIgMTQwIDYyIFExNDggNzUgMTQyIDkwIiBmaWxsPSIjYzBiOGIwIi8+CiAgPHBhdGggZD0iTTU4IDkwIFE1NSAxMDAgNjAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTE0MiA5MCBRMTQ1IDEwMCAxNDAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTc1IDU4IFE4NSA1MiA5NSA1NCIgc3Ryb2tlPSIjZTBkOGQwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMDUgNTMgUTExNSA1MSAxMjUgNTYiIHN0cm9rZT0iI2UwZDhkMCIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8ZWxsaXBzZSBjeD0iODIiIGN5PSIxMDUiIHJ4PSI5IiByeT0iNyIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iMTE4IiBjeT0iMTA1IiByeD0iOSIgcnk9IjciIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iODMiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSIxMTkiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMTIyIiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPHBhdGggZD0iTTczIDk2IFE4MiA5MSA5MSA5NSIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTEwOSA5NSBRMTE4IDkxIDEyNyA5NiIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTk3IDExMCBROTUgMTIyIDkwIDEyNiBRMTAwIDEyOSAxMTAgMTI2IFExMDUgMTIyIDEwMyAxMTAiIHN0cm9rZT0iI2MwOTA2YSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNODYgMTM4IFExMDAgMTQ4IDExNCAxMzgiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjEyNSIgcng9IjEyIiByeT0iOCIgZmlsbD0iI2UwODg3OCIgb3BhY2l0eT0iMC4yNSIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxMjUiIHJ4PSIxMiIgcnk9IjgiIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMjUiLz4KICA8Y2lyY2xlIGN4PSI1OCIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgogIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgo8L3N2Zz4=" alt="Laura"/></div>
-      <div><strong>Laura G.</strong><span>51 años · Maestra · Córdoba</span></div>
+    <div class="hero-stat">
+      <strong>4+</strong>
+      <span>Cuentas activas</span>
+    </div>
+    <div class="hero-stat">
+      <strong>0</strong>
+      <span>Paradas totales</span>
     </div>
   </div>
+  <div class="scroll-hint">Seguir leyendo</div>
+</section>
 
-  <p>Probé sin gluten. Probé el magnesio. Probé dormir con calcetines. Probé leer antes de acostarme. Probé no leer. Más ejercicio. Menos ejercicio.</p>
+<!-- PROBLEMA -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">El problema</div>
+    <h2>¿Qué pasa cuando<br>todo está en una cuenta?</h2>
+    <p class="lead">Una cuenta única concentra todo el riesgo. Cualquier fricción — técnica, algorítmica o humana — puede detener el negocio completo.</p>
 
-  <div class="pull">
-    <p>"El cansancio no era lo peor. Lo peor era la sensación de que mi cuerpo me había traicionado y que nadie podía explicarme por qué."</p>
-  </div>
-
-  <div class="act-break"><span class="act-label">Lo que nadie le había explicado</span></div>
-
-  <p>Un martes a la tarde, estaba corrigiendo trabajos cuando mi amiga Graciela me mandó un link con un comentario simple: <em>"Leé esto. En serio."</em></p>
-  <p>Era un artículo sobre lo que le pasa al sueño después de los 45. Y fue la primera vez en años que sentí que alguien me estaba explicando <em>mi situación específica.</em></p>
-
-  <div class="evidence">
-    <p>Después de los 45, el sueño cambia por tres razones que se combinan entre sí:</p>
-    <ul>
-      <li><strong>El estrógeno regula la temperatura corporal.</strong> Cuando baja o fluctúa, tu cuerpo pierde la capacidad de enfriarse naturalmente de noche. Por eso el calor, los sofocos, el sudor — no son caprichosos, son una falla del termostato interno.</li>
-      <li><strong>La progesterona tiene efecto calmante sobre el cerebro.</strong> Cuando disminuye, el sistema nervioso se vuelve más reactivo de noche. Más fácil de despertar. Más difícil de volver a soltar.</li>
-      <li><strong>El ritmo circadiano se desincroniza.</strong> El reloj interno pierde precisión. Por eso las mujeres de esta etapa se despiertan siempre a la misma hora y duermen de forma fragmentada sin restauración real.</li>
-    </ul>
-    <p>Estas tres cosas se sabotean entre sí. Resolver solo una no alcanza. Por eso los consejos genéricos fallan.</p>
-  </div>
-
-  <p>Leí eso y me quedé quieta un momento. Pensé: <em>eso es exactamente lo que me está pasando.</em> No tres problemas distintos. Un sistema que se desbalanceó por razones concretas que tienen una lógica. Y si tenían una lógica, podían tener una solución.</p>
-</article>
-
-<!-- IMAGEN AMBIENTAL 2: dormitorio oscuro -->
-<div class="ambient-wide">
-  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgNDAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0id2FsbGdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMWExMjIwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjQxODIwIi8+PC9saW5lYXJHcmFkaWVudD4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0ibGFtcGdsb3ciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YwYzA2MCIgc3RvcC1vcGFjaXR5PSIwLjgiLz48c3RvcCBvZmZzZXQ9IjYwJSIgc3RvcC1jb2xvcj0iI2UwOTAwYSIgc3RvcC1vcGFjaXR5PSIwLjE1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTA5MDBhIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJsYW1wZ2xvdzIiIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YwYzA2MCIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlMDkwMGEiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJlZGZyYW1lIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzVhMzgyMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNhMjAxMCIvPjwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJsYW5rZXQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjOGE2MDgwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNmE0MDYwIi8+PC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjkwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjd2FsbGdyYWQpIi8+CiAgPHJlY3QgeD0iNDAiIHk9IjQwIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjI0MCIgcng9IjYiIGZpbGw9IiMwYTBlMTgiIHN0cm9rZT0iIzNhMmExOCIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHJlY3QgeD0iNDQiIHk9IjQ0IiB3aWR0aD0iODMiIGhlaWdodD0iMjMyIiBmaWxsPSIjMGMxMjIwIi8+CiAgPHJlY3QgeD0iMTMyIiB5PSI0NCIgd2lkdGg9Ijg0IiBoZWlnaHQ9IjIzMiIgZmlsbD0iIzBjMTIyMCIvPgogIDxyZWN0IHg9IjQwIiB5PSIxNTIiIHdpZHRoPSIxODAiIGhlaWdodD0iNiIgZmlsbD0iIzNhMmExOCIvPgogIDxwYXRoIGQ9Ik0zMCAzMCBRNTAgODAgNDUgMTYwIFE0MiAyNDAgNTAgMjkwIiBmaWxsPSIjNGEyYTM4IiBvcGFjaXR5PSIwLjkiLz4KICA8cGF0aCBkPSJNMjMwIDMwIFEyMTAgODAgMjE1IDE2MCBRMjE4IDI0MCAyMTAgMjkwIiBmaWxsPSIjNGEyYTM4IiBvcGFjaXR5PSIwLjkiLz4KICA8cmVjdCB4PSI0NCIgeT0iNDQiIHdpZHRoPSIxNzIiIGhlaWdodD0iMjM1IiBmaWxsPSJyZ2JhKDE2MCwxODAsMjIwLDAuMDYpIi8+CiAgPGNpcmNsZSBjeD0iMTMwIiBjeT0iMTAwIiByPSIzNSIgZmlsbD0iI2U4ZTRkOCIgb3BhY2l0eT0iMC44NSIvPgogIDxjaXJjbGUgY3g9IjE0NCIgY3k9IjkwIiByPSIyNiIgZmlsbD0iIzBjMTIyMCIvPgogIDxjaXJjbGUgY3g9IjgwIiBjeT0iNjUiIHI9IjEuNSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNyIvPgogIDxjaXJjbGUgY3g9IjE4MCIgY3k9IjU1IiByPSIxIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC41Ii8+CiAgPHJlY3QgeD0iMzAiIHk9IjI4NSIgd2lkdGg9IjExMCIgaGVpZ2h0PSI4NSIgcng9IjQiIGZpbGw9IiMzYTIwMTAiLz4KICA8cmVjdCB4PSI2OCIgeT0iMjQ4IiB3aWR0aD0iOCIgaGVpZ2h0PSI0MiIgZmlsbD0iIzVhMzgyMCIvPgogIDxwYXRoIGQ9Ik00NiAyNDggUTc2IDIzNSAxMDYgMjQ4IiBmaWxsPSIjOGE3MDYwIi8+CiAgPGVsbGlwc2UgY3g9Ijc2IiBjeT0iMjU2IiByeD0iMzYiIHJ5PSIyMiIgZmlsbD0iIzhhNzA2MCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjI4NSIgcng9IjEyMCIgcnk9IjYwIiBmaWxsPSJ1cmwoI2xhbXBnbG93KSIvPgogIDxyZWN0IHg9IjM1IiB5PSIyNjgiIHdpZHRoPSIxOCIgaGVpZ2h0PSIyMiIgcng9IjIiIGZpbGw9IiM4YTUwNDAiLz4KICA8cmVjdCB4PSI1NCIgeT0iMjY1IiB3aWR0aD0iMTYiIGhlaWdodD0iMjUiIHJ4PSIyIiBmaWxsPSIjNGE2MDgwIi8+CiAgPHJlY3QgeD0iMTEwIiB5PSIyNzIiIHdpZHRoPSIxNiIgaGVpZ2h0PSIyNCIgcng9IjMiIGZpbGw9InJnYmEoMTYwLDIwMCwyMjAsMC4zKSIgc3Ryb2tlPSJyZ2JhKDIwMCwyMzAsMjU1LDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxyZWN0IHg9IjAiIHk9IjIyMCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSI3MCIgZmlsbD0idXJsKCNiZWRmcmFtZSkiLz4KICA8cmVjdCB4PSIxMCIgeT0iMjI1IiB3aWR0aD0iODgwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzRhMmExOCIvPgogIDxyZWN0IHg9IjMwIiB5PSIyMzAiIHdpZHRoPSIxODAiIGhlaWdodD0iNTAiIHJ4PSI2IiBmaWxsPSIjNWEzYTIyIiBzdHJva2U9IiM2YTRhMmEiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxyZWN0IHg9IjIyMCIgeT0iMjMwIiB3aWR0aD0iNDYwIiBoZWlnaHQ9IjUwIiByeD0iNiIgZmlsbD0iIzVhM2EyMiIgc3Ryb2tlPSIjNmE0YTJhIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8cmVjdCB4PSI2OTAiIHk9IjIzMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI1MCIgcng9IjYiIGZpbGw9IiM1YTNhMjIiIHN0cm9rZT0iIzZhNGEyYSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPHJlY3QgeD0iMCIgeT0iMjkwIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjExMCIgZmlsbD0iIzJhMTgxMCIvPgogIDxyZWN0IHg9IjAiIHk9IjI5NSIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxMDUiIGZpbGw9InVybCgjYmxhbmtldCkiLz4KICA8cmVjdCB4PSIwIiB5PSIyOTUiIHdpZHRoPSI5MDAiIGhlaWdodD0iMjUiIGZpbGw9IiNmMGVjZTgiIG9wYWNpdHk9IjAuOTUiLz4KICA8cmVjdCB4PSIwIiB5PSIzMDgiIHdpZHRoPSI5MDAiIGhlaWdodD0iMTIiIGZpbGw9IiNlMGRjZDgiLz4KICA8cmVjdCB4PSI2MCIgeT0iMjY4IiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjkwIiByeD0iMjIiIGZpbGw9IiNmMGVjZTgiLz4KICA8cmVjdCB4PSI3MiIgeT0iMjc4IiB3aWR0aD0iMjA2IiBoZWlnaHQ9IjcwIiByeD0iMTgiIGZpbGw9IiNmYWY4ZjUiLz4KICA8cmVjdCB4PSI2MTAiIHk9IjI2OCIgd2lkdGg9IjIzMCIgaGVpZ2h0PSI5MCIgcng9IjIyIiBmaWxsPSIjZWNlOGU0Ii8+CiAgPHJlY3QgeD0iNjIyIiB5PSIyNzgiIHdpZHRoPSIyMDYiIGhlaWdodD0iNzAiIHJ4PSIxOCIgZmlsbD0iI2Y1ZjJlZSIvPgogIDxyZWN0IHg9IjM0MCIgeT0iMjc1IiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjgwIiByeD0iMTgiIGZpbGw9IiM5YTY4ODAiLz4KICA8cmVjdCB4PSIzNTIiIHk9IjI4NSIgd2lkdGg9IjE5NiIgaGVpZ2h0PSI2MCIgcng9IjE0IiBmaWxsPSIjYjA3ODkwIi8+CiAgPHJlY3QgeD0iNzYwIiB5PSIyODUiIHdpZHRoPSIxMTAiIGhlaWdodD0iODUiIHJ4PSI0IiBmaWxsPSIjM2EyMDEwIi8+CiAgPHJlY3QgeD0iODAyIiB5PSIyNDgiIHdpZHRoPSI4IiBoZWlnaHQ9IjQyIiBmaWxsPSIjNWEzODIwIi8+CiAgPHBhdGggZD0iTTc3OCAyNDggUTgwNiAyMzUgODM2IDI0OCIgZmlsbD0iIzhhNzA2MCIvPgogIDxlbGxpcHNlIGN4PSI4MDgiIGN5PSIyNTYiIHJ4PSIzNiIgcnk9IjIyIiBmaWxsPSIjOGE3MDYwIi8+CiAgPGVsbGlwc2UgY3g9IjgwOCIgY3k9IjI4NSIgcng9IjEyMCIgcnk9IjYwIiBmaWxsPSJ1cmwoI2xhbXBnbG93MikiLz4KICA8cmVjdCB4PSI3NzAiIHk9IjI3MCIgd2lkdGg9IjI4IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzFhMWEyYSIvPgogIDxyZWN0IHg9IjAiIHk9IjM3MCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIzMCIgZmlsbD0iIzFhMGUwOCIvPgogIDxlbGxpcHNlIGN4PSI0NTAiIGN5PSIzNzUiIHJ4PSIzMDAiIHJ5PSIxMiIgZmlsbD0iIzNhMjAzMCIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPg==" alt="Dormitorio oscuro y cálido de noche"/>
-  <div class="caption">El dormitorio puede ayudarte o sabotearte — y muchas veces no lo sabés.</div>
-</div>
-
-<article class="article">
-  <div class="inline-cta">
-    <p>¿Te suena familiar lo que le pasó a Laura?</p>
-    <p class="cta-head">"El método que finalmente me explicó por qué — y cómo resolverlo."</p>
-    <a class="btn" href="#oferta">Quiero saber más →</a>
-    <span class="btn-small-text">Acceso inmediato · Garantía 7 días · $19 precio de lanzamiento</span>
-  </div>
-
-  <div class="act-break"><span class="act-label">El método que encontró</span></div>
-
-  <p>Lo que encontró Laura fue un protocolo de 21 días diseñado específicamente para mujeres en esta etapa. No un libro de tips. Un sistema con una secuencia que tenía sentido.</p>
-
-  <div class="product-reveal">
-    <div class="product-reveal-header">
-      <div class="icon">🌙</div>
-      <div><small>Producto principal</small><h3>The Insomnia Breakthrough</h3></div>
-    </div>
-    <div class="product-reveal-body">
-      <p>Lo que Laura recorrió semana a semana:</p>
-      <div class="reveal-line"><span class="tick">→</span><span><strong>Días 1–3:</strong> Identificar su patrón real. Entender por qué se despertaba siempre a las 3:20 AM y qué lo provocaba.</span></div>
-      <div class="reveal-line"><span class="tick">→</span><span><strong>Días 4–7:</strong> Bajar la activación mental nocturna. Interrumpir el círculo "miedo a no dormir → más activación → menos sueño".</span></div>
-      <div class="reveal-line"><span class="tick">→</span><span><strong>Días 8–14:</strong> Trabajar temperatura, ambiente y respuesta al despertar. Protocolo concreto para cuando te levantás a la madrugada.</span></div>
-      <div class="reveal-line"><span class="tick">→</span><span><strong>Días 15–21:</strong> Consolidar. Construir la confianza de que el cuerpo sí puede dormir — porque ya lo está haciendo.</span></div>
-    </div>
-  </div>
-
-  <div class="laura-voice">
-    <p>Cuando vi el Quiet Mind Protocol, pensé: "esto es para mí". Mi problema más grande no era el calor. Era que cuando me despertaba, la cabeza arrancaba sola y no había forma de pararla. Cinco minutos de esa técnica y algo en mi sistema nervioso... aflojaba.</p>
-    <div class="laura-sig">
-      <div class="av-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0OWE3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhhNWU0MiIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InNraW4iIGN4PSI1MCUiIGN5PSIzNSUiIHI9IjU1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4YzRhMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M4OTY2YSIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNsZSI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0idXJsKCNiZykiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE3NSIgcng9IjY1IiByeT0iNDUiIGZpbGw9IiM0YTYwODAiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPHJlY3QgeD0iODUiIHk9IjEzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0idXJsKCNza2luKSIvPgogIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxMDUiIHJ4PSI0MiIgcnk9IjQ4IiBmaWxsPSJ1cmwoI3NraW4pIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjcyIiByeD0iNDQiIHJ5PSIyOCIgZmlsbD0iI2MwYjhiMCIvPgogIDxwYXRoIGQ9Ik01OCA5MCBRNTIgNzUgNjAgNjIgUTcwIDUyIDg1IDU1IFExMDAgNTAgMTE1IDU1IFExMzAgNTIgMTQwIDYyIFExNDggNzUgMTQyIDkwIiBmaWxsPSIjYzBiOGIwIi8+CiAgPHBhdGggZD0iTTU4IDkwIFE1NSAxMDAgNjAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTE0MiA5MCBRMTQ1IDEwMCAxNDAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTc1IDU4IFE4NSA1MiA5NSA1NCIgc3Ryb2tlPSIjZTBkOGQwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMDUgNTMgUTExNSA1MSAxMjUgNTYiIHN0cm9rZT0iI2UwZDhkMCIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8ZWxsaXBzZSBjeD0iODIiIGN5PSIxMDUiIHJ4PSI5IiByeT0iNyIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iMTE4IiBjeT0iMTA1IiByeD0iOSIgcnk9IjciIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iODMiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSIxMTkiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMTIyIiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPHBhdGggZD0iTTczIDk2IFE4MiA5MSA5MSA5NSIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTEwOSA5NSBRMTE4IDkxIDEyNyA5NiIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTk3IDExMCBROTUgMTIyIDkwIDEyNiBRMTAwIDEyOSAxMTAgMTI2IFExMDUgMTIyIDEwMyAxMTAiIHN0cm9rZT0iI2MwOTA2YSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNODYgMTM4IFExMDAgMTQ4IDExNCAxMzgiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjEyNSIgcng9IjEyIiByeT0iOCIgZmlsbD0iI2UwODg3OCIgb3BhY2l0eT0iMC4yNSIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxMjUiIHJ4PSIxMiIgcnk9IjgiIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMjUiLz4KICA8Y2lyY2xlIGN4PSI1OCIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgogIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgo8L3N2Zz4=" alt="Laura"/></div>
-      <div><strong>Laura G.</strong><span>51 años · Córdoba</span></div>
-    </div>
-  </div>
-
-  <p>También usó la guía sobre el dormitorio. Ella pensaba que su cuarto estaba bien. Pero cuando leyó sobre las capas de temperatura, la humedad, la luz que se filtraba de la calle... entendió que había cosas invisibles que la estaban saboteando.</p>
-  <p>Y la guía de menopausia. Esa fue la que la hizo llorar un poco. No de tristeza — de alivio. Era la primera vez que sentía que alguien le hablaba a ella, a su cuerpo, a su etapa.</p>
-
-  <div class="act-break"><span class="act-label">Lo que cambió</span></div>
-
-  <div class="pull">
-    <p>"La semana cinco me di cuenta de que hacía tres días que no miraba el reloj de noche. Eso para mí fue enorme."</p>
-    <small>— Laura, después del protocolo completo</small>
-  </div>
-
-  <p>No fue magia. Fue gradual — como había sido el deterioro, también fue gradual la recuperación. Pero esta vez Laura entendía por qué las cosas mejoraban. No era suerte. Era un sistema.</p>
-</article>
-
-<!-- SPLIT: imagen mañana + transformación -->
-<div style="max-width:860px;margin:0 auto;padding:0 24px;">
-  <div class="split">
-    <div class="split-img">
-      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgMzgwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmOGM0MiIvPjxzdG9wIG9mZnNldD0iMzAlIiBzdG9wLWNvbG9yPSIjZmZiMzQ3Ii8+PHN0b3Agb2Zmc2V0PSI2NSUiIHN0b3AtY29sb3I9IiNmZmQ1ODAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmY1ZTAiLz48L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJzdW4iIGN4PSIzMCUiIGN5PSI3MCUiIHI9IjI1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZjVhMCIvPjxzdG9wIG9mZnNldD0iNDAlIiBzdG9wLWNvbG9yPSIjZmZkZDAwIiBzdG9wLW9wYWNpdHk9IjAuOCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmOGMwMCIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icm9vbWxpZ2h0IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFhMTIxOCIvPjxzdG9wIG9mZnNldD0iMzUlIiBzdG9wLWNvbG9yPSIjMmExZTI4Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWExMjE4Ii8+PC9saW5lYXJHcmFkaWVudD4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0id2luZG93bGlnaHQiIGN4PSIzNSUiIGN5PSI1MCUiIHI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZTBhMCIgc3RvcC1vcGFjaXR5PSIwLjM1Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY4YzQyIiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjM4MCIgZmlsbD0idXJsKCNyb29tbGlnaHQpIi8+CiAgPHJlY3QgeD0iMjcwIiB5PSIzMCIgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyODAiIHJ4PSI4IiBmaWxsPSJ1cmwoI3NreSkiIHN0cm9rZT0iIzVhNDAzMCIgc3Ryb2tlLXdpZHRoPSI2Ii8+CiAgPHJlY3QgeD0iMjcwIiB5PSIzMCIgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyODAiIGZpbGw9InVybCgjc3VuKSIvPgogIDxyZWN0IHg9IjQ0NCIgeT0iMzAiIHdpZHRoPSI4IiBoZWlnaHQ9IjI4MCIgZmlsbD0iIzVhNDAzMCIvPgogIDxyZWN0IHg9IjI3MCIgeT0iMTY4IiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjgiIGZpbGw9IiM1YTQwMzAiLz4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjM4MCIgZmlsbD0idXJsKCN3aW5kb3dsaWdodCkiLz4KICA8ZWxsaXBzZSBjeD0iMzEwIiBjeT0iMzEwIiByeD0iNjAiIHJ5PSIxMDAiIGZpbGw9IiMyYTUwMzAiIG9wYWNpdHk9IjAuNCIvPgogIDxlbGxpcHNlIGN4PSI1OTAiIGN5PSIzMjAiIHJ4PSI1MCIgcnk9IjgwIiBmaWxsPSIjMmE1MDMwIiBvcGFjaXR5PSIwLjM1Ii8+CiAgPHBhdGggZD0iTTM0MCA4MCBRMzQ2IDc0IDM1MiA4MCIgc3Ryb2tlPSIjM2EyMDE4IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNMzkwIDYwIFEzOTcgNTMgNDA0IDYwIiBzdHJva2U9IiMzYTIwMTgiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik00NDAgOTUgUTQ0NyA4OCA0NTQgOTUiIHN0cm9rZT0iIzNhMjAxOCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTI2NCAyNCBRMjQwIDEwMCAyNDggMjAwIFEyNTIgMjgwIDI2MCAzMTAiIGZpbGw9IiM2YTQ4NTgiLz4KICA8cGF0aCBkPSJNNjM2IDI0IFE2NjAgMTAwIDY1MiAyMDAgUTY0OCAyODAgNjQwIDMxMCIgZmlsbD0iIzZhNDg1OCIvPgogIDxyZWN0IHg9IjAiIHk9IjI3MCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxMTAiIGZpbGw9IiMzYTI4MTgiLz4KICA8cmVjdCB4PSIwIiB5PSIyNzUiIHdpZHRoPSI5MDAiIGhlaWdodD0iMTA1IiBmaWxsPSIjZThlNGUwIi8+CiAgPHJlY3QgeD0iMCIgeT0iMjc1IiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjZjVmMmVlIi8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjgwLDE3MCkiPgogICAgPHJlY3QgeD0iLTQwIiB5PSI2NSIgd2lkdGg9IjgwIiBoZWlnaHQ9Ijg1IiByeD0iMTIiIGZpbGw9IiNkNGEwYzAiIG9wYWNpdHk9IjAuOCIvPgogICAgPHJlY3QgeD0iLTEyIiB5PSI0MiIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iOCIgZmlsbD0iI2Q0YTg3OCIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSIyMiIgcng9IjM2IiByeT0iNDAiIGZpbGw9IiNkNGE4NzgiLz4KICAgIDxlbGxpcHNlIGN4PSIwIiBjeT0iLTIiIHJ4PSIzOCIgcnk9IjI0IiBmaWxsPSIjNWEzODI4Ii8+CiAgICA8cGF0aCBkPSJNLTM2IDEyIFEtNDQgMiAtMzYgLTEwIFEtMjQgLTIyIC04IC0xOCIgZmlsbD0iIzVhMzgyOCIvPgogICAgPHBhdGggZD0iTTM2IDEyIFE0NCAyIDM2IC0xMCIgc3Ryb2tlPSIjNWEzODI4IiBzdHJva2Utd2lkdGg9IjEyIiBmaWxsPSJub25lIi8+CiAgICA8cGF0aCBkPSJNLTIwIC0xNSBRLTUgLTIyIDEwIC0xOCIgc3Ryb2tlPSIjOGE2ODQ4IiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNiIvPgogICAgPGVsbGlwc2UgY3g9Ii0xMiIgY3k9IjI0IiByeD0iOCIgcnk9IjYiIGZpbGw9IndoaXRlIi8+CiAgICA8ZWxsaXBzZSBjeD0iMTIiIGN5PSIyNCIgcng9IjgiIHJ5PSI2IiBmaWxsPSJ3aGl0ZSIvPgogICAgPGNpcmNsZSBjeD0iLTExIiBjeT0iMjUiIHI9IjUiIGZpbGw9IiM1YTNhMjgiLz4KICAgIDxjaXJjbGUgY3g9IjEzIiBjeT0iMjUiIHI9IjUiIGZpbGw9IiM1YTNhMjgiLz4KICAgIDxjaXJjbGUgY3g9Ii05IiBjeT0iMjMiIHI9IjIiIGZpbGw9IndoaXRlIi8+CiAgICA8Y2lyY2xlIGN4PSIxNSIgY3k9IjIzIiByPSIyIiBmaWxsPSJ3aGl0ZSIvPgogICAgPHBhdGggZD0iTS0xMiA0MiBRMCA1MiAxMiA0MiIgc3Ryb2tlPSIjYzA3MDUwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8ZWxsaXBzZSBjeD0iLTIwIiBjeT0iMzQiIHJ4PSIxMSIgcnk9IjciIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMyIvPgogICAgPGVsbGlwc2UgY3g9IjIwIiBjeT0iMzQiIHJ4PSIxMSIgcnk9IjciIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMyIvPgogICAgPHBhdGggZD0iTTM1IDc1IFE2MCA1NSA3NSA0MCIgc3Ryb2tlPSIjZDRhODc4IiBzdHJva2Utd2lkdGg9IjE0IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxlbGxpcHNlIGN4PSI3OCIgY3k9IjM4IiByeD0iMTIiIHJ5PSIxMCIgZmlsbD0iI2Q0YTg3OCIgdHJhbnNmb3JtPSJyb3RhdGUoLTIwLDc4LDM4KSIvPgogICAgPGVsbGlwc2UgY3g9IjE1IiBjeT0iMjAiIHJ4PSIyMCIgcnk9IjI1IiBmaWxsPSIjZmZlMGEwIiBvcGFjaXR5PSIwLjE1Ii8+CiAgPC9nPgogIDxyZWN0IHg9IjU2MCIgeT0iMjY4IiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjgwIiByeD0iMjAiIGZpbGw9IiNmNWYwZWEiLz4KICA8ZWxsaXBzZSBjeD0iNDAwIiBjeT0iMzc1IiByeD0iMzUwIiByeT0iMTUiIGZpbGw9IiNmZjhjNDIiIG9wYWNpdHk9IjAuMDgiLz4KPC9zdmc+" alt="Mujer descansada al amanecer"/>
-    </div>
-    <div class="split-text">
-      <p><strong>Primer cambio real:</strong> dejó de despertar empapada. Dos ajustes simples de temperatura cambiaron eso en la primera semana.</p>
-      <p><strong>Segundo cambio:</strong> cuando se despertaba de madrugada, ya no entraba en pánico. Tenía un protocolo. Sabía exactamente qué hacer.</p>
-      <p><strong>Tercer cambio, el que no esperaba:</strong> el día. El humor. La paciencia. "Dormí un poco mejor y de repente era otra persona."</p>
-    </div>
-  </div>
-</div>
-
-<article class="article">
-  <div class="laura-voice">
-    <p>Lo que más me cambió no fue dormir más horas. Fue volver a confiar en que mi cuerpo podía hacerlo. Esa sensación de "quizás así me voy a sentir para siempre" desapareció. Y eso vale más que cualquier hora extra de sueño.</p>
-    <div class="laura-sig">
-      <div class="av-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M0OWE3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhhNWU0MiIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InNraW4iIGN4PSI1MCUiIGN5PSIzNSUiIHI9IjU1JSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U4YzRhMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M4OTY2YSIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNsZSI+PGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiLz48L2NsaXBQYXRoPgogIDwvZGVmcz4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0idXJsKCNiZykiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE3NSIgcng9IjY1IiByeT0iNDUiIGZpbGw9IiM0YTYwODAiIGNsaXAtcGF0aD0idXJsKCNjaXJjbGUpIi8+CiAgPHJlY3QgeD0iODUiIHk9IjEzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI4IiByeD0iOCIgZmlsbD0idXJsKCNza2luKSIvPgogIDxlbGxpcHNlIGN4PSIxMDAiIGN5PSIxMDUiIHJ4PSI0MiIgcnk9IjQ4IiBmaWxsPSJ1cmwoI3NraW4pIi8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjcyIiByeD0iNDQiIHJ5PSIyOCIgZmlsbD0iI2MwYjhiMCIvPgogIDxwYXRoIGQ9Ik01OCA5MCBRNTIgNzUgNjAgNjIgUTcwIDUyIDg1IDU1IFExMDAgNTAgMTE1IDU1IFExMzAgNTIgMTQwIDYyIFExNDggNzUgMTQyIDkwIiBmaWxsPSIjYzBiOGIwIi8+CiAgPHBhdGggZD0iTTU4IDkwIFE1NSAxMDAgNjAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTE0MiA5MCBRMTQ1IDEwMCAxNDAgMTE1IiBzdHJva2U9IiNiMGE4YTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTc1IDU4IFE4NSA1MiA5NSA1NCIgc3Ryb2tlPSIjZTBkOGQwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMDUgNTMgUTExNSA1MSAxMjUgNTYiIHN0cm9rZT0iI2UwZDhkMCIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8ZWxsaXBzZSBjeD0iODIiIGN5PSIxMDUiIHJ4PSI5IiByeT0iNyIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iMTE4IiBjeT0iMTA1IiByeD0iOSIgcnk9IjciIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iODMiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSIxMTkiIGN5PSIxMDUiIHI9IjUiIGZpbGw9IiM2YjRhM2EiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEwMyIgcj0iMiIgZmlsbD0iIzNhMmExYSIvPgogIDxjaXJjbGUgY3g9Ijg2IiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iMTIyIiBjeT0iMTAyIiByPSIxLjUiIGZpbGw9IndoaXRlIi8+CiAgPHBhdGggZD0iTTczIDk2IFE4MiA5MSA5MSA5NSIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTEwOSA5NSBRMTE4IDkxIDEyNyA5NiIgc3Ryb2tlPSIjOGE3MDYwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTk3IDExMCBROTUgMTIyIDkwIDEyNiBRMTAwIDEyOSAxMTAgMTI2IFExMDUgMTIyIDEwMyAxMTAiIHN0cm9rZT0iI2MwOTA2YSIgc3Ryb2tlLXdpZHRoPSIxLjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNODYgMTM4IFExMDAgMTQ4IDExNCAxMzgiIHN0cm9rZT0iI2MwNzA1MCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9IjEyNSIgcng9IjEyIiByeT0iOCIgZmlsbD0iI2UwODg3OCIgb3BhY2l0eT0iMC4yNSIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxMjUiIHJ4PSIxMiIgcnk9IjgiIGZpbGw9IiNlMDg4NzgiIG9wYWNpdHk9IjAuMjUiLz4KICA8Y2lyY2xlIGN4PSI1OCIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgogIDxjaXJjbGUgY3g9IjE0MiIgY3k9IjExMiIgcj0iNCIgZmlsbD0iI2Q0YTA2MCIvPgo8L3N2Zz4=" alt="Laura"/></div>
-      <div><strong>Laura G.</strong><span>51 años · Córdoba</span></div>
-    </div>
-  </div>
-
-  <div class="act-break"><span class="act-label">Otras mujeres que pasaron por lo mismo</span></div>
-
-  <div class="more-testi">
-    <div class="mini-testi">
-      <div class="testi-header">
-        <div class="testi-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzlhNzA2MCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzZhNDgzOCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIi8+PC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjYmcpIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iMTEyIiByeD0iNDUiIHJ5PSIzMCIgZmlsbD0iIzNhNDA1MCIgY2xpcC1wYXRoPSJ1cmwoI2MpIi8+CiAgPHJlY3QgeD0iNDkiIHk9IjgyIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHJ4PSI2IiBmaWxsPSIjZDRhODc4Ii8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNjQiIHJ4PSIzMCIgcnk9IjM1IiBmaWxsPSIjZDRhODc4Ii8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNDAiIHJ4PSIzMiIgcnk9IjI0IiBmaWxsPSIjMmExODEwIi8+CiAgPHBhdGggZD0iTTI4IDUzIFEyMiA0MCAzMCAyOCBRNDQgMTYgNjAgMTQgUTc2IDE2IDkwIDI4IFE5OCA0MCA5MiA1MyIgZmlsbD0iIzJhMTgxMCIvPgogIDxwYXRoIGQ9Ik0yOSA1NSBRMjYgNjUgMzAgNzkiIHN0cm9rZT0iIzJhMTgxMCIgc3Ryb2tlLXdpZHRoPSI5IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTkxIDU1IFE5NCA2NSA5MCA3OSIgc3Ryb2tlPSIjMmExODEwIiBzdHJva2Utd2lkdGg9IjkiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDciIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iNzMiIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM0YTJhMTgiLz4KICA8Y2lyY2xlIGN4PSI3NCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM0YTJhMTgiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjYzIiByPSIxLjgiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iNzYiIGN5PSI2MyIgcj0iMS44IiBmaWxsPSJ3aGl0ZSIvPgogIDxwYXRoIGQ9Ik00MiA1NiBRNDggNTMgNTQgNTYiIHN0cm9rZT0iIzdhNTg0OCIgc3Ryb2tlLXdpZHRoPSIxLjgiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNjYgNTYgUTcyIDUzIDc4IDU2IiBzdHJva2U9IiM3YTU4NDgiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTQ0IDI0IFE1MiAxOCA1OCAyMCIgc3Ryb2tlPSIjOWE5MDkwIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNNTAgODUgUTYwIDkzIDcwIDg1IiBzdHJva2U9IiNjMDc4NTgiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjQ0IiBjeT0iNzYiIHJ4PSI5IiByeT0iNiIgZmlsbD0iI2UwOTA4MCIgb3BhY2l0eT0iMC4yMiIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9Ijc2IiByeD0iOSIgcnk9IjYiIGZpbGw9IiNlMDkwODAiIG9wYWNpdHk9IjAuMjIiLz4KICAKPC9zdmc+" alt="Marcela"/></div>
-        <div class="testi-meta"><strong>Marcela V.</strong><span>52 años · Buenos Aires</span></div>
+    <div class="problema-grid reveal">
+      <div class="problema-cell danger">
+        <span class="cell-icon">⛔</span>
+        <div class="cell-title">Ban o suspensión</div>
+        <p class="cell-text">Meta puede banear una cuenta por una creatividad rechazada, un pago fallido, o simplemente un error del sistema. Sin previo aviso y sin fecha de resolución clara.</p>
+        <span class="cell-tag">Riesgo crítico</span>
       </div>
-      <div class="stars">★★★★★</div>
-      <blockquote>"Lo compré pensando que era otro libro de tips. Estaba equivocada. Por primera vez alguien me explicó <em>por qué</em> me despertaba siempre a la misma hora."</blockquote>
-    </div>
-    <div class="mini-testi">
-      <div class="testi-header">
-        <div class="testi-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdhODg3OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRhNTg0OCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIi8+PC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjYmcpIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iMTEyIiByeD0iNDUiIHJ5PSIzMCIgZmlsbD0iIzNhNDA1MCIgY2xpcC1wYXRoPSJ1cmwoI2MpIi8+CiAgPHJlY3QgeD0iNDkiIHk9IjgyIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHJ4PSI2IiBmaWxsPSIjYzg5ODcwIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNjQiIHJ4PSIzMCIgcnk9IjM1IiBmaWxsPSIjYzg5ODcwIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNDAiIHJ4PSIzMiIgcnk9IjI0IiBmaWxsPSIjYzhjNGJjIi8+CiAgPHBhdGggZD0iTTI4IDUyIFEyMyA0MCAzMSAyOCBRNDQgMTggNjAgMTYgUTc2IDE4IDg4IDI4IFE5NyA0MCA5MSA1MiIgZmlsbD0iI2M4YzRiYyIvPgogIDxwYXRoIGQ9Ik0yOSA1NSBRMjYgNjUgMzAgNzkiIHN0cm9rZT0iI2M4YzRiYyIgc3Ryb2tlLXdpZHRoPSI5IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTkxIDU1IFE5NCA2NSA5MCA3OSIgc3Ryb2tlPSIjYzhjNGJjIiBzdHJva2Utd2lkdGg9IjkiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDciIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iNzMiIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM2YTQwMjgiLz4KICA8Y2lyY2xlIGN4PSI3NCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM2YTQwMjgiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjYzIiByPSIxLjgiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iNzYiIGN5PSI2MyIgcj0iMS44IiBmaWxsPSJ3aGl0ZSIvPgogIDxyZWN0IHg9IjQwIiB5PSI1OCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEzIiByeD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGE3ODY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxyZWN0IHg9IjYyIiB5PSI1OCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjEzIiByeD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOGE3ODY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxsaW5lIHgxPSI1OCIgeTE9IjY0IiB4Mj0iNjIiIHkyPSI2NCIgc3Ryb2tlPSIjOGE3ODY4IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxwYXRoIGQ9Ik00MiA1NiBRNDggNTMgNTQgNTYiIHN0cm9rZT0iIzdhNTg0OCIgc3Ryb2tlLXdpZHRoPSIxLjgiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNjYgNTYgUTcyIDUzIDc4IDU2IiBzdHJva2U9IiM3YTU4NDgiIHN0cm9rZS13aWR0aD0iMS44IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTQ2IDIwIFE1NiAxNSA2NCAxOCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuNSIvPgogIDxwYXRoIGQ9Ik01MCA4NSBRNjAgOTMgNzAgODUiIHN0cm9rZT0iI2MwNzg1OCIgc3Ryb2tlLXdpZHRoPSIyLjIiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDQiIGN5PSI3NiIgcng9IjkiIHJ5PSI2IiBmaWxsPSIjZTA5MDgwIiBvcGFjaXR5PSIwLjIyIi8+CiAgPGVsbGlwc2UgY3g9Ijc2IiBjeT0iNzYiIHJ4PSI5IiByeT0iNiIgZmlsbD0iI2UwOTA4MCIgb3BhY2l0eT0iMC4yMiIvPgogIAo8L3N2Zz4=" alt="Patricia"/></div>
-        <div class="testi-meta"><strong>Patricia M.</strong><span>55 años · Rosario</span></div>
+      <div class="problema-cell danger">
+        <span class="cell-icon">🔄</span>
+        <div class="cell-title">Fase de aprendizaje infinita</div>
+        <p class="cell-text">Cada cambio significativo en la campaña reinicia el aprendizaje del algoritmo. Con una sola cuenta, ese período afecta el 100% del gasto.</p>
+        <span class="cell-tag">Riesgo alto</span>
       </div>
-      <div class="stars">★★★★★</div>
-      <blockquote>"La guía de menopausia sola ya valía el precio. Sentí que me hablaban a mí, no a un personaje genérico con 'insomnio'."</blockquote>
-    </div>
-    <div class="mini-testi">
-      <div class="testi-header">
-        <div class="testi-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2EwNzg2OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzdhNTA0MCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIi8+PC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjYmcpIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iMTEyIiByeD0iNDUiIHJ5PSIzMCIgZmlsbD0iIzNhNDA1MCIgY2xpcC1wYXRoPSJ1cmwoI2MpIi8+CiAgPHJlY3QgeD0iNDkiIHk9IjgyIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHJ4PSI2IiBmaWxsPSIjZDhhODgwIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNjQiIHJ4PSIzMCIgcnk9IjM1IiBmaWxsPSIjZDhhODgwIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNDAiIHJ4PSIzMiIgcnk9IjI0IiBmaWxsPSIjN2EzODE4Ii8+CiAgPHBhdGggZD0iTTI4IDUzIFEyMiA0MCAzMCAyOCBRNDQgMTYgNjAgMTQgUTc2IDE2IDkwIDI4IFE5OCA0MCA5MiA1MyIgZmlsbD0iIzdhMzgxOCIvPgogIDxwYXRoIGQ9Ik0yOSA1NSBRMjYgNjUgMzAgNzkiIHN0cm9rZT0iIzdhMzgxOCIgc3Ryb2tlLXdpZHRoPSI5IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTkxIDU1IFE5NCA2NSA5MCA3OSIgc3Ryb2tlPSIjN2EzODE4IiBzdHJva2Utd2lkdGg9IjkiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDciIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iNzMiIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM0YTY4MzgiLz4KICA8Y2lyY2xlIGN4PSI3NCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiM0YTY4MzgiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjYzIiByPSIxLjgiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iNzYiIGN5PSI2MyIgcj0iMS44IiBmaWxsPSJ3aGl0ZSIvPgogIDxwYXRoIGQ9Ik00MCA1NSBRNDcgNTEgNTQgNTQiIHN0cm9rZT0iIzZhNDgyOCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTY2IDU0IFE3MyA1MSA4MCA1NSIgc3Ryb2tlPSIjNmE0ODI4IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGN4PSI1MiIgY3k9IjcyIiByPSIxLjUiIGZpbGw9IiNjMDkwNzAiIG9wYWNpdHk9IjAuNSIvPjxjaXJjbGUgY3g9IjY4IiBjeT0iNzEiIHI9IjEuNSIgZmlsbD0iI2MwOTA3MCIgb3BhY2l0eT0iMC41Ii8+PHBhdGggZD0iTTMwIDM2IFEzMiA1MCAzNSA2MCIgc3Ryb2tlPSIjYjBhODk4IiBzdHJva2Utd2lkdGg9IjUiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNNTAgODUgUTYwIDkzIDcwIDg1IiBzdHJva2U9IiNjMDc4NTgiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjQ0IiBjeT0iNzYiIHJ4PSI5IiByeT0iNiIgZmlsbD0iI2UwOTA4MCIgb3BhY2l0eT0iMC4yMiIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9Ijc2IiByeD0iOSIgcnk9IjYiIGZpbGw9IiNlMDkwODAiIG9wYWNpdHk9IjAuMjIiLz4KICAKPC9zdmc+" alt="Claudia"/></div>
-        <div class="testi-meta"><strong>Claudia R.</strong><span>49 años · Mendoza</span></div>
+      <div class="problema-cell">
+        <span class="cell-icon">💳</span>
+        <div class="cell-title">Límites de gasto por cuenta</div>
+        <p class="cell-text">Meta impone límites progresivos según el historial de la cuenta. Forzar el escalado desde una sola entidad activa restricciones automáticas.</p>
       </div>
-      <div class="stars">★★★★★</div>
-      <blockquote>"Ya no me despierto empapada. Dos cambios simples del ambiente del cuarto y eso casi desapareció en la primera semana."</blockquote>
-    </div>
-    <div class="mini-testi">
-      <div class="testi-header">
-        <div class="testi-photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI0MCUiIHI9IjYwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY4Nzg4OCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNhNDg1OCIvPjwvcmFkaWFsR3JhZGllbnQ+CiAgICA8Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIi8+PC9jbGlwUGF0aD4KICA8L2RlZnM+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjYmcpIi8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iMTEyIiByeD0iNDUiIHJ5PSIzMCIgZmlsbD0iIzNhNDA1MCIgY2xpcC1wYXRoPSJ1cmwoI2MpIi8+CiAgPHJlY3QgeD0iNDkiIHk9IjgyIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHJ4PSI2IiBmaWxsPSIjYzg5ODc4Ii8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNjQiIHJ4PSIzMCIgcnk9IjM1IiBmaWxsPSIjYzg5ODc4Ii8+CiAgPGVsbGlwc2UgY3g9IjYwIiBjeT0iNDAiIHJ4PSIzMiIgcnk9IjI0IiBmaWxsPSIjMmEyMDMwIi8+CiAgPHBhdGggZD0iTTMwIDU1IFEyNCA0MiAzMiAzMCBRNDQgMjAgNjAgMTggUTc2IDIwIDg4IDMwIFE5NiA0MiA5MCA1NSIgZmlsbD0iIzJhMjAzMCIvPgogIDxwYXRoIGQ9Ik0yOSA1NSBRMjYgNjUgMzAgNzkiIHN0cm9rZT0iIzJhMjAzMCIgc3Ryb2tlLXdpZHRoPSI5IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTkxIDU1IFE5NCA2NSA5MCA3OSIgc3Ryb2tlPSIjMmEyMDMwIiBzdHJva2Utd2lkdGg9IjkiIGZpbGw9Im5vbmUiLz4KICA8ZWxsaXBzZSBjeD0iNDciIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8ZWxsaXBzZSBjeD0iNzMiIGN5PSI2NCIgcng9IjcuNSIgcnk9IjUuNSIgZmlsbD0id2hpdGUiLz4KICA8Y2lyY2xlIGN4PSI0OCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiMyYTFhMjgiLz4KICA8Y2lyY2xlIGN4PSI3NCIgY3k9IjY0IiByPSI0LjUiIGZpbGw9IiMyYTFhMjgiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjYzIiByPSIxLjgiIGZpbGw9IndoaXRlIi8+CiAgPGNpcmNsZSBjeD0iNzYiIGN5PSI2MyIgcj0iMS44IiBmaWxsPSJ3aGl0ZSIvPgogIDxwYXRoIGQ9Ik00MCA2MSBRNDcgNTkgNTUgNjEiIHN0cm9rZT0iIzFhMTAyMCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTY1IDYxIFE3MyA1OSA4MCA2MSIgc3Ryb2tlPSIjMWExMDIwIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNNDggMjAgUTU0IDE2IDU4IDE4IiBzdHJva2U9IiNjMGJjYzAiIHN0cm9rZS13aWR0aD0iNCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC43Ii8+PGNpcmNsZSBjeD0iNjAiIGN5PSIyMCIgcj0iMTQiIGZpbGw9IiMzYTI4MzgiLz4KICA8cGF0aCBkPSJNNTAgODUgUTYwIDkzIDcwIDg1IiBzdHJva2U9IiNjMDc4NTgiIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjQ0IiBjeT0iNzYiIHJ4PSI5IiByeT0iNiIgZmlsbD0iI2UwOTA4MCIgb3BhY2l0eT0iMC4yMiIvPgogIDxlbGxpcHNlIGN4PSI3NiIgY3k9Ijc2IiByeD0iOSIgcnk9IjYiIGZpbGw9IiNlMDkwODAiIG9wYWNpdHk9IjAuMjIiLz4KICA8Y2lyY2xlIGN4PSIyOCIgY3k9IjcwIiByPSI0IiBmaWxsPSIjYzhhMDYwIi8+PGNpcmNsZSBjeD0iOTIiIGN5PSI3MCIgcj0iNCIgZmlsbD0iI2M4YTA2MCIvPgo8L3N2Zz4=" alt="Adriana"/></div>
-        <div class="testi-meta"><strong>Adriana T.</strong><span>54 años · Montevideo</span></div>
+      <div class="problema-cell">
+        <span class="cell-icon">📊</span>
+        <div class="cell-title">Algoritmo que promedia todo</div>
+        <p class="cell-text">Cuando todo corre en una cuenta, el Machine Learning promedia el rendimiento. Las audiencias ganadoras subsidian a las perdedoras sin que lo veas.</p>
       </div>
-      <div class="stars">★★★★★</div>
-      <blockquote>"El Quiet Mind Protocol interrumpe el espiral antes de que arranque. Nunca pensé que algo tan simple pudiera funcionar."</blockquote>
     </div>
   </div>
-</article>
+</section>
 
-<!-- OFFER -->
-<section id="oferta" class="offer-section">
-  <div class="offer-inner">
-    <span class="offer-kicker">Lo que Laura encontró — ahora disponible para vos</span>
-    <h2>Todo el sistema que usó Laura.<br><em>Por $19.</em></h2>
-    <p class="offer-sub">El precio de lanzamiento incluye el programa completo más los bonos que responden a cada ángulo de tu situación específica.</p>
-    <div class="stack-list">
-      <div class="stack-row"><div class="stack-icon">🌙</div><div class="stack-row-info"><strong>The Insomnia Breakthrough</strong><span>Sistema base · 21 días · Producto principal</span></div><div class="stack-price"><span class="was">$49</span><span class="now">$19</span></div></div>
-      <div class="stack-row"><div class="stack-icon">🌀</div><div class="stack-row-info"><strong>Quiet Mind Protocol</strong><span>Para la mente que no para · Bono incluido</span></div><div class="stack-price"><span class="was">$17</span><span class="free">Incluido</span></div></div>
-      <div class="stack-row"><div class="stack-icon">🌸</div><div class="stack-row-info"><strong>Menopause Sleep Survival Guide</strong><span>Para sofocos y calor nocturno · Bono incluido</span></div><div class="stack-price"><span class="was">$19</span><span class="free">Incluido</span></div></div>
-      <div class="stack-row"><div class="stack-icon">🏠</div><div class="stack-row-info"><strong>Perfect Sleep Environment Guide</strong><span>Para el cuarto que sabotea sin que lo sepas · Bono incluido</span></div><div class="stack-price"><span class="was">$15</span><span class="free">Incluido</span></div></div>
-    </div>
-    <div class="price-hero">
-      <div>
-        <div class="total-val">Valor total del paquete: $100</div>
-        <div class="big-price"><span>$</span>19</div>
-        <div class="was-price">en vez de $49 precio normal</div>
+<div class="divider"></div>
+
+<!-- ESTRUCTURA -->
+<section class="estructura-section">
+  <div class="section-inner">
+    <div class="section-label">La solución</div>
+    <h2>Así se distribuyen<br>los $10.000 diarios</h2>
+    <p class="lead">El presupuesto se reparte entre múltiples cuentas publicitarias, cada una con su propia Fanpage, píxel e historial. Una cae, las otras absorben.</p>
+
+    <div class="reveal">
+      <div class="meta-box">
+        $10.000 / día
+        <small>presupuesto total distribuido</small>
       </div>
-      <div>
-        <div style="font-family:'Jost',sans-serif;font-size:11px;color:rgba(255,255,255,.4);margin-bottom:10px;letter-spacing:1px;">OFERTA VENCE EN:</div>
-        <div class="countdown-row">
-          <div class="ctu"><strong id="cd">02</strong><span>DÍAS</span></div>
-          <div class="ctu"><strong id="ch">13</strong><span>HRS</span></div>
-          <div class="ctu"><strong id="cm">47</strong><span>MIN</span></div>
-          <div class="ctu"><strong id="cs">00</strong><span>SEG</span></div>
+
+      <div class="distribucion">
+        <div class="cuenta-card">
+          <div class="cuenta-num">Cuenta 01</div>
+          <div class="cuenta-monto">$2.500</div>
+          <div class="cuenta-dia">por día</div>
+          <div class="cuenta-fp">Fanpage: Tienda Principal</div>
+        </div>
+        <div class="cuenta-card">
+          <div class="cuenta-num">Cuenta 02</div>
+          <div class="cuenta-monto">$2.500</div>
+          <div class="cuenta-dia">por día</div>
+          <div class="cuenta-fp">Fanpage: Marca B</div>
+        </div>
+        <div class="cuenta-card baneada">
+          <div class="cuenta-num">Cuenta 03</div>
+          <div class="cuenta-monto">$2.500</div>
+          <div class="cuenta-dia">por día</div>
+          <div class="cuenta-fp">Fanpage: Marca C</div>
+        </div>
+        <div class="cuenta-card">
+          <div class="cuenta-num">Cuenta 04</div>
+          <div class="cuenta-monto">$2.500</div>
+          <div class="cuenta-dia">por día</div>
+          <div class="cuenta-fp">Fanpage: Marca D</div>
+        </div>
+      </div>
+
+      <div class="resultado-banner">
+        <div class="dot"></div>
+        <p>La Cuenta 03 fue baneada — el 75% del presupuesto sigue activo. Las ventas no se detienen. El negocio opera con normalidad mientras se recupera o reemplaza la cuenta caída.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PILARES -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Los tres pilares</div>
+    <h2>Por qué funciona<br>esta estructura</h2>
+    <p class="lead">Tres razones concretas que justifican la operación multi-cuenta, más allá de la intuición.</p>
+  </div>
+
+  <div class="pilares-grid reveal">
+    <div class="pilar">
+      <div class="pilar-number">01</div>
+      <div class="pilar-icon-wrap amber">🛡️</div>
+      <h3>Contingencia</h3>
+      <p>Meta banea cuentas. No es una posibilidad remota — es una realidad cotidiana para cualquier anunciante que opera a escala. Con múltiples cuentas, un ban representa perder el 25% del gasto diario, no el 100%.</p>
+      <ul class="pilar-bullets">
+        <li>Un ban no para las ventas</li>
+        <li>Recuperación en paralelo al negocio activo</li>
+        <li>El riesgo se diluye entre cuentas</li>
+        <li>Sin período de cero ingresos</li>
+      </ul>
+    </div>
+
+    <div class="pilar">
+      <div class="pilar-number">02</div>
+      <div class="pilar-icon-wrap blue">⚡</div>
+      <h3>Estabilidad</h3>
+      <p>Meta impone revisiones, límites de gasto progresivos y fases de aprendizaje que pueden frenar el flujo. Distribuir el presupuesto evita que cualquiera de estas fricciones afecte el sistema completo.</p>
+      <ul class="pilar-bullets">
+        <li>Revisiones no frenan el gasto total</li>
+        <li>Límites de cuenta no limitan la meta global</li>
+        <li>Fases de aprendizaje aisladas por cuenta</li>
+        <li>Flujo constante todos los días</li>
+      </ul>
+    </div>
+
+    <div class="pilar">
+      <div class="pilar-number">03</div>
+      <div class="pilar-icon-wrap green">📈</div>
+      <h3>Performance</h3>
+      <p>Cada cuenta vive en su propio universo de Machine Learning. Una puede funcionar mejor con audiencias frías, otra con retargeting. Separadas, se pueden identificar y escalar las ganadoras.</p>
+      <ul class="pilar-bullets">
+        <li>Distintas audiencias por cuenta</li>
+        <li>Creativos que funcionan mejor en cada entorno</li>
+        <li>Presupuesto concentrado en las mejores</li>
+        <li>Testing aislado sin contaminar el sistema</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPANSIÓN -->
+<section class="expansion-section">
+  <div class="section-inner">
+    <div class="section-label">Escalabilidad</div>
+    <h2>Escalar más allá<br>de los $10K</h2>
+    <div class="expansion-intro">
+      <p class="lead" style="margin-bottom: 0;">La lógica multi-cuenta no tiene techo. A medida que crece la meta diaria, se suman cuentas. La estructura se expande linealmente sin perder control.</p>
+    </div>
+
+    <div class="matrix reveal">
+      <div class="matrix-card">
+        <div class="matrix-card-head">
+          <h4>Etapa 1 — Arranque</h4>
+          <span class="matrix-badge">$10K / día</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Cuentas activas</span>
+          <span class="matrix-row-val blue">4 cuentas</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Gasto por cuenta</span>
+          <span class="matrix-row-val">$2.500 / día</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Fanpages necesarias</span>
+          <span class="matrix-row-val">4</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Impacto de un ban</span>
+          <span class="matrix-row-val green">−25%</span>
+        </div>
+      </div>
+
+      <div class="matrix-card">
+        <div class="matrix-card-head">
+          <h4>Etapa 2 — Crecimiento</h4>
+          <span class="matrix-badge">$25K / día</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Cuentas activas</span>
+          <span class="matrix-row-val blue">8–10 cuentas</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Gasto por cuenta</span>
+          <span class="matrix-row-val">$2.500–3.000 / día</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Fanpages necesarias</span>
+          <span class="matrix-row-val">8–10</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Impacto de un ban</span>
+          <span class="matrix-row-val green">−10 a −12%</span>
+        </div>
+      </div>
+
+      <div class="matrix-card">
+        <div class="matrix-card-head">
+          <h4>Etapa 3 — Escala alta</h4>
+          <span class="matrix-badge">$50K / día</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Cuentas activas</span>
+          <span class="matrix-row-val blue">15–20 cuentas</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Gasto por cuenta</span>
+          <span class="matrix-row-val">$2.500–3.500 / día</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Fanpages necesarias</span>
+          <span class="matrix-row-val">15–20</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Impacto de un ban</span>
+          <span class="matrix-row-val green">−5 a −7%</span>
+        </div>
+      </div>
+
+      <div class="matrix-card">
+        <div class="matrix-card-head">
+          <h4>Observación clave</h4>
+          <span class="matrix-badge">Patrón</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">El gasto por cuenta</span>
+          <span class="matrix-row-val amber">Se mantiene estable</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Lo que escala</span>
+          <span class="matrix-row-val blue">Número de cuentas</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Riesgo por ban</span>
+          <span class="matrix-row-val green">Disminuye al escalar</span>
+        </div>
+        <div class="matrix-row">
+          <span class="matrix-row-label">Control del sistema</span>
+          <span class="matrix-row-val green">Se mantiene</span>
         </div>
       </div>
     </div>
-    <a class="btn-main" href="https://pay.hotmart.com/TU-LINK-AQUI">Quiero volver a dormir como Laura →</a>
-    <div class="micro-guarantee">
-      <div style="font-size:24px;flex-shrink:0;">🛡️</div>
-      <p><strong>Garantía 7 días sin preguntas.</strong> Si revisás el material y no es lo que esperabas, pedís el reembolso. El riesgo es nuestro, no tuyo.</p>
+
+    <div class="expansion-note reveal">
+      <strong>La regla de oro:</strong> no se escala el gasto dentro de una cuenta hasta romper sus límites naturales — se agrega una cuenta nueva. De esta forma el algoritmo de cada cuenta nunca sale de su zona de confort, el learning se preserva, y el sistema global crece sin inestabilidades.
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq-section">
-  <div class="faq-inner">
-    <h2 class="section-hed">Antes de comprar,<br><em>quizás tengas estas dudas</em></h2>
-    <details><summary>¿Esto funciona si mi mayor problema es el calor y los sofocos?</summary><div class="faq-body">Sí. El stack incluye el Menopause Sleep Survival Guide, que trabaja específicamente la regulación térmica, hotflashes nocturnos y el impacto hormonal en el sueño. El programa base también tiene un módulo completo sobre temperatura y preparación del ambiente.</div></details>
-    <details><summary>¿Y si lo mío es que no puedo apagar la mente?</summary><div class="faq-body">El Quiet Mind Protocol está incluido exactamente para eso. Es un método de 5 minutos para interrumpir el espiral de pensamiento antes de que gane terreno — el mismo que Laura describe en su historia.</div></details>
-    <details><summary>¿Esto es solo para mujeres con menopausia?</summary><div class="faq-body">No exclusivamente. Está pensado para mujeres +45 con insomnio, ya sea en perimenopause, menopausia, o simplemente los cambios de sueño que vienen con esta etapa.</div></details>
-    <details><summary>¿Cuánto tiempo lleva aplicarlo cada día?</summary><div class="faq-body">La mayoría de los protocolos toman entre 5 y 15 minutos. Está diseñado para encajar en tu vida, no para crear más presión alrededor del sueño.</div></details>
-    <details><summary>¿Esto reemplaza ir al médico?</summary><div class="faq-body">No. Es un recurso educativo y práctico de hábitos y gestión del sueño. No reemplaza diagnóstico médico ni atención profesional.</div></details>
-    <details><summary>¿Cómo accedo después de comprar?</summary><div class="faq-body">El acceso es inmediato y digital. Podés leer todo desde el celular, tablet o computadora. Hotmart te envía las instrucciones automáticamente.</div></details>
+<div class="divider"></div>
+
+<!-- FANPAGES -->
+<section class="fanpages-section">
+  <div class="section-inner">
+    <div class="section-label">Identidad por cuenta</div>
+    <h2>Por qué cada cuenta<br>necesita su Fanpage</h2>
+    <p class="lead">No alcanza con tener múltiples cuentas publicitarias. Cada una debe operar desde una Fanpage distinta, con identidad propia, para maximizar la autonomía del sistema.</p>
+
+    <div class="fanpages-grid reveal">
+      <div class="fp-card">
+        <div class="fp-avatar">🏪</div>
+        <h4>Identidad independiente</h4>
+        <p>Cada Fanpage tiene su historial, su reputación y su trust score con Meta. Si una cae, las otras conservan el suyo intacto. No se contaminan entre sí.</p>
+        <div class="fp-tags">
+          <span class="fp-tag">Trust score</span>
+          <span class="fp-tag">Historial</span>
+          <span class="fp-tag">Reputación</span>
+        </div>
+      </div>
+
+      <div class="fp-card">
+        <div class="fp-avatar">🎯</div>
+        <h4>Audiencias diferenciadas</h4>
+        <p>Distintas Fanpages pueden atraer distintos segmentos de público. El algoritmo de cada cuenta optimiza para la audiencia que mejor respondió a esa página específica.</p>
+        <div class="fp-tags">
+          <span class="fp-tag">Lookalikes</span>
+          <span class="fp-tag">Audiencias frías</span>
+          <span class="fp-tag">Retargeting</span>
+        </div>
+      </div>
+
+      <div class="fp-card">
+        <div class="fp-avatar">🎨</div>
+        <h4>Testing de creativos</h4>
+        <p>Un creativo puede funcionar extraordinariamente en una Fanpage y ser mediocre en otra. Con cuentas separadas, se puede identificar y escalar la combinación ganadora.</p>
+        <div class="fp-tags">
+          <span class="fp-tag">A/B testing</span>
+          <span class="fp-tag">ROAS por cuenta</span>
+          <span class="fp-tag">Creativos top</span>
+        </div>
+      </div>
+
+      <div class="fp-card">
+        <div class="fp-avatar">🔒</div>
+        <h4>Aislamiento de riesgo</h4>
+        <p>Una creatividad problemática o una política violada en una Fanpage no arrastra a las demás. El daño queda contenido dentro de esa unidad operativa.</p>
+        <div class="fp-tags">
+          <span class="fp-tag">Contención</span>
+          <span class="fp-tag">Aislamiento</span>
+          <span class="fp-tag">Resiliencia</span>
+        </div>
+      </div>
+
+      <div class="fp-card">
+        <div class="fp-avatar">📡</div>
+        <h4>Píxeles independientes</h4>
+        <p>Cada cuenta tiene su propio píxel de conversión. Los datos de optimización no se mezclan, lo que permite que el aprendizaje de cada cuenta sea más puro y específico.</p>
+        <div class="fp-tags">
+          <span class="fp-tag">Píxel propio</span>
+          <span class="fp-tag">Datos limpios</span>
+          <span class="fp-tag">Optimización</span>
+        </div>
+      </div>
+
+      <div class="fp-card">
+        <div class="fp-avatar">⚖️</div>
+        <h4>Asignación inteligente</h4>
+        <p>Con datos reales de cada cuenta, se puede redistribuir el presupuesto hacia las que mejor ROAS generan en tiempo real, sin afectar el sistema completo.</p>
+        <div class="fp-tags">
+          <span class="fp-tag">ROAS dinámico</span>
+          <span class="fp-tag">Control total</span>
+          <span class="fp-tag">Escalado real</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="final-inner">
-    <h2>La noche no te está ganando porque seas débil.<br><em>Te faltaba entender esto.</em></h2>
-    <p>Lo mismo que le faltó a Laura durante tres años. Lo mismo que cambió todo cuando lo encontró. Ahora está acá, para vos.</p>
-    <a class="btn-main" href="https://pay.hotmart.com/TU-LINK-AQUI" style="max-width:420px;margin:0 auto;">Empezar esta noche →</a>
-    <p style="margin-top:14px;font-size:12px;color:var(--muted);">Acceso inmediato · $19 · Garantía 7 días</p>
-  </div>
+<!-- CONCLUSIÓN -->
+<section class="conclusion">
+  <div class="conclusion-glow"></div>
+  <span class="conclusion-line"></span>
+  <h2>Un equipo no para<br>si un miembro falla.</h2>
+  <p>Correr todo desde una sola cuenta es como tener un solo empleado. Múltiples cuentas son un equipo: si uno falla, los demás siguen. El negocio no para, el presupuesto sigue corriendo, y las ventas no se interrumpen.</p>
 </section>
-
-<footer>
-  <p>Este contenido es un recurso educativo y de bienestar. No sustituye diagnóstico médico ni atención terapéutica. Los testimonios son experiencias individuales que pueden variar. El personaje de Laura es un arquetipo compuesto representativo. Las ilustraciones son de uso editorial. Reemplazá el link de Hotmart antes de publicar.</p>
-</footer>
 
 <script>
-  window.addEventListener('scroll',()=>{
-    const d=document.documentElement;
-    document.getElementById('pb').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
-  });
-  (function(){
-    let end;
-    try{end=parseInt(localStorage.getItem('laura_v3_end'));}catch(e){}
-    if(!end||isNaN(end)){end=Date.now()+(2*86400+13*3600+47*60)*1000;try{localStorage.setItem('laura_v3_end',end);}catch(e){}}
-    function tick(){
-      const diff=Math.max(0,end-Date.now()),pad=n=>String(n).padStart(2,'0');
-      document.getElementById('cd').textContent=pad(Math.floor(diff/86400000));
-      document.getElementById('ch').textContent=pad(Math.floor((diff%86400000)/3600000));
-      document.getElementById('cm').textContent=pad(Math.floor((diff%3600000)/60000));
-      document.getElementById('cs').textContent=pad(Math.floor((diff%60000)/1000));
-    }
-    tick();setInterval(tick,1000);
-  })();
-  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}})},{threshold:0.08});
-  document.querySelectorAll('.pull,.laura-voice,.evidence,.product-reveal,.mini-testi,.inline-cta,.ambient-wide,.split').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(22px)';el.style.transition='opacity .65s ease, transform .65s ease';io.observe(el);});
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
 </script>
 </body>
 </html>
